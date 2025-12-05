@@ -131,7 +131,7 @@
         </div>
     </nav>
 
-    <main class="min-h-screen flex flex-col justify-center relative overflow-hidden">
+    <main class="min-h-screen flex flex-col justify-center relative overflow-hidden pt-20 md:pt-0">
         <!-- Background glow -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-lime opacity-[0.06] blur-[180px] rounded-full pointer-events-none"></div>
         
@@ -141,42 +141,51 @@
         <div class="container mx-auto px-6 md:px-12 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <!-- Left Column: Text Content -->
-                <div>
+                <div class="text-center lg:text-left">
                     <!-- Role badge -->
-                    <div class="flex items-center gap-3 mb-8 opacity-0 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center justify-center lg:justify-start gap-3 mb-6 opacity-0 animate-fade-in" style="animation-delay: 0.2s;">
                         <span class="w-2 h-2 bg-brand-lime rounded-full"></span>
                         <span class="text-brand-lime text-xs md:text-sm font-mono tracking-widest uppercase">Data Engineer & Automation Specialist</span>
                     </div>
 
                     <!-- Name with typing effect -->
-                    <div class="mb-8">
-                        <h1 class="text-[14vw] md:text-[7vw] lg:text-[5vw] leading-[0.9] font-bold tracking-tighter uppercase">
+                    <div class="mb-6">
+                        <h1 class="text-[11vw] md:text-[7vw] lg:text-[5vw] leading-[0.9] font-bold tracking-tighter uppercase">
                             <span id="typed-name" class="inline-block"></span><span id="cursor" class="text-brand-lime opacity-0">_</span>
                         </h1>
-                        <div class="flex items-center gap-2 mt-4">
+                        <div class="flex items-center justify-center lg:justify-start gap-2 mt-4">
                             <span id="green-dot" class="w-3 h-3 bg-brand-lime rounded-full opacity-0"></span>
                             <span id="status-text" class="text-gray-500 text-sm font-mono opacity-0">Available for work</span>
                         </div>
                     </div>
 
+                    <!-- Hero Image for Mobile -->
+                    <div class="flex lg:hidden justify-center items-center my-6 opacity-0 animate-fade-in" style="animation-delay: 2s;">
+                        <img 
+                            src="img/hero_image.svg" 
+                            alt="Data Engineering Illustration" 
+                            class="w-48 md:w-64"
+                        >
+                    </div>
+
                     <!-- Description -->
-                    <div class="max-w-xl opacity-0 animate-slide-up" style="animation-delay: 2.5s;">
-                        <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
+                    <div class="max-w-xl mx-auto lg:mx-0 opacity-0 animate-slide-up" style="animation-delay: 2.5s;">
+                        <p class="text-gray-400 text-base md:text-xl leading-relaxed mb-6">
                             I transform complex data workflows into reliable, production-ready systems. Specializing in
                             Python, AWS, and Automation to reduce manual effort by over 60%.
                         </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#work" class="group flex items-center gap-2 bg-brand-lime text-black px-6 py-3 rounded-full text-sm font-bold hover:bg-white transition duration-300">
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-3">
+                            <a href="#work" class="group flex items-center gap-2 bg-brand-lime text-black px-5 py-2.5 md:px-6 md:py-3 rounded-full text-sm font-bold hover:bg-white transition duration-300">
                                 <span>View Projects</span>
                                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
-                            <a href="https://github.com/babariri" target="_blank" class="border border-white/20 px-6 py-3 rounded-full text-sm font-bold hover:border-brand-lime hover:text-brand-lime transition duration-300">GitHub</a>
-                            <a href="#contact" class="border border-white/20 px-6 py-3 rounded-full text-sm font-bold hover:border-brand-lime hover:text-brand-lime transition duration-300">Contact</a>
+                            <a href="https://github.com/babariri" target="_blank" class="border border-white/20 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-sm font-bold hover:border-brand-lime hover:text-brand-lime transition duration-300">GitHub</a>
+                            <a href="#contact" class="border border-white/20 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-sm font-bold hover:border-brand-lime hover:text-brand-lime transition duration-300">Contact</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Right Column: Hero Image -->
+                <!-- Right Column: Hero Image (Desktop only) -->
                 <div class="hidden lg:flex justify-center items-center perspective-1000">
                     <div id="hero-image-wrapper" class="hero-image-wrapper opacity-0 animate-slide-in-right" style="animation-delay: 2.5s;">
                         <img 
@@ -188,8 +197,8 @@
                 </div>
             </div>
 
-            <!-- Scroll indicator -->
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style="animation-delay: 3s;">
+            <!-- Scroll indicator (hidden on mobile) -->
+            <div class="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style="animation-delay: 3s;">
                 <div class="flex flex-col items-center gap-2 text-gray-500">
                     <span class="text-xs font-mono uppercase tracking-widest">Scroll</span>
                     <div class="w-px h-8 bg-gradient-to-b from-gray-500 to-transparent"></div>
@@ -434,8 +443,8 @@
 
             <!-- Certification Badge -->
             <div class="mt-16 flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-[#FF9900]/10 to-transparent border border-[#FF9900]/20 rounded-2xl p-6">
-                <div class="w-20 h-20 bg-[#FF9900]/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span class="iconify w-12 h-12 text-[#FF9900]" data-icon="devicon:amazonwebservices-wordmark"></span>
+                <div class="w-20 h-20 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span class="iconify w-12 h-12" data-icon="devicon:amazonwebservices-wordmark"></span>
                 </div>
                 <div>
                     <p class="text-xs font-mono text-[#FF9900] uppercase tracking-widest mb-1">Certified</p>
@@ -770,7 +779,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-xs font-mono border-t border-black/10 pt-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-xs font-mono border-t border-black/10 pt-8 text-center sm:text-left">
             <div>
                 <span class="block opacity-50 mb-2">Socials</span>
                 <ul class="space-y-1">
@@ -778,12 +787,12 @@
                     <li><a href="#" class="hover:underline">GitHub</a></li>
                 </ul>
             </div>
-            <div class="overflow-hidden">
+            <div>
                 <span class="block opacity-50 mb-2">Contact</span>
                 <p>+27 69 637 2803</p>
-                <p class="break-all">sewardrichardmupereri@gmail.com</p>
+                <p class="break-words">sewardrichardmupereri@gmail.com</p>
             </div>
-            <div class="col-span-2 md:text-right">
+            <div class="sm:col-span-2 md:text-right">
                 <p class="opacity-50"> 2025 Seward Mupereri.</p>
                 <p class="opacity-50">Data Engineering Portfolio.</p>
             </div>

@@ -19,6 +19,11 @@
 /* --------------------------------------------------------------------------
    Base Styles
    -------------------------------------------------------------------------- */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 body {
     font-family: var(--font-sans);
     background-color: var(--brand-black);
@@ -413,6 +418,31 @@ body.menu-open {
     .section-padding {
         padding-top: 4rem;
         padding-bottom: 4rem;
+    }
+}
+
+/* Mobile centering and alignment fixes */
+@media (max-width: 767px) {
+    /* Center text in certification badge on mobile */
+    .mt-16.flex.flex-col {
+        text-align: center;
+    }
+    
+    /* Center education card content on mobile */
+    .flex.items-start.justify-between.flex-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .flex.items-start.justify-between.flex-wrap > div:last-child {
+        align-items: flex-start;
+        margin-top: 0.5rem;
+    }
+    
+    /* Footer email text size on mobile */
+    footer .text-\[8vw\] {
+        font-size: 10vw;
+        word-break: break-word;
     }
 }
 

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Cover Flow - Seward Mupereri Theme</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#050505',
+                        'brand-lime': '#baff00',
+                        'brand-gray': '#f4f4f4',
+                        'brand-dark': '#0a0a0a',
+                        'brand-border': '#1f1f1f',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    // Include any necessary custom utilities/styles from the source
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base styles matching the portfolio site */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505; /* brand-black */
+            color: #f4f4f4; /* brand-gray */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            /* Using the subtle background grid from the original theme */
+            background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+            background-size: 60px 60px;
+            background-repeat: repeat;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Coverflow structure and positioning CSS (requires the 3D transforms) */
+        .coverflow-container {
+            position: relative;
+            height: 450px;
+            perspective: 1200px;
+        }
+
+        .coverflow {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cover-item {
+            position: absolute;
+            width: 480px;
+            height: 320px;
+            /* Replaced cubic-bezier with standard ease-out to simplify, keeping the duration */
+            transition: all 0.6s ease-out; 
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+
+        .cover {
+            width: 100%;
+            height: 270px;
+            /* Changed from 'white' to fit dark theme */
+            background: #0a0a0a; /* brand-dark */
+            /* Adjusted shadow to match dark theme look */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 0 1px #1f1f1f; /* brand-border */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            /* Added grayscale filter to match portfolio image style */
+            filter: grayscale(100%); 
+        }
+
+        .cover-item:hover .cover-image {
+            transform: scale(1.05);
+            filter: grayscale(0%); /* Remove grayscale on hover */
+        }
+
+        .cover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Changed overlay to a subtle dark gradient */
+            background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.9) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cover-item:hover .cover-overlay {
+            opacity: 1;
+        }
+
+        /* Positioning for different positions in the flow - UNCHANGED for function */
+        .cover-item.center {
+            transform: translateX(0) translateZ(0) rotateY(0deg) scale(1.2);
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .cover-item.left-1 {
+            transform: translateX(-450px) translateZ(-200px) rotateY(45deg) scale(0.9);
+            z-index: 9;
+            opacity: 0.8;
+        }
+
+        .cover-item.left-2 {
+            transform: translateX(-750px) translateZ(-300px) rotateY(50deg) scale(0.7);
+            z-index: 8;
+            opacity: 0.5;
+        }
+
+        .cover-item.right-1 {
+            transform: translateX(450px) translateZ(-200px) rotateY(-45deg) scale(0.9);
+            z-index: 9;
+            opacity: 0.8;
+        }
+
+        .cover-item.right-2 {
+            transform: translateX(750px) translateZ(-300px) rotateY(-50deg) scale(0.7);
+            z-index: 8;
+            opacity: 0.5;
+        }
+
+        .cover-item.hidden {
+            transform: translateX(0) translateZ(-500px) scale(0.5);
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-black text-brand-gray antialiased">
+    <div class="container mx-auto px-6 md:px-12 relative z-10">
+        <h1 class="text-center text-4xl md:text-5xl font-bold mb-16 uppercase display-font">
+            My <span class="text-brand-lime">Projects</span>
+        </h1>
+
+        <div class="coverflow-container">
+            <button
+                class="absolute top-1/2 left-4 md:left-20 -translate-y-1/2 bg-white/5 border border-white/20 text-brand-lime w-12 h-12 rounded-full text-2xl cursor-pointer z-20 transition duration-300 hover:bg-white/10 hover:border-brand-lime"
+                onclick="navigate(-1)">
+                ‹
+            </button>
+            <button
+                class="absolute top-1/2 right-4 md:right-20 -translate-y-1/2 bg-white/5 border border-white/20 text-brand-lime w-12 h-12 rounded-full text-2xl cursor-pointer z-20 transition duration-300 hover:bg-white/10 hover:border-brand-lime"
+                onclick="navigate(1)">
+                ›
+            </button>
+
+            <div class="coverflow" id="coverflow">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        const projects = [
+            {
+                title: "WP2 - Working Paper Populator",
+                description: "Full-stack automation tool for audit working papers. Reduced prep time from 3-4 hours to under 5 minutes.",
+                image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=640&h=360&fit=crop",
+                tools: ["python", "pandas", "streamlit", "git"]
+            },
+            {
+                title: "UniExplorer",
+                description: "SA University Program Recommender helping students discover programs based on academic results.",
+                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=640&h=360&fit=crop",
+                tools: ["nextdotjs", "react", "fastapi", "sqlite"]
+            },
+            {
+                title: "AI Prompt Optimization Tool",
+                description: "Interactive tool for refining and testing LLM prompts to improve AI output quality.",
+                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=640&h=360&fit=crop",
+                tools: ["python", "langchain", "google", "streamlit"]
+            },
+            {
+                title: "Member Data Manager",
+                description: "Cloud-based tool for managing member lifecycle in Project Y with real-time dashboards.",
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&h=360&fit=crop",
+                tools: ["microsoftazure", "powerbi", "python", "git"]
+            },
+            {
+                title: "Multi-Cloud Deployment",
+                description: "Production-grade Streamlit app deployed on AWS & Azure with unified CI/CD pipeline.",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=640&h=360&fit=crop",
+                tools: ["amazonaws", "microsoftazure", "docker", "githubactions"]
+            },
+            {
+                title: "AI Car Inspector",
+                description: "AI-powered web app analyzing car images to extract make, model, condition, and issues.",
+                image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=640&h=360&fit=crop",
+                tools: ["python", "google", "docker", "kubernetes"]
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function createCoverFlow() {
+            const coverflow = document.getElementById('coverflow');
+            coverflow.innerHTML = '';
+
+            projects.forEach((project, index) => {
+                const item = document.createElement('div');
+                item.className = 'cover-item';
+                item.onclick = () => navigateToIndex(index);
+
+                const toolIcons = project.tools.map(tool => 
+                    `<img src="https://cdn.simpleicons.org/${tool}/baff00" alt="${tool}" class="w-5 h-5" title="${tool}">`
+                ).join('');
+
+                item.innerHTML = `
+                    <div class="cover">
+                        <img src="${project.image}" alt="${project.title}" class="cover-image">
+                        <div class="cover-overlay"></div>
+                        <div class="absolute bottom-3 left-3 flex gap-2 z-10">
+                            ${toolIcons}
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <div class="text-sm font-semibold uppercase text-brand-lime tracking-widest">
+                            ${project.title}
+                        </div>
+                        <div class="cover-description text-xs text-gray-400 mt-1 px-2 transition-opacity duration-500 opacity-0">
+                            ${project.description}
+                        </div>
+                    </div>
+                `;
+
+                coverflow.appendChild(item);
+            });
+
+            updatePositions();
+        }
+
+        function updatePositions() {
+            const items = document.querySelectorAll('.cover-item');
+
+            items.forEach((item, index) => {
+                item.className = 'cover-item';
+                const description = item.querySelector('.cover-description');
+
+                const diff = index - currentIndex;
+
+                if (diff === 0) {
+                    item.classList.add('center');
+                    // Fade in description for center item
+                    if (description) {
+                        description.classList.remove('opacity-0');
+                        description.classList.add('opacity-100');
+                    }
+                } else if (diff === -1) {
+                    item.classList.add('left-1');
+                } else if (diff === -2) {
+                    item.classList.add('left-2');
+                } else if (diff === 1) {
+                    item.classList.add('right-1');
+                } else if (diff === 2) {
+                    item.classList.add('right-2');
+                } else {
+                    item.classList.add('hidden');
+                }
+
+                // Fade out description for non-center items
+                if (diff !== 0 && description) {
+                    description.classList.remove('opacity-100');
+                    description.classList.add('opacity-0');
+                }
+            });
+        }
+
+        function navigate(direction) {
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = projects.length - 1;
+            } else if (currentIndex >= projects.length) {
+                currentIndex = 0;
+            }
+
+            updatePositions();
+        }
+
+        function navigateToIndex(index) {
+            currentIndex = index;
+            updatePositions();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') navigate(-1);
+            if (e.key === 'ArrowRight') navigate(1);
+        });
+
+        // Auto-scroll every 2.5 seconds
+        let autoScrollInterval = setInterval(() => navigate(1), 2500);
+
+        // Pause auto-scroll on hover, resume on leave
+        const container = document.querySelector('.coverflow-container');
+        container.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        container.addEventListener('mouseleave', () => {
+            autoScrollInterval = setInterval(() => navigate(1), 2500);
+        });
+
+        // Initialize
+        createCoverFlow();
+    </script>
+</body>
+
+</html>

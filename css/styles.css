@@ -1,0 +1,610 @@
+/* ==========================================================================
+   Seward Mupereri Portfolio - Main Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Custom Properties (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+    --brand-black: #050505;
+    --brand-lime: #baff00;
+    --brand-gray: #f4f4f4;
+    --brand-dark: #0a0a0a;
+    --brand-border: #1f1f1f;
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Base Styles
+   -------------------------------------------------------------------------- */
+body {
+    font-family: var(--font-sans);
+    background-color: var(--brand-black);
+    color: var(--brand-gray);
+}
+
+h1, h2, h3, h4, .display-font {
+    font-family: var(--font-display);
+}
+
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* --------------------------------------------------------------------------
+   Image Hover Effects
+   -------------------------------------------------------------------------- */
+.img-container {
+    overflow: hidden;
+}
+
+.img-container img {
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: grayscale(100%);
+}
+
+.img-container:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+/* --------------------------------------------------------------------------
+   Custom Scrollbar
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--brand-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-lime);
+}
+
+/* --------------------------------------------------------------------------
+   Selection Color
+   -------------------------------------------------------------------------- */
+::selection {
+    background: var(--brand-lime);
+    color: #000;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Image Animations
+   -------------------------------------------------------------------------- */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes floatHero {
+    0%, 100% {
+        transform: translateY(0) rotateX(0) rotateY(0);
+    }
+    50% {
+        transform: translateY(-15px) rotateX(0) rotateY(0);
+    }
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Hero Image Wrapper with floating and mouse tracking */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.hero-image-wrapper {
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+}
+
+.hero-image-wrapper.floating {
+    animation: floatHero 4s ease-in-out infinite;
+}
+
+.hero-image-wrapper img {
+    pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Menu Styles
+   -------------------------------------------------------------------------- */
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 40;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--brand-dark);
+    border-left: 1px solid var(--brand-border);
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 50;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--brand-border);
+}
+
+.mobile-menu-close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--brand-gray);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-close:hover {
+    background: var(--brand-lime);
+    color: var(--brand-black);
+    border-color: var(--brand-lime);
+}
+
+.mobile-menu-nav {
+    padding: 2rem 1.5rem;
+}
+
+.mobile-menu-nav a {
+    display: block;
+    padding: 1rem 0;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--brand-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--brand-border);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobile-menu-nav a:hover {
+    color: var(--brand-lime);
+    padding-left: 0.5rem;
+}
+
+.mobile-menu-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--brand-border);
+    margin-top: auto;
+}
+
+.mobile-menu-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: var(--brand-lime);
+    color: var(--brand-black);
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.mobile-menu-cta:hover {
+    background: #fff;
+}
+
+.mobile-menu-cta .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--brand-black);
+    border-radius: 50%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hamburger Button */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.hamburger:hover {
+    border-color: var(--brand-lime);
+}
+
+.hamburger span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--brand-gray);
+    transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+    margin-bottom: 4px;
+}
+
+.hamburger span:nth-child(2) {
+    margin-bottom: 4px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* --------------------------------------------------------------------------
+   Animations
+   -------------------------------------------------------------------------- */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Animation utility classes */
+.animate-blink {
+    animation: blink 1s step-end infinite;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-marquee {
+    animation: marquee 25s linear infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Utilities
+   -------------------------------------------------------------------------- */
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 768px) {
+    .mobile-touch-target {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Adjust stats grid for mobile */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Stack buttons on very small screens */
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .button-group > * {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* Ensure proper spacing on mobile */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Reduce section padding on mobile */
+    .section-padding {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Coverflow Component (from project_cover_flow.html)
+   -------------------------------------------------------------------------- */
+.coverflow-container {
+    position: relative;
+    height: 450px;
+    perspective: 1200px;
+}
+
+.coverflow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-item {
+    position: absolute;
+    width: 480px;
+    height: 320px;
+    transition: all 0.6s ease-out;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+
+.cover {
+    width: 100%;
+    height: 270px;
+    background: var(--brand-dark);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--brand-border);
+    overflow: hidden;
+    position: relative;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: grayscale(100%);
+}
+
+.cover-item:hover .cover-image {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.cover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.9) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cover-item:hover .cover-overlay {
+    opacity: 1;
+}
+
+/* Coverflow positions */
+.cover-item.center {
+    transform: translateX(0) translateZ(0) rotateY(0deg) scale(1.2);
+    z-index: 10;
+    opacity: 1;
+}
+
+.cover-item.left-1 {
+    transform: translateX(-450px) translateZ(-200px) rotateY(45deg) scale(0.9);
+    z-index: 9;
+    opacity: 0.8;
+}
+
+.cover-item.left-2 {
+    transform: translateX(-750px) translateZ(-300px) rotateY(50deg) scale(0.7);
+    z-index: 8;
+    opacity: 0.5;
+}
+
+.cover-item.right-1 {
+    transform: translateX(450px) translateZ(-200px) rotateY(-45deg) scale(0.9);
+    z-index: 9;
+    opacity: 0.8;
+}
+
+.cover-item.right-2 {
+    transform: translateX(750px) translateZ(-300px) rotateY(-50deg) scale(0.7);
+    z-index: 8;
+    opacity: 0.5;
+}
+
+.cover-item.hidden {
+    transform: translateX(0) translateZ(-500px) scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Responsive coverflow */
+@media (max-width: 1024px) {
+    .cover-item {
+        width: 360px;
+        height: 260px;
+    }
+    
+    .cover {
+        height: 210px;
+    }
+    
+    .cover-item.left-1 {
+        transform: translateX(-320px) translateZ(-150px) rotateY(45deg) scale(0.85);
+    }
+    
+    .cover-item.left-2 {
+        transform: translateX(-520px) translateZ(-250px) rotateY(50deg) scale(0.65);
+    }
+    
+    .cover-item.right-1 {
+        transform: translateX(320px) translateZ(-150px) rotateY(-45deg) scale(0.85);
+    }
+    
+    .cover-item.right-2 {
+        transform: translateX(520px) translateZ(-250px) rotateY(-50deg) scale(0.65);
+    }
+}
+
+@media (max-width: 768px) {
+    .coverflow-container {
+        height: 350px;
+    }
+    
+    .cover-item {
+        width: 280px;
+        height: 220px;
+    }
+    
+    .cover {
+        height: 170px;
+    }
+    
+    .cover-item.center {
+        transform: translateX(0) translateZ(0) rotateY(0deg) scale(1.1);
+    }
+    
+    .cover-item.left-1 {
+        transform: translateX(-200px) translateZ(-100px) rotateY(35deg) scale(0.8);
+    }
+    
+    .cover-item.left-2 {
+        display: none;
+    }
+    
+    .cover-item.right-1 {
+        transform: translateX(200px) translateZ(-100px) rotateY(-35deg) scale(0.8);
+    }
+    
+    .cover-item.right-2 {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .coverflow-container {
+        height: 300px;
+    }
+    
+    .cover-item {
+        width: 240px;
+        height: 180px;
+    }
+    
+    .cover {
+        height: 140px;
+    }
+    
+    .cover-item.center {
+        transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
+    }
+    
+    .cover-item.left-1,
+    .cover-item.right-1 {
+        opacity: 0.4;
+        transform: translateX(-150px) translateZ(-80px) rotateY(30deg) scale(0.7);
+    }
+    
+    .cover-item.right-1 {
+        transform: translateX(150px) translateZ(-80px) rotateY(-30deg) scale(0.7);
+    }
+}

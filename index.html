@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seward Mupereri | Data Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#050505',
+                        'brand-lime': '#baff00',
+                        'brand-gray': '#f4f4f4',
+                        'brand-dark': '#0a0a0a',
+                        'brand-border': '#1f1f1f',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'blink': 'blink 1s step-end infinite',
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-brand-black text-brand-gray antialiased smooth-scroll selection:bg-brand-lime selection:text-black">
+
+    <header class="fixed w-full top-0 z-50 bg-brand-black/80 backdrop-blur-md border-b border-white/5">
+        <nav class="flex justify-between items-center px-6 py-4 md:px-12">
+            <div class="text-xl font-bold flex items-center gap-1 display-font tracking-tight">
+                SEWARD<span class="text-brand-lime text-lg align-top">*</span>
+            </div>
+
+            <div class="hidden md:flex gap-8 text-xs font-mono uppercase tracking-widest text-gray-400">
+                <a href="#about" class="hover:text-brand-lime transition">About</a>
+                <a href="#services" class="hover:text-brand-lime transition">Expertise</a>
+                <a href="#work" class="hover:text-brand-lime transition">Projects</a>
+                <a href="#contact" class="hover:text-brand-lime transition">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="mailto:sewardrichardmupereri@gmail.com"
+                    class="hidden md:flex items-center gap-2 border border-white/20 px-4 py-2 rounded-full text-xs hover:bg-brand-lime hover:text-black hover:border-brand-lime transition duration-300">
+                    <span class="w-2 h-2 bg-brand-lime rounded-full animate-pulse-slow"></span>
+                    Available for Work
+                </a>
+                
+                <!-- Mobile Hamburger Button -->
+                <button id="hamburger" class="hamburger md:hidden" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay md:hidden"></div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="mobile-menu-header">
+            <div class="text-xl font-bold flex items-center gap-1 display-font tracking-tight">
+                SEWARD<span class="text-brand-lime text-lg align-top">*</span>
+            </div>
+            <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="mobile-menu-nav">
+            <a href="#about">About</a>
+            <a href="#services">Expertise</a>
+            <a href="#work">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="mobile-menu-footer">
+            <a href="mailto:sewardrichardmupereri@gmail.com" class="mobile-menu-cta">
+                <span class="pulse-dot"></span>
+                Available for Work
+            </a>
+        </div>
+    </nav>
+
+    <main class="min-h-screen flex flex-col justify-center relative overflow-hidden">
+        <!-- Background glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-lime opacity-[0.06] blur-[180px] rounded-full pointer-events-none"></div>
+        
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Left Column: Text Content -->
+                <div>
+                    <!-- Role badge -->
+                    <div class="flex items-center gap-3 mb-8 opacity-0 animate-fade-in" style="animation-delay: 0.2s;">
+                        <span class="w-2 h-2 bg-brand-lime rounded-full"></span>
+                        <span class="text-brand-lime text-xs md:text-sm font-mono tracking-widest uppercase">Data Engineer & Automation Specialist</span>
+                    </div>
+
+                    <!-- Name with typing effect -->
+                    <div class="mb-8">
+                        <h1 class="text-[14vw] md:text-[7vw] lg:text-[5vw] leading-[0.9] font-bold tracking-tighter uppercase">
+                            <span id="typed-name" class="inline-block"></span><span id="cursor" class="text-brand-lime opacity-0">_</span>
+                        </h1>
+                        <div class="flex items-center gap-2 mt-4">
+                            <span id="green-dot" class="w-3 h-3 bg-brand-lime rounded-full opacity-0"></span>
+                            <span id="status-text" class="text-gray-500 text-sm font-mono opacity-0">Available for work</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="max-w-xl opacity-0 animate-slide-up" style="animation-delay: 2.5s;">
+                        <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
+                            I transform complex data workflows into reliable, production-ready systems. Specializing in
+                            Python, AWS, and Automation to reduce manual effort by over 60%.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#work" class="group flex items-center gap-2 bg-brand-lime text-black px-6 py-3 rounded-full text-sm font-bold hover:bg-white transition duration-300">
+                                <span>View Projects</span>
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                            <a href="https://github.com/babariri" target="_blank" class="border border-white/20 px-6 py-3 rounded-full text-sm font-bold hover:border-brand-lime hover:text-brand-lime transition duration-300">GitHub</a>
+                            <a href="#contact" class="border border-white/20 px-6 py-3 rounded-full text-sm font-bold hover:border-brand-lime hover:text-brand-lime transition duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Hero Image -->
+                <div class="hidden lg:flex justify-center items-center perspective-1000">
+                    <div id="hero-image-wrapper" class="hero-image-wrapper opacity-0 animate-slide-in-right" style="animation-delay: 2.5s;">
+                        <img 
+                            src="img/hero_image.svg" 
+                            alt="Data Engineering Illustration" 
+                            class="w-full max-w-lg"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style="animation-delay: 3s;">
+                <div class="flex flex-col items-center gap-2 text-gray-500">
+                    <span class="text-xs font-mono uppercase tracking-widest">Scroll</span>
+                    <div class="w-px h-8 bg-gradient-to-b from-gray-500 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="border-y border-white/10 bg-brand-dark py-4 overflow-hidden relative flex">
+        <div
+            class="animate-marquee whitespace-nowrap flex gap-8 items-center text-gray-500 font-mono text-sm uppercase tracking-widest">
+            <span>Data Engineering</span> <span class="text-brand-lime">•</span>
+            <span>ETL Pipelines</span> <span class="text-brand-lime">•</span>
+            <span>Python Development</span> <span class="text-brand-lime">•</span>
+            <span>AWS Cloud</span> <span class="text-brand-lime">•</span>
+            <span>Process Automation</span> <span class="text-brand-lime">•</span>
+            <span>SQL Optimization</span> <span class="text-brand-lime">•</span>
+            <span>Data Engineering</span> <span class="text-brand-lime">•</span>
+            <span>ETL Pipelines</span> <span class="text-brand-lime">•</span>
+            <span>Python Development</span> <span class="text-brand-lime">•</span>
+            <span>AWS Cloud</span> <span class="text-brand-lime">•</span>
+            <span>Process Automation</span> <span class="text-brand-lime">•</span>
+            <span>SQL Optimization</span> <span class="text-brand-lime">•</span>
+        </div>
+    </div>
+
+    <section id="about" class="py-24 border-b border-white/5">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="w-2 h-2 bg-brand-lime"></span>
+                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">About Me</span>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Main heading -->
+                <div class="lg:col-span-5">
+                    <h2 class="text-4xl md:text-5xl font-bold leading-tight sticky top-24">Building Data Systems<br>That Actually <span class="text-brand-lime">Work</span></h2>
+                </div>
+                
+                <!-- Content -->
+                <div class="lg:col-span-7">
+                    <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+                        <p>
+                            I'm a Data Engineer and Automation Specialist based in Pretoria, South Africa. I focus on transforming messy, manual data processes into clean, automated pipelines that save teams hours of work every week.
+                        </p>
+                        <p>
+                            My approach combines solid database architecture with practical automation. Whether it's building ETL pipelines, creating internal tools with Python and Streamlit, or architecting cloud solutions on AWS — I prioritize reliability and maintainability over complexity.
+                        </p>
+                        <p>
+                            With an AWS Cloud Practitioner certification and hands-on experience across the full data stack, I bridge the gap between raw data and actionable insights. I've helped reduce manual processing time by over 60% through strategic automation.
+                        </p>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/10">
+                        <div>
+                            <p class="text-4xl font-bold text-brand-lime">60%</p>
+                            <p class="text-sm text-gray-500 mt-1">Time Saved</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-white">AWS</p>
+                            <p class="text-sm text-gray-500 mt-1">Certified</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-white">4+</p>
+                            <p class="text-sm text-gray-500 mt-1">Years Coding</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex gap-4">
+                        <a href="#contact" class="bg-brand-lime text-black px-6 py-3 rounded-full text-sm font-bold hover:bg-white transition duration-300">Get in Touch</a>
+                        <a href="#work" class="border border-white/20 px-6 py-3 rounded-full text-sm font-bold hover:border-brand-lime hover:text-brand-lime transition duration-300">View Work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section id="services" class="py-24 border-b border-white/5">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center gap-3 mb-16">
+                <span class="w-2 h-2 bg-brand-lime"></span>
+                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">What I Do</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
+                <div class="group border-t border-white/10 pt-8 hover:border-brand-lime transition duration-500">
+                    <span class="text-brand-lime font-mono text-xs mb-4 block">01</span>
+                    <h3 class="text-3xl font-bold mb-4">Data Engineering<br>& Pipelines</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Building robust ETL/ELT pipelines that transform raw data into actionable insights. From schema design to query optimization, I ensure your data infrastructure scales.
+                    </p>
+                    <ul class="text-xs text-gray-500 font-mono space-y-2">
+                        <li>— ETL Pipeline Development</li>
+                        <li>— Database Schema Design</li>
+                        <li>— SQL Query Optimization</li>
+                        <li>— Data Validation & Quality</li>
+                    </ul>
+                </div>
+
+                <div class="group border-t border-white/10 pt-8 hover:border-brand-lime transition duration-500">
+                    <span class="text-brand-lime font-mono text-xs mb-4 block">02</span>
+                    <h3 class="text-3xl font-bold mb-4">Process<br>Automation</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Eliminating repetitive manual tasks through intelligent automation. I build tools that save teams hours of work while reducing human error.
+                    </p>
+                    <ul class="text-xs text-gray-500 font-mono space-y-2">
+                        <li>— Python Automation Scripts</li>
+                        <li>— Streamlit Internal Tools</li>
+                        <li>— Report Generation</li>
+                        <li>— Workflow Orchestration</li>
+                    </ul>
+                </div>
+
+                <div class="group border-t border-white/10 pt-8 hover:border-brand-lime transition duration-500">
+                    <span class="text-brand-lime font-mono text-xs mb-4 block">03</span>
+                    <h3 class="text-3xl font-bold mb-4">Cloud &<br>Full Stack</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Deploying scalable solutions on AWS infrastructure. From serverless functions to containerized applications, I build for production.
+                    </p>
+                    <ul class="text-xs text-gray-500 font-mono space-y-2">
+                        <li>— AWS Cloud Architecture</li>
+                        <li>— React / Next.js Frontend</li>
+                        <li>— FastAPI Backend Services</li>
+                        <li>— CI/CD & DevOps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Tools Section - 3 Categories matching What I Do -->
+    <section class="py-24 border-b border-white/5 bg-brand-dark">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center gap-3 mb-16">
+                <span class="w-2 h-2 bg-brand-lime"></span>
+                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">Skills & Tools</span>
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 leading-tight">What I <span class="text-brand-lime">Work With</span></h2>
+
+            <!-- 3 Category Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- 01: Data Engineering & Pipelines -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-lime transition duration-300">
+                    <span class="text-brand-lime font-mono text-xs mb-4 block">01</span>
+                    <h3 class="text-2xl font-bold mb-6">Data Engineering<br>& Pipelines</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:python"></span>
+                            <span class="text-sm">Python</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:pandas"></span>
+                            <span class="text-sm">Pandas</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:numpy"></span>
+                            <span class="text-sm">NumPy</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:azuresqldatabase"></span>
+                            <span class="text-sm">SQL</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:sqlite"></span>
+                            <span class="text-sm">SQLite</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5 text-brand-lime" data-icon="mdi:file-excel"></span>
+                            <span class="text-sm">OpenPyXL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 02: Process Automation -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-lime transition duration-300">
+                    <span class="text-brand-lime font-mono text-xs mb-4 block">02</span>
+                    <h3 class="text-2xl font-bold mb-6">Process<br>Automation</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:streamlit"></span>
+                            <span class="text-sm">Streamlit</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5 text-blue-400" data-icon="mdi:microsoft-azure"></span>
+                            <span class="text-sm">Power Automate</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5 text-purple-400" data-icon="mdi:robot"></span>
+                            <span class="text-sm">Botpress</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5 text-green-400" data-icon="mdi:link-chain"></span>
+                            <span class="text-sm">LangChain</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5 text-yellow-400" data-icon="mdi:head-lightbulb"></span>
+                            <span class="text-sm">Prompt Engineering</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03: Cloud & Full Stack -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-lime transition duration-300">
+                    <span class="text-brand-lime font-mono text-xs mb-4 block">03</span>
+                    <h3 class="text-2xl font-bold mb-6">Cloud &<br>Full Stack</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:amazonwebservices-wordmark"></span>
+                            <span class="text-sm">AWS</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:fastapi"></span>
+                            <span class="text-sm">FastAPI</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:react"></span>
+                            <span class="text-sm">React</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:nextjs"></span>
+                            <span class="text-sm">Next.js</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:git"></span>
+                            <span class="text-sm">Git</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                            <span class="iconify w-5 h-5" data-icon="devicon:linux"></span>
+                            <span class="text-sm">Linux</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Certification Badge -->
+            <div class="mt-16 flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-[#FF9900]/10 to-transparent border border-[#FF9900]/20 rounded-2xl p-6">
+                <div class="w-20 h-20 bg-[#FF9900]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span class="iconify w-12 h-12 text-[#FF9900]" data-icon="devicon:amazonwebservices-wordmark"></span>
+                </div>
+                <div>
+                    <p class="text-xs font-mono text-[#FF9900] uppercase tracking-widest mb-1">Certified</p>
+                    <h4 class="text-xl font-bold text-white">AWS Cloud Practitioner</h4>
+                    <p class="text-gray-400 text-sm">Amazon Web Services • Cloud Fundamentals & Architecture</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-24 border-b border-white/5 bg-brand-dark">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center gap-3 mb-16">
+                <span class="w-2 h-2 bg-brand-lime"></span>
+                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">Education</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+                <div class="md:col-span-5 sticky top-24 self-start">
+                    <h2 class="text-4xl md:text-5xl font-bold leading-tight">Academic<br><span class="text-brand-lime">Background</span></h2>
+                </div>
+                <div class="md:col-span-7 space-y-6">
+                    <!-- BSc Computer Engineering -->
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-lime transition duration-300">
+                        <div class="flex items-start justify-between flex-wrap gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">BSc(Hons) Computer Engineering</h3>
+                                <p class="text-brand-lime font-mono text-sm mt-1">European University of Lefke</p>
+                            </div>
+                            <div class="flex flex-col items-end gap-2">
+                                <span class="bg-brand-lime/10 text-brand-lime px-4 py-2 rounded-full text-sm font-mono">2020 — 2024</span>
+                                <span class="bg-white/10 text-gray-300 px-3 py-1 rounded-full text-xs font-mono">NQF Level 8</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-white/10 pt-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="iconify w-5 h-5 text-brand-lime" data-icon="mdi:trophy"></span>
+                                <span class="text-sm font-bold text-white">Leadership & Activities</span>
+                            </div>
+                            <p class="text-gray-400 leading-relaxed">
+                                <span class="text-white font-semibold">Vice President</span> of the Mobile Application Club (2021/2022), where I led a team of 16 members in organizing and hosting a campus-wide AI event.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Y Bootcamp -->
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-lime transition duration-300">
+                        <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Data Engineering Qualification</h3>
+                                <p class="text-brand-lime font-mono text-sm mt-1">Project Y x Capaciti Bootcamp</p>
+                            </div>
+                            <div class="flex flex-col items-end gap-2">
+                                <span class="bg-brand-lime/10 text-brand-lime px-4 py-2 rounded-full text-sm font-mono">2025 — Present</span>
+                                <span class="bg-white/10 text-gray-300 px-3 py-1 rounded-full text-xs font-mono">NQF Level 4</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Intensive bootcamp covering AI, Cloud & Data Engineering with international work exposure opportunities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications Section -->
+            <div class="border-t border-white/10 pt-12">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="w-2 h-2 bg-brand-lime"></span>
+                    <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">Certifications</span>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <!-- Generative AI with LLMs -->
+                    <button onclick="openCertModal('img/Coursera - Gen Ai with LLMs.jpg', 'Generative AI with LLMs')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-blue-400" data-icon="mdi:brain"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Generative AI with LLMs</h4>
+                        <p class="text-xs text-gray-500 mt-1">DeepLearning.AI & AWS</p>
+                    </button>
+                    
+                    <!-- Introduction to Generative AI -->
+                    <button onclick="openCertModal('img/Coursera - Intro to Gen AI.jpg', 'Introduction to Generative AI')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-green-400" data-icon="mdi:google-cloud"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Introduction to Generative AI</h4>
+                        <p class="text-xs text-gray-500 mt-1">Google Cloud</p>
+                    </button>
+                    
+                    <!-- Version Control with Git -->
+                    <button onclick="openCertModal('img/Coursera - Version Control with Git.jpg', 'Version Control with Git')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-orange-400" data-icon="devicon:git"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Version Control with Git</h4>
+                        <p class="text-xs text-gray-500 mt-1">Atlassian</p>
+                    </button>
+                    
+                    <!-- Agile with Jira -->
+                    <button onclick="openCertModal('img/Coursera - Agile with Jira.jpg', 'Agile with Atlassian Jira')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-blue-500" data-icon="devicon:jira"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Agile with Atlassian Jira</h4>
+                        <p class="text-xs text-gray-500 mt-1">Atlassian</p>
+                    </button>
+                    
+                    <!-- Microsoft Power Platform -->
+                    <button onclick="openCertModal('img/Coursera - Microsoft Power Platforms.jpg', 'Microsoft Power Platform Fundamentals')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-purple-400" data-icon="mdi:microsoft"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Microsoft Power Platform</h4>
+                        <p class="text-xs text-gray-500 mt-1">Microsoft</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div id="certModal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" onclick="closeCertModal()">
+        <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+            <button onclick="closeCertModal()" class="absolute -top-12 right-0 text-white hover:text-brand-lime transition">
+                <span class="iconify w-8 h-8" data-icon="mdi:close"></span>
+            </button>
+            <img id="certModalImage" src="" alt="" class="w-full rounded-xl shadow-2xl">
+            <p id="certModalTitle" class="text-center text-white font-bold mt-4"></p>
+        </div>
+    </div>
+
+    <!-- Projects Coverflow Section -->
+    <section id="work" class="py-24 bg-brand-black relative overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <!-- Section Header -->
+            <div class="flex items-center gap-3 mb-8">
+                <span class="w-2 h-2 bg-brand-lime"></span>
+                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">Selected Works</span>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                My <span class="text-brand-lime">Projects</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-xl mx-auto">
+                A collection of production-ready systems, automation tools, and data architectures.
+            </p>
+
+            <!-- Coverflow Container -->
+            <div class="coverflow-container">
+                <!-- Navigation Buttons -->
+                <button
+                    class="absolute top-1/2 left-0 md:left-8 -translate-y-1/2 bg-white/5 border border-white/20 text-brand-lime w-10 h-10 md:w-12 md:h-12 rounded-full text-xl md:text-2xl cursor-pointer z-20 transition duration-300 hover:bg-white/10 hover:border-brand-lime"
+                    onclick="navigate(-1)"
+                    aria-label="Previous project">
+                    ‹
+                </button>
+                <button
+                    class="absolute top-1/2 right-0 md:right-8 -translate-y-1/2 bg-white/5 border border-white/20 text-brand-lime w-10 h-10 md:w-12 md:h-12 rounded-full text-xl md:text-2xl cursor-pointer z-20 transition duration-300 hover:bg-white/10 hover:border-brand-lime"
+                    onclick="navigate(1)"
+                    aria-label="Next project">
+                    ›
+                </button>
+
+                <!-- Coverflow Items Container -->
+                <div class="coverflow" id="coverflow"></div>
+            </div>
+            
+            <!-- Navigation Dots -->
+            <div class="flex justify-center gap-2 mt-8">
+                <span class="text-xs text-gray-500 font-mono">Use arrow keys or swipe to navigate</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-black relative">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center gap-3 mb-16">
+                <span class="w-2 h-2 bg-brand-lime"></span>
+                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">Experience</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-white/10 pb-12 mb-12">
+                <div class="md:col-span-4 sticky top-24 self-start">
+                    <h3 class="text-2xl font-bold text-white">Graduate Engineer</h3>
+                    <p class="text-brand-lime font-mono text-xs mt-2 uppercase">Nov 2025 — Present</p>
+                    <p class="text-gray-500 text-xs mt-1">Project Y x Capaciti</p>
+                </div>
+                <div class="md:col-span-8 md:pl-8 border-l border-white/10">
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Advancing tech career through an intensive bootcamp in AI, Cloud & Data Engineering with exposure to international work opportunities.
+                    </p>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Generative AI & LLMs: Prompt engineering, ChatGPT development, and building LLM applications with Python & PyTorch.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Data Engineering: ETL pipelines, data warehousing, SQL for data science, and Python-based data manipulation.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Cloud & DevOps: AWS Cloud Practitioner, Docker, Kubernetes, OpenShift, and CI/CD pipelines.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Agile & Tools: Git version control, Jira project management, and Microsoft Power Platform automation.</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- Bootcamp Courses Grid -->
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                        <p class="text-xs font-mono text-gray-500 uppercase tracking-widest mb-4">Bootcamp Curriculum</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">Generative AI with LLMs</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">ChatGPT Prompt Engineering</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">AWS Cloud Practitioner</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">DevOps on AWS</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">Docker & Kubernetes</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">SQL for Data Science</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">Data Engineering (IBM)</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">Python for Data Engineering</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">Git Version Control</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">Agile with Jira</span>
+                            <span class="text-xs bg-white/5 px-3 py-1 rounded-full text-gray-400">Power Platform</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-white/10 pb-12 mb-12">
+                <div class="md:col-span-4 sticky top-24 self-start">
+                    <h3 class="text-2xl font-bold text-white">Junior Software Engineer</h3>
+                    <p class="text-brand-lime font-mono text-xs mt-2 uppercase">Oct 2024 — Oct 2025</p>
+                    <p class="text-gray-500 text-xs mt-1">RBR Group Pty Ltd</p>
+                </div>
+                <div class="md:col-span-8 md:pl-8 border-l border-white/10">
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Spearheaded the development of the "WP2 Working Paper Populator," reducing manual data
+                        reconciliation from hours to minutes.
+                    </p>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Secured new client contract through live technical demos to prospects.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Configured Microsoft 365/SharePoint infrastructure with RBAC for 20+ users.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Automated data extraction (40% faster) and report generation using Python
+                                scripts.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-white/10 pb-12 mb-12">
+                <div class="md:col-span-4 sticky top-24 self-start">
+                    <h3 class="text-2xl font-bold text-white">Business Dev Intern</h3>
+                    <p class="text-brand-lime font-mono text-xs mt-2 uppercase">Aug 2024 — Oct 2024</p>
+                    <p class="text-gray-500 text-xs mt-1">Bitcoin Events</p>
+                </div>
+                <div class="md:col-span-8 md:pl-8 border-l border-white/10">
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Supported the execution of large-scale tech conferences while establishing internal IT
+                        structures.
+                    </p>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Set up centralized SharePoint sites with strict access controls for secure
+                                collaboration.</span>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="text-brand-lime">→</span>
+                            <span>Automated administrative workflows to improve efficiency during high-pressure
+                                events.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                <div class="md:col-span-4 sticky top-24 self-start">
+                    <h3 class="text-2xl font-bold text-white">Graphic Designer</h3>
+                    <p class="text-brand-lime font-mono text-xs mt-2 uppercase">2016 — 2024</p>
+                    <p class="text-gray-500 text-xs mt-1">Self Employed</p>
+                </div>
+                <div class="md:col-span-8 md:pl-8 border-l border-white/10">
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Guided new businesses in crafting brand identities and digital communication strategies.
+                        Developed a strong foundation in visual communication which now enhances my UI/UX work in
+                        Streamlit and React.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact" class="min-h-screen flex flex-col justify-between bg-brand-lime text-brand-black p-6 md:p-12">
+
+        <div class="flex justify-between items-start border-b border-black/10 pb-8">
+            <div>
+                <div class="text-xl font-bold flex items-center gap-1 display-font">
+                    SEWARD<span class="text-white text-lg align-top">*</span>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="font-bold text-sm uppercase">Based in Pretoria, SA</p>
+                <p class="text-xs opacity-60">Open to Remote Work</p>
+            </div>
+        </div>
+
+        <div class="flex-1 flex flex-col justify-center items-center py-20">
+            <p class="text-sm font-mono uppercase tracking-widest mb-4">Have a project in mind?</p>
+            <a href="mailto:sewardrichardmupereri@gmail.com"
+                class="text-[8vw] md:text-[6vw] font-bold leading-none tracking-tighter hover:text-white transition duration-500 text-center">
+                Let's Discuss
+            </a>
+            <div class="mt-8 flex gap-4">
+                <a href="https://linkedin.com/in/seward-mupereri" target="_blank"
+                    class="bg-black text-white px-8 py-3 rounded-full text-sm font-bold hover:scale-105 transition transform">LinkedIn</a>
+                <a href="mailto:sewardrichardmupereri@gmail.com"
+                    class="border border-black px-8 py-3 rounded-full text-sm font-bold hover:bg-black hover:text-white transition">Email
+                    Me</a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-xs font-mono border-t border-black/10 pt-8">
+            <div>
+                <span class="block opacity-50 mb-2">Socials</span>
+                <ul class="space-y-1">
+                    <li><a href="#" class="hover:underline">LinkedIn</a></li>
+                    <li><a href="#" class="hover:underline">GitHub</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="block opacity-50 mb-2">Contact</span>
+                <p>+27 69 637 2803</p>
+                <p>sewardrichardmupereri@gmail.com</p>
+            </div>
+            <div class="col-span-2 md:text-right">
+                <p class="opacity-50"> 2025 Seward Mupereri.</p>
+                <p class="opacity-50">Data Engineering Portfolio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/coverflow.js"></script>
+
+</body>
+
+</html>

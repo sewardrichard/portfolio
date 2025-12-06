@@ -111,7 +111,7 @@ h1, h2, h3, h4, .display-font {
 }
 
 .animate-float {
-    animation: float 4s ease-in-out infinite;
+    animation: floatHero 4s ease-in-out infinite;
 }
 
 /* Hero Image Wrapper with floating and mouse tracking */

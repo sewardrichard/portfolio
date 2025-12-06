@@ -103,6 +103,53 @@ function initSmoothScroll() {
     });
 }
 
+function scrollToSectionByHash(hash, smooth = true) {
+    if (!hash || hash === '#') return false;
+    const targetElement = document.querySelector(hash);
+    if (!targetElement) return false;
+    const headerHeight = 80;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    window.scrollTo({ top: targetPosition, behavior: smooth ? 'smooth' : 'auto' });
+    return true;
+}
+
+function scrollToHashWhenAvailable(hash) {
+    if (scrollToSectionByHash(hash, false)) return;
+    const start = performance.now();
+    const timeoutMs = 3000;
+    const observer = new MutationObserver(() => {
+        if (scrollToSectionByHash(hash, false)) {
+            observer.disconnect();
+        } else if (performance.now() - start > timeoutMs) {
+            observer.disconnect();
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
+function initHashDeepLinking() {
+    // Prevent browser from restoring previous scroll and fighting our logic
+    try { if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } } catch (_) {}
+    // Scroll to incoming hash after partials load
+    if (location.hash && location.hash !== '#') {
+        // Immediate jump (no smooth) so user doesn't need a second click
+        setTimeout(() => scrollToHashWhenAvailable(location.hash), 0);
+        // Follow-up smooth corrections for late layout shifts (fonts/images)
+        const delays = [120, 250, 500, 800];
+        delays.forEach(d => setTimeout(() => scrollToSectionByHash(location.hash, true), d));
+    }
+    // Smoothly handle subsequent hash changes
+    window.addEventListener('hashchange', () => {
+        scrollToSectionByHash(location.hash, true);
+    });
+    // As a final guarantee, try once after full window load
+    window.addEventListener('load', () => {
+        if (location.hash && location.hash !== '#') {
+            scrollToSectionByHash(location.hash, true);
+        }
+    });
+}
+
 /**
  * Scroll-based Header Styling
  * Adds/removes classes based on scroll position
@@ -359,6 +406,7 @@ function init() {
     initTypingAnimation();
     initCrossPageNavLinks();
     initSmoothScroll();
+    initHashDeepLinking();
     initScrollHeader();
     initScrollAnimations();
     initActiveNavHighlight();

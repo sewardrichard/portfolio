@@ -52,12 +52,13 @@ function initProjectsPage() {
     filtered.forEach(p => {
       const card = document.createElement('a');
       card.href = `project.html?slug=${encodeURIComponent(p.slug)}`;
-      card.className = 'block bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-brand-lime transition duration-300';
+      card.className = 'group relative block bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-brand-lime transition duration-300 hover:-translate-y-1 overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-lime/40';
+      card.setAttribute('aria-label', `View ${p.title}`);
 
       const img = document.createElement('img');
       img.src = p.cover_image;
       img.alt = p.title;
-      img.className = 'w-full h-40 object-cover rounded-lg mb-4';
+      img.className = 'w-full h-40 object-cover rounded-lg mb-4 transition-transform duration-300 ease-out group-hover:scale-105';
 
       const title = document.createElement('h3');
       title.className = 'font-bold text-white text-lg';
@@ -80,6 +81,11 @@ function initProjectsPage() {
       card.appendChild(title);
       card.appendChild(desc);
       card.appendChild(chips);
+
+      const hint = document.createElement('div');
+      hint.className = 'pointer-events-none absolute bottom-3 right-4 text-[11px] font-mono uppercase tracking-widest text-gray-400 flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300';
+      hint.innerHTML = 'View details <span class="iconify w-4 h-4" data-icon="mdi:arrow-right"></span>';
+      card.appendChild(hint);
       grid.appendChild(card);
     });
   }

@@ -158,10 +158,14 @@ function initScrollAnimations() {
  * Highlights the current section in the navigation
  */
 function initActiveNavHighlight() {
-    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    if (navLinks.length === 0) return;
     
-    if (sections.length === 0 || navLinks.length === 0) return;
+    // Get unique target IDs from nav links
+    const targetIds = [...new Set(Array.from(navLinks).map(link => link.getAttribute('href')))];
+    
+    // Find corresponding elements
+    const sections = targetIds.map(id => document.querySelector(id)).filter(el => el);
     
     window.addEventListener('scroll', () => {
         let current = '';
@@ -178,8 +182,10 @@ function initActiveNavHighlight() {
         
         navLinks.forEach(link => {
             link.classList.remove('text-brand-lime');
+            link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('text-brand-lime');
+                link.classList.add('active');
             }
         });
     }, { passive: true });
@@ -223,78 +229,65 @@ document.addEventListener('keydown', (e) => {
 
 /**
  * Hero Image Mouse Tracking & Floating Animation
- * Creates a 3D tilt effect based on mouse position + continuous floating
+ * Floats when not hovering, tilts based on mouse position when hovering
  */
 function initHeroImageEffects() {
     const wrapper = document.getElementById('hero-image-wrapper');
     if (!wrapper) return;
     
     let isHovering = false;
-    let currentRotateX = 0;
-    let currentRotateY = 0;
-    let targetRotateX = 0;
-    let targetRotateY = 0;
-    let floatOffset = 0;
-    let startTime = null;
-    let isActive = false;
+    let mouseX = 0;
+    let mouseY = 0;
     
-    // After slide-in animation completes, start the combined animation
+    // Set up styles for smooth transitions
+    wrapper.style.transition = 'transform 0.1s ease-out';
+    wrapper.style.transformStyle = 'preserve-3d';
+    
+    // After slide-in animation completes, enable floating and clean up initial animation
     setTimeout(() => {
         wrapper.style.opacity = '1';
-        isActive = true;
-        startTime = performance.now();
+        wrapper.classList.remove('animate-slide-in-right'); // Prevent re-triggering slide-in
+        if (!isHovering) {
+            wrapper.classList.add('floating');
+        }
     }, 3300); // 2.5s delay + 0.8s animation
     
-    // Mouse move handler for tilt effect
+    // Mouse enter - stop floating, enable tilt
     wrapper.addEventListener('mouseenter', () => {
         isHovering = true;
+        wrapper.classList.remove('floating');
     });
     
+    // Mouse leave - reset tilt, resume floating
     wrapper.addEventListener('mouseleave', () => {
         isHovering = false;
-        // Smoothly return to center rotation
-        targetRotateX = 0;
-        targetRotateY = 0;
+        mouseX = 0;
+        mouseY = 0;
+        wrapper.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        
+        // Resume floating after transform resets
+        setTimeout(() => {
+            if (!isHovering) {
+                wrapper.classList.add('floating');
+            }
+        }, 50);
     });
     
+    // Mouse move - calculate tilt based on position
     wrapper.addEventListener('mousemove', (e) => {
         if (!isHovering) return;
         
         const rect = wrapper.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
+        // Calculate position relative to center (-1 to 1)
+        mouseX = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+        mouseY = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
         
-        // Calculate mouse position relative to center (-1 to 1)
-        const mouseX = (e.clientX - centerX) / (rect.width / 2);
-        const mouseY = (e.clientY - centerY) / (rect.height / 2);
+        // Apply tilt (30 degrees max like in the React example)
+        const rotateX = -mouseY * 30;
+        const rotateY = mouseX * 30;
         
-        // Set target rotation (max 15 degrees)
-        targetRotateY = mouseX * 15;
-        targetRotateX = -mouseY * 15;
+        wrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     });
-    
-    // Combined animation loop: floating + mouse tilt
-    function animate(timestamp) {
-        if (!isActive) {
-            requestAnimationFrame(animate);
-            return;
-        }
-        
-        // Calculate floating offset (sine wave for smooth up/down)
-        const elapsed = timestamp - startTime;
-        floatOffset = Math.sin(elapsed / 1000) * 12; // 12px amplitude, 1 second period
-        
-        // Lerp rotation towards target
-        currentRotateX += (targetRotateX - currentRotateX) * 0.1;
-        currentRotateY += (targetRotateY - currentRotateY) * 0.1;
-        
-        // Combine floating + rotation
-        wrapper.style.transform = `translateY(${floatOffset}px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
-        
-        requestAnimationFrame(animate);
-    }
-    
-    requestAnimationFrame(animate);
 }
 
 /**

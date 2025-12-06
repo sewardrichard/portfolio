@@ -1,0 +1,9 @@
+    <div id="certModal" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4" onclick="closeCertModal()">
+        <div class="relative max-w-5xl w-full max-h-[90vh] overflow-auto mx-auto" onclick="event.stopPropagation()">
+            <button onclick="closeCertModal()" class="absolute top-2 right-2 z-10 text-white hover:text-brand-lime transition bg-black/50 hover:bg-black/70 rounded-full p-1">
+                <span class="iconify w-8 h-8" data-icon="mdi:close"></span>
+            </button>
+            <img id="certModalImage" src="" alt="" class="w-full max-h-[85vh] object-contain rounded-xl shadow-2xl">
+            <p id="certModalTitle" class="text-center text-white font-bold mt-4"></p>
+        </div>
+    </div>

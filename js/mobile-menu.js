@@ -6,6 +6,7 @@
  * Mobile Menu Controller
  * Handles hamburger menu toggle, overlay, and accessibility
  */
+let __mobile_inited = false;
 class MobileMenu {
     constructor() {
         this.hamburger = document.getElementById('hamburger');
@@ -173,6 +174,8 @@ class SwipeHandler {
 
 // Initialize mobile menu when DOM is ready
 function initMobileMenu() {
+    if (__mobile_inited) return;
+    __mobile_inited = true;
     const mobileMenu = new MobileMenu();
     
     // Add swipe to close functionality
@@ -182,8 +185,17 @@ function initMobileMenu() {
     }
 }
 
+function runMobileInit() {
+    const start = () => initMobileMenu();
+    if (window.__partialsReady) {
+        start();
+    } else {
+        window.addEventListener('partials:ready', start, { once: true });
+    }
+}
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMobileMenu);
+    document.addEventListener('DOMContentLoaded', runMobileInit);
 } else {
-    initMobileMenu();
+    runMobileInit();
 }

@@ -2,6 +2,7 @@
    Seward Mupereri Portfolio - Coverflow Projects Component
    ========================================================================== */
 
+let __coverflow_inited = false;
 const projects = [
     {
         title: "WP2 - Working Paper Populator",
@@ -170,6 +171,8 @@ function navigateToIndex(index) {
 }
 
 function initCoverflow() {
+    if (__coverflow_inited) return;
+    __coverflow_inited = true;
     const container = document.querySelector('.coverflow-container');
     if (!container) return;
     
@@ -223,9 +226,18 @@ function initCoverflow() {
 // Make navigate function globally available for button onclick
 window.navigate = navigate;
 
-// Initialize when DOM is ready
+// Initialize when DOM is ready and partials are loaded
+function runCoverflowInit() {
+    const start = () => initCoverflow();
+    if (window.__partialsReady) {
+        start();
+    } else {
+        window.addEventListener('partials:ready', start, { once: true });
+    }
+}
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCoverflow);
+    document.addEventListener('DOMContentLoaded', runCoverflowInit);
 } else {
-    initCoverflow();
+    runCoverflowInit();
 }

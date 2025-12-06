@@ -1,0 +1,162 @@
+[
+  {
+    "slug": "wp2-working-paper-populator",
+    "title": "WP2 - Working Paper Populator",
+    "short_description": "Full-stack automation for audit working papers, cutting prep time from hours to minutes.",
+    "featured": true,
+    "cover_image": "images/projects/wp2-working-paper-populator.webp",
+    "gallery": [
+      "images/projects/wp2-working-paper-populator.webp"
+    ],
+    "tech_stack": ["python", "pandas", "streamlit", "git"],
+    "tags": ["automation", "data-processing", "internal-tools"],
+    "why_built": "Manual reconciliation of audit working papers was slow and error-prone. The goal was to automate population and validation to save time and reduce mistakes.",
+    "development_approach": [
+      "Iterated a Python ETL pipeline to ingest, validate, and transform spreadsheet inputs.",
+      "Built a Streamlit UI for configuration and progress monitoring.",
+      "Added export routines to generate standardized outputs and logs."
+    ],
+    "challenges": [
+      {"challenge": "Inconsistent input formats across teams.", "solution": "Implemented schema validation and auto-mapping with fallback prompts."},
+      {"challenge": "Performance on large files.", "solution": "Vectorized transformations and minimized I/O roundtrips."}
+    ],
+    "outcomes": [
+      "Reduced preparation time from 3–4 hours to under 5 minutes.",
+      "Improved reliability and audit traceability with logs."
+    ],
+    "metrics": [">90% reduction in manual effort"],
+    "repo_url": "#",
+    "live_url": "#",
+    "video_url": "#"
+  },
+  {
+    "slug": "uniexplorer",
+    "title": "UniExplorer",
+    "short_description": "SA university program recommender based on results and preferences.",
+    "featured": true,
+    "cover_image": "images/projects/uniexplorer.webp",
+    "gallery": [
+      "images/projects/uniexplorer.webp"
+    ],
+    "tech_stack": ["nextjs", "react", "fastapi", "sqlite"],
+    "tags": ["webapp", "recommendation", "education"],
+    "why_built": "Students struggle to discover suitable programs. This tool narrows options based on results and goals.",
+    "development_approach": [
+      "REST API in FastAPI for matching and scoring.",
+      "Next.js frontend with server-side rendering for fast loads.",
+      "SQLite for light-weight persistence and prototyping."
+    ],
+    "challenges": [
+      {"challenge": "Ambiguous program requirements.", "solution": "Normalized criteria and exposed transparency in scoring."}
+    ],
+    "outcomes": ["Faster decision-making and clear fit explanations."],
+    "metrics": ["~70% average search narrowing"],
+    "repo_url": "#",
+    "live_url": "#",
+    "video_url": "#"
+  },
+  {
+    "slug": "ai-prompt-optimization-tool",
+    "title": "AI Prompt Optimization Tool",
+    "short_description": "Interactive tool to refine and test LLM prompts for better quality outputs.",
+    "featured": true,
+    "cover_image": "images/projects/ai-prompt-optimization-tool.webp",
+    "gallery": [
+      "images/projects/ai-prompt-optimization-tool.webp"
+    ],
+    "tech_stack": ["python", "langchain", "streamlit"],
+    "tags": ["ai", "llm", "prompt-engineering"],
+    "why_built": "Teams need a structured way to iterate on prompts and benchmark quality.",
+    "development_approach": [
+      "LangChain wrappers to swap models and templates.",
+      "Streamlit UI for side-by-side comparisons and ratings.",
+      "Export baseline prompts and settings for reuse."
+    ],
+    "challenges": [
+      {"challenge": "Subjective quality assessment.", "solution": "Added rubric-based scoring and pairwise comparison views."}
+    ],
+    "outcomes": ["Higher consistency and faster experimentation cycles."],
+    "metrics": ["~30% improvement in rubric scores"],
+    "repo_url": "#",
+    "live_url": "#",
+    "video_url": "#"
+  },
+  {
+    "slug": "member-data-manager",
+    "title": "Member Data Manager",
+    "short_description": "Cloud-based lifecycle management with dashboards for Project Y members.",
+    "featured": false,
+    "cover_image": "images/projects/member-data-manager.webp",
+    "gallery": [
+      "images/projects/member-data-manager.webp"
+    ],
+    "tech_stack": ["azure", "powerbi", "python", "git"],
+    "tags": ["analytics", "dashboard", "operations"],
+    "why_built": "Centralize member data and track outcomes in one place.",
+    "development_approach": [
+      "ETL pipelines to standardize member events.",
+      "Power BI dashboards for leadership KPIs.",
+      "RBAC and data access controls."
+    ],
+    "challenges": [
+      {"challenge": "Data silos across tools.", "solution": "Unified ingestion with documented schemas and lineage."}
+    ],
+    "outcomes": ["Single source of truth and real-time visibility."],
+    "metrics": ["Reduced report turnaround to same-day"],
+    "repo_url": "#",
+    "live_url": "#",
+    "video_url": "#"
+  },
+  {
+    "slug": "multi-cloud-deployment",
+    "title": "Multi-Cloud Deployment",
+    "short_description": "Production-grade Streamlit app deployed to AWS & Azure with unified CI/CD.",
+    "featured": false,
+    "cover_image": "images/projects/multi-cloud-deployment.webp",
+    "gallery": [
+      "images/projects/multi-cloud-deployment.webp"
+    ],
+    "tech_stack": ["aws", "azure", "docker", "github-actions"],
+    "tags": ["devops", "cicd", "cloud"],
+    "why_built": "Demonstrate portable deployments across major clouds.",
+    "development_approach": [
+      "Containerized app with Docker.",
+      "Reusable CI/CD workflows targeting multiple providers.",
+      "Infra parameters extracted to env-specific configs."
+    ],
+    "challenges": [
+      {"challenge": "Divergent cloud primitives.", "solution": "Abstracted differences with provider-specific adapters."}
+    ],
+    "outcomes": ["One pipeline, multi-cloud targets."] ,
+    "metrics": ["<10 minutes deployment time"],
+    "repo_url": "#",
+    "live_url": "#",
+    "video_url": "#"
+  },
+  {
+    "slug": "ai-car-inspector",
+    "title": "AI Car Inspector",
+    "short_description": "Web app analyzing car images to extract make, model, condition, and issues.",
+    "featured": false,
+    "cover_image": "images/projects/ai-car-inspector.webp",
+    "gallery": [
+      "images/projects/ai-car-inspector.webp"
+    ],
+    "tech_stack": ["python", "vision", "docker", "kubernetes"],
+    "tags": ["ai", "vision", "automation"],
+    "why_built": "Reduce manual inspection time and improve consistency.",
+    "development_approach": [
+      "Vision model for key attribute extraction.",
+      "Confidence thresholds and human-in-the-loop review.",
+      "Containerized microservices and autoscaling."
+    ],
+    "challenges": [
+      {"challenge": "Variable lighting and angles.", "solution": "Data augmentation and fallback heuristics."}
+    ],
+    "outcomes": ["Faster processing and better standardization."],
+    "metrics": ["~50% fewer manual steps"],
+    "repo_url": "#",
+    "live_url": "#",
+    "video_url": "#"
+  }
+]

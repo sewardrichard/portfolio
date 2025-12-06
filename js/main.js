@@ -2,6 +2,8 @@
    Seward Mupereri Portfolio - Main JavaScript
    ========================================================================== */
 
+let __main_inited = false;
+
 /**
  * Typing Animation for Hero Section
  * Creates a typewriter effect for the name display
@@ -158,7 +160,7 @@ function initScrollAnimations() {
  * Highlights the current section in the navigation
  */
 function initActiveNavHighlight() {
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]:not([data-brand])');
     if (navLinks.length === 0) return;
     
     // Get unique target IDs from nav links
@@ -166,6 +168,10 @@ function initActiveNavHighlight() {
     
     // Find corresponding elements
     const sections = targetIds.map(id => document.querySelector(id)).filter(el => el);
+    if (sections.length === 0) return;
+    // Additional sections that should map to Expertise highlight
+    const educationEl = document.querySelector('#education');
+    const certificationsEl = document.querySelector('#certifications');
     
     window.addEventListener('scroll', () => {
         let current = '';
@@ -180,6 +186,15 @@ function initActiveNavHighlight() {
             }
         });
         
+        // If we're in Education or Certifications, treat it as Expertise for nav highlight
+        if (!current) {
+            const inEducation = educationEl && scrollPosition >= educationEl.offsetTop && scrollPosition < (educationEl.offsetTop + educationEl.offsetHeight);
+            const inCerts = certificationsEl && scrollPosition >= certificationsEl.offsetTop && scrollPosition < (certificationsEl.offsetTop + certificationsEl.offsetHeight);
+            if (inEducation || inCerts) {
+                current = 'expertise';
+            }
+        }
+        
         navLinks.forEach(link => {
             link.classList.remove('text-brand-lime');
             link.classList.remove('active');
@@ -189,6 +204,51 @@ function initActiveNavHighlight() {
             }
         });
     }, { passive: true });
+}
+
+// Cross-page nav highlight for projects pages
+function initProjectsPageNavActive() {
+    const path = (window.location.pathname || '').toLowerCase();
+    const isProjects = path.endsWith('/projects.html') || path.endsWith('projects.html');
+    const isProjectDetail = path.endsWith('/project.html') || path.endsWith('project.html');
+    if (!isProjects && !isProjectDetail) return;
+    const projectsLink = document.querySelector('nav a[href="#work"], nav a[href="index.html#work"]');
+    const contactSection = document.querySelector('#contact');
+    const update = () => {
+        let contactInView = false;
+        if (contactSection) {
+            const sectionTop = contactSection.offsetTop;
+            const sectionHeight = contactSection.offsetHeight;
+            const scrollPosition = window.pageYOffset + 100;
+            contactInView = scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight;
+        }
+        if (projectsLink) {
+            if (contactInView) {
+                projectsLink.classList.remove('text-brand-lime', 'active');
+            } else {
+                projectsLink.classList.add('text-brand-lime', 'active');
+            }
+        }
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+}
+
+function initCrossPageNavLinks() {
+    const path = (window.location.pathname || '').toLowerCase();
+    const isHome = path.endsWith('/') || path.endsWith('/index.html') || path.endsWith('index.html');
+    if (isHome) return;
+    const map = {
+        '#hero': 'index.html#hero',
+        '#about': 'index.html#about',
+        '#expertise': 'index.html#expertise',
+        '#work': 'index.html#work',
+        '#experience': 'index.html#experience',
+    };
+    document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+        const h = a.getAttribute('href');
+        if (map[h]) a.setAttribute('href', map[h]);
+    });
 }
 
 /**
@@ -294,17 +354,34 @@ function initHeroImageEffects() {
  * Initialize all main functionality
  */
 function init() {
+    if (__main_inited) return;
+    __main_inited = true;
     initTypingAnimation();
+    initCrossPageNavLinks();
     initSmoothScroll();
     initScrollHeader();
     initScrollAnimations();
     initActiveNavHighlight();
+    initProjectsPageNavActive();
     initHeroImageEffects();
 }
 
-// Run initialization when DOM is ready
+function runMainInit() {
+    const start = () => init();
+    const hasIncludes = document.querySelector('[data-include]') !== null;
+    if (!hasIncludes) {
+        start();
+        return;
+    }
+    if (window.__partialsReady) {
+        start();
+    } else {
+        window.addEventListener('partials:ready', start, { once: true });
+    }
+}
+
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', runMainInit);
 } else {
-    init();
+    runMainInit();
 }

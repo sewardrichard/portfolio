@@ -1,0 +1,47 @@
+    <section id="work" class="py-24 bg-brand-black relative overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <!-- Section Header -->
+            <div class="flex items-center gap-3 mb-8">
+                <span class="w-2 h-2 bg-brand-lime"></span>
+                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">Featured Projects</span>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-center">
+                Featured <span class="text-brand-lime">Projects</span>
+            </h2>
+            <p class="text-gray-400 text-center mb-12 max-w-xl mx-auto">
+                A collection of production-ready systems, automation tools, and data architectures.
+            </p>
+
+            <div class="flex justify-center mb-12">
+                <a href="projects.html" class="border border-white/20 px-5 py-2.5 md:px-6 md:py-3 rounded-full text-sm font-bold hover:border-brand-lime hover:text-brand-lime transition duration-300">
+                    View All Projects
+                </a>
+            </div>
+
+            <!-- Coverflow Container -->
+            <div class="coverflow-container">
+                <!-- Navigation Buttons -->
+                <button
+                    class="absolute top-1/2 left-0 md:left-8 -translate-y-1/2 bg-white/5 border border-white/20 text-brand-lime w-10 h-10 md:w-12 md:h-12 rounded-full text-xl md:text-2xl cursor-pointer z-20 transition duration-300 hover:bg-white/10 hover:border-brand-lime"
+                    onclick="navigate(-1)"
+                    aria-label="Previous project">
+                    ‹
+                </button>
+                <button
+                    class="absolute top-1/2 right-0 md:right-8 -translate-y-1/2 bg-white/5 border border-white/20 text-brand-lime w-10 h-10 md:w-12 md:h-12 rounded-full text-xl md:text-2xl cursor-pointer z-20 transition duration-300 hover:bg-white/10 hover:border-brand-lime"
+                    onclick="navigate(1)"
+                    aria-label="Next project">
+                    ›
+                </button>
+
+                <!-- Coverflow Items Container -->
+                <div class="coverflow" id="coverflow"></div>
+            </div>
+            
+            <!-- Navigation Dots -->
+            <div class="flex justify-center gap-2 mt-8">
+                <span class="text-xs text-gray-500 font-mono">Use arrow keys or swipe to navigate</span>
+            </div>
+        </div>
+    </section>

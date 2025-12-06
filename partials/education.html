@@ -1,0 +1,117 @@
+    <section id="education" class="py-24 border-b border-white/5 bg-brand-dark">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center gap-3 mb-16">
+                <span class="w-2 h-2 bg-brand-lime"></span>
+                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">Education</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+                <div class="md:col-span-5 lg:sticky lg:top-24 self-start">
+                    <h2 class="text-4xl md:text-5xl font-bold leading-tight">Academic<br><span class="text-brand-lime">Background</span></h2>
+                </div>
+                <div class="md:col-span-7 space-y-6">
+                    <!-- BSc Computer Engineering -->
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-lime transition duration-300">
+                        <div class="flex items-start justify-between flex-wrap gap-4 mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">BSc(Hons) Computer Engineering</h3>
+                                <p class="text-brand-lime font-mono text-sm mt-1">European University of Lefke</p>
+                            </div>
+                            <div class="flex flex-col items-end gap-2">
+                                <span class="bg-brand-lime/10 text-brand-lime px-4 py-2 rounded-full text-sm font-mono">2020 — 2024</span>
+                                <span class="bg-white/10 text-gray-300 px-3 py-1 rounded-full text-xs font-mono">NQF Level 8</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-white/10 pt-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="iconify w-5 h-5 text-brand-lime" data-icon="mdi:trophy"></span>
+                                <span class="text-sm font-bold text-white">Leadership & Activities</span>
+                            </div>
+                            <p class="text-gray-400 leading-relaxed">
+                                <span class="text-white font-semibold">Vice President</span> of the Mobile Application Club (2021/2022), where I led a team of 16 members in organizing and hosting a campus-wide AI event.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Y Bootcamp -->
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-lime transition duration-300">
+                        <div class="flex items-start justify-between flex-wrap gap-4 mb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Graduate Engineer Bootcamp</h3>
+                                <p class="text-brand-lime font-mono text-sm mt-1">Project Y x Capaciti</p>
+                            </div>
+                            <div class="flex flex-col items-end gap-2">
+                                <span class="bg-brand-lime/10 text-brand-lime px-4 py-2 rounded-full text-sm font-mono">2025 — Present</span>
+                                <span class="bg-white/10 text-gray-300 px-3 py-1 rounded-full text-xs font-mono">NQF Level 4</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Completed a rigorous, full-time accelerated program focused on AI, Cloud, and Data Engineering. The curriculum emphasized industry best practices and prepared for international work exposure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications Section -->
+            <div id="certifications" class="border-t border-white/10 pt-12">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="w-2 h-2 bg-brand-lime"></span>
+                    <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">Certifications</span>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <button onclick="openCertModal('img/AWS- Certified Cloud Practitioner.png', 'AWS Cloud Practitioner')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-[#FF9900]" data-icon="devicon:amazonwebservices-wordmark"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">AWS Cloud Practitioner</h4>
+                        <p class="text-xs text-gray-500 mt-1">Amazon Web Services</p>
+                    </button>
+                    <!-- Generative AI with LLMs -->
+                    <button onclick="openCertModal('img/Coursera - Gen Ai with LLMs.jpg', 'Generative AI with LLMs')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-blue-400" data-icon="mdi:brain"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Generative AI with LLMs</h4>
+                        <p class="text-xs text-gray-500 mt-1">DeepLearning.AI & AWS</p>
+                    </button>
+                    
+                    <!-- Introduction to Generative AI -->
+                    <button onclick="openCertModal('img/Coursera - Intro to Gen AI.jpg', 'Introduction to Generative AI')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-green-400" data-icon="mdi:google-cloud"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Introduction to Generative AI</h4>
+                        <p class="text-xs text-gray-500 mt-1">Google Cloud</p>
+                    </button>
+                    
+                    <!-- Version Control with Git -->
+                    <button onclick="openCertModal('img/Coursera - Version Control with Git.jpg', 'Version Control with Git')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-orange-400" data-icon="devicon:git"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Version Control with Git</h4>
+                        <p class="text-xs text-gray-500 mt-1">Atlassian</p>
+                    </button>
+                    
+                    <!-- Agile with Jira -->
+                    <button onclick="openCertModal('img/Coursera - Agile with Jira.jpg', 'Agile with Atlassian Jira')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-blue-500" data-icon="devicon:jira"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Agile with Atlassian Jira</h4>
+                        <p class="text-xs text-gray-500 mt-1">Atlassian</p>
+                    </button>
+                    
+                    <!-- Microsoft Power Platform -->
+                    <button onclick="openCertModal('img/Coursera - Microsoft Power Platforms.jpg', 'Microsoft Power Platform Fundamentals')" class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-brand-lime transition duration-300 cursor-pointer text-left">
+                        <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center mb-3">
+                            <span class="iconify w-5 h-5 text-purple-400" data-icon="mdi:microsoft"></span>
+                        </div>
+                        <h4 class="font-bold text-white text-sm leading-tight">Microsoft Power Platform</h4>
+                        <p class="text-xs text-gray-500 mt-1">Microsoft</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>

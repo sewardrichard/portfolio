@@ -1,0 +1,62 @@
+    <header class="fixed w-full top-0 z-50 bg-brand-black/80 backdrop-blur-md border-b border-white/5">
+        <nav class="flex justify-between items-center px-6 py-4 md:px-12">
+            <a href="#hero" data-brand="true" class="text-xl font-bold flex items-center gap-1 display-font tracking-tight">
+                SEWARD<span class="text-brand-lime text-lg align-top">*</span>
+            </a>
+
+            <div class="hidden md:flex gap-8 text-xs font-mono uppercase tracking-widest text-gray-400">
+                <a href="#about" class="hover:text-brand-lime transition">About</a>
+                <a href="#expertise" class="hover:text-brand-lime transition">Expertise</a>
+                <a href="#work" class="hover:text-brand-lime transition">Projects</a>
+                <a href="#experience" class="hover:text-brand-lime transition">Experience</a>
+                <a href="#contact" class="hover:text-brand-lime transition">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="mailto:sewardrichardmupereri@gmail.com"
+                    class="hidden md:flex items-center gap-2 border border-white/20 px-4 py-2 rounded-full text-xs hover:bg-brand-lime hover:text-black hover:border-brand-lime transition duration-300">
+                    <span class="w-2 h-2 bg-brand-lime rounded-full animate-pulse-slow"></span>
+                    Available for Work
+                </a>
+                
+                <!-- Mobile Hamburger Button -->
+                <button id="hamburger" class="hamburger md:hidden" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay md:hidden"></div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="mobile-menu-header">
+            <a href="#hero" data-brand="true" class="text-xl font-bold flex items-center gap-1 display-font tracking-tight">
+                SEWARD<span class="text-brand-lime text-lg align-top">*</span>
+            </a>
+            <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="mobile-menu-nav">
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#work">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="mobile-menu-footer">
+            <a href="mailto:sewardrichardmupereri@gmail.com" class="mobile-menu-cta">
+                <span class="pulse-dot"></span>
+                Available for Work
+            </a>
+        </div>
+    </nav>

@@ -300,17 +300,83 @@ function initCrossPageNavLinks() {
 
 /**
  * Certificate Modal Functions
- * Opens and closes the certificate image modal
+ * Opens and closes the certificate image modal with description
  */
+const certDescriptions = {
+    'AWS Cloud Practitioner': {
+        learnings: [
+            'Gained foundational understanding of AWS Cloud concepts, services, and terminology',
+            'Learned to identify AWS services for common use cases like compute, storage, and databases',
+            'Understood the AWS shared responsibility model and basic security practices',
+            'Explored cloud economics and billing practices for cost optimization'
+        ]
+    },
+    'Generative AI with LLMs': {
+        learnings: [
+            'Deep-dived into transformer architecture and attention mechanisms powering modern LLMs',
+            'Learned prompt engineering techniques and fine-tuning strategies for domain-specific tasks',
+            'Explored RLHF (Reinforcement Learning from Human Feedback) for model alignment',
+            'Gained hands-on experience deploying and optimizing LLM-based applications'
+        ]
+    },
+    'Introduction to Generative AI': {
+        learnings: [
+            'Understood the fundamentals of generative AI and how it differs from traditional ML',
+            'Explored various generative model types including GANs, VAEs, and transformers',
+            'Learned about responsible AI practices and ethical considerations',
+            'Gained insight into real-world applications across industries'
+        ]
+    },
+    'Version Control with Git': {
+        learnings: [
+            'Mastered Git workflows including branching, merging, and rebasing strategies',
+            'Learned collaborative development practices using pull requests and code reviews',
+            'Understood how to resolve merge conflicts and maintain clean commit history',
+            'Explored advanced Git features like stashing, cherry-picking, and bisecting'
+        ]
+    },
+    'Agile with Atlassian Jira': {
+        learnings: [
+            'Learned Agile and Scrum methodologies for iterative software development',
+            'Gained proficiency in using Jira for sprint planning, backlog management, and tracking',
+            'Understood how to create effective user stories, epics, and acceptance criteria',
+            'Explored team velocity metrics and continuous improvement practices'
+        ]
+    },
+    'Microsoft Power Platform Fundamentals': {
+        learnings: [
+            'Explored low-code/no-code development with Power Apps for rapid application building',
+            'Learned to automate workflows using Power Automate for business process optimization',
+            'Understood data visualization and reporting with Power BI dashboards',
+            'Gained insight into integrating Power Platform with Microsoft 365 and Dynamics 365'
+        ]
+    }
+};
+
 function openCertModal(imageSrc, title) {
     const modal = document.getElementById('certModal');
     const modalImage = document.getElementById('certModalImage');
     const modalTitle = document.getElementById('certModalTitle');
+    const modalContent = document.getElementById('certModalContent');
     
-    if (modal && modalImage && modalTitle) {
+    if (modal && modalImage && modalTitle && modalContent) {
         modalImage.src = imageSrc;
         modalImage.alt = title;
         modalTitle.textContent = title;
+        
+        // Populate description content
+        const certData = certDescriptions[title];
+        if (certData && certData.learnings) {
+            modalContent.innerHTML = certData.learnings.map(learning => 
+                `<div class="flex items-start gap-3">
+                    <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 flex-shrink-0"></span>
+                    <p>${learning}</p>
+                </div>`
+            ).join('');
+        } else {
+            modalContent.innerHTML = '<p class="text-gray-500 italic">No reflections available for this certification.</p>';
+        }
+        
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         document.body.style.overflow = 'hidden';

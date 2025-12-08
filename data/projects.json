@@ -4,9 +4,9 @@
     "title": "WP2 - Working Paper Populator",
     "short_description": "Full-stack automation for audit working papers, cutting prep time from hours to minutes.",
     "featured": true,
-    "cover_image": "images/projects/wp2-working-paper-populator.webp",
+    "cover_image": "images/projects/wp2-working-paper-populator.jpg",
     "gallery": [
-      "images/projects/wp2-working-paper-populator.webp"
+      "images/projects/wp2-working-paper-populator.jpg"
     ],
     "tech_stack": ["python", "pandas", "streamlit", "git"],
     "tags": ["automation", "data-processing", "internal-tools"],
@@ -34,9 +34,9 @@
     "title": "UniExplorer",
     "short_description": "SA university program recommender based on results and preferences.",
     "featured": true,
-    "cover_image": "images/projects/uniexplorer.webp",
+    "cover_image": "images/projects/uniexplorer.jpg",
     "gallery": [
-      "images/projects/uniexplorer.webp"
+      "images/projects/uniexplorer.jpg"
     ],
     "tech_stack": ["nextjs", "react", "fastapi", "sqlite"],
     "tags": ["webapp", "recommendation", "education"],
@@ -86,9 +86,9 @@
     "title": "Member Data Manager",
     "short_description": "Cloud-based lifecycle management with dashboards for Project Y members.",
     "featured": false,
-    "cover_image": "images/projects/member-data-manager.webp",
+    "cover_image": "images/projects/member-data-manager.jpg",
     "gallery": [
-      "images/projects/member-data-manager.webp"
+      "images/projects/member-data-manager.jpg"
     ],
     "tech_stack": ["azure", "powerbi", "python", "git"],
     "tags": ["analytics", "dashboard", "operations"],
@@ -138,9 +138,9 @@
     "title": "AI Car Inspector",
     "short_description": "Web app analyzing car images to extract make, model, condition, and issues.",
     "featured": false,
-    "cover_image": "images/projects/ai-car-inspector.webp",
+    "cover_image": "images/projects/ai-car-inspector.jpg",
     "gallery": [
-      "images/projects/ai-car-inspector.webp"
+      "images/projects/ai-car-inspector.jpg"
     ],
     "tech_stack": ["python", "vision", "docker", "kubernetes"],
     "tags": ["ai", "vision", "automation"],

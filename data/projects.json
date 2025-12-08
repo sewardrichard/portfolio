@@ -82,7 +82,7 @@
     "slug": "member-data-manager",
     "title": "Member Data Manager",
     "short_description": "Cloud-based lifecycle management with dashboards for Project Y members.",
-    "featured": false,
+    "featured": true,
     "cover_image": "images/projects/member-data-manager.jpg",
     "gallery": [
       "images/projects/member-data-manager.jpg"

@@ -70,25 +70,19 @@ async function createCoverFlow() {
         ).join('');
 
         item.innerHTML = `
-            <div class="cover">
+            <a href="project.html?slug=${project.slug}" class="cover block cursor-pointer">
                 <img src="${project.image}" alt="${project.title}" class="cover-image">
                 <div class="cover-overlay"></div>
                 <div class="absolute bottom-3 left-3 flex gap-2 z-10">
                     ${toolIcons}
                 </div>
-            </div>
+            </a>
             <div class="text-center mt-4">
                 <div class="text-sm font-semibold uppercase text-brand-lime tracking-widest">
                     ${project.title}
                 </div>
                 <div class="cover-description text-xs text-gray-400 mt-1 px-2 transition-opacity duration-500 opacity-0">
                     ${project.description}
-                </div>
-                <div class="cover-links flex justify-center gap-3 mt-3 transition-opacity duration-500 opacity-0">
-                    <a href="project.html?slug=${project.slug}" class="flex items-center gap-1 text-xs text-white bg-brand-lime/20 hover:bg-brand-lime/30 px-3 py-1.5 rounded-full transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                        View Details
-                    </a>
                 </div>
             </div>
         `;
@@ -105,20 +99,15 @@ function updatePositions() {
     items.forEach((item, index) => {
         item.className = 'cover-item';
         const description = item.querySelector('.cover-description');
-        const links = item.querySelector('.cover-links');
 
         const diff = index - currentIndex;
 
         if (diff === 0) {
             item.classList.add('center');
-            // Fade in description and links for center item
+            // Fade in description for center item
             if (description) {
                 description.classList.remove('opacity-0');
                 description.classList.add('opacity-100');
-            }
-            if (links) {
-                links.classList.remove('opacity-0');
-                links.classList.add('opacity-100');
             }
         } else if (diff === -1) {
             item.classList.add('left-1');
@@ -132,15 +121,11 @@ function updatePositions() {
             item.classList.add('hidden');
         }
 
-        // Fade out description and links for non-center items
+        // Fade out description for non-center items
         if (diff !== 0) {
             if (description) {
                 description.classList.remove('opacity-100');
                 description.classList.add('opacity-0');
-            }
-            if (links) {
-                links.classList.remove('opacity-100');
-                links.classList.add('opacity-0');
             }
         }
     });

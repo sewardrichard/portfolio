@@ -79,28 +79,58 @@
     "video_url": "#"
   },
   {
-    "slug": "member-data-manager",
-    "title": "Member Data Manager",
-    "short_description": "Cloud-based lifecycle management with dashboards for Project Y members.",
+    "slug": "memeber-data-manager",
+    "title": "Project Y - Member Data Manager",
+    "short_description": "Engineered a secure, cloud-native Power Platform solution on Azure SQL to replace manual processes, managing the full member lifecycle and providing real-time Business Intelligence via Power BI.",
     "featured": true,
     "cover_image": "images/projects/member-data-manager.jpg",
     "gallery": [
       "images/projects/member-data-manager.jpg"
     ],
-    "tech_stack": ["azure", "powerbi", "python", "git"],
-    "tags": ["analytics", "dashboard", "operations"],
-    "why_built": "Centralize member data and track outcomes in one place.",
+    "tech_stack": [
+      "azure sql",
+      "power apps",
+      "power bi",
+      "python (pandas, sqlalchemy)",
+      "git/github",
+      "agile/scrum"
+    ],
+    "tags": [
+      "data-engineering",
+      "cloud-architecture",
+      "low-code-development",
+      "business-intelligence",
+      "database-management"
+    ],
+    "why_built": "Migrated Project Y operations off decentralized spreadsheets, which caused critical data redundancy, version control issues, and data silos. The goal was to establish a secure, centralized Single Source of Truth for all program data.",
     "development_approach": [
-      "ETL pipelines to standardize member events.",
-      "Power BI dashboards for leadership KPIs.",
-      "RBAC and data access controls."
+      "Data Modeling: Designed a **normalized relational schema in Azure SQL** to ensure high data integrity and support complex relationships (Members, Teams, Projects).",
+      "Data Engineering (ETL): Developed robust **Python ETL scripts** using **pandas** for data cleaning and **SQLAlchemy** for automated data ingestion and transformation, ensuring data consistency for analytics.",
+      "Application Development: Built a secure **Power Apps Canvas App** frontend to implement full **CRUD** (Create, Read, Update, Delete) functionality for administrators across the member lifecycle.",
+      "Business Intelligence: Created **Power BI Dashboards** to visualize key operational KPIs (e.g., project scoring, career track progress) for **real-time, data-driven decision-making**.",
+      "Agile & Version Control: Utilized **Agile methodologies** (one-week sprints) and **Git/GitHub** for version control, including managing database scripts and Power Platform solution files (.msapp)."
     ],
     "challenges": [
-      {"challenge": "Data silos across tools.", "solution": "Unified ingestion with documented schemas and lineage."}
+      {
+        "challenge": "Data Silos and Inconsistent Schemas",
+        "solution": "Enforced a **unified ingestion strategy** with documented schemas and lineage, ensuring all member events are standardized and loaded into the normalized Azure SQL database."
+      },
+      {
+        "challenge": "Managing Secure Database Access for Development Team",
+        "solution": "Implemented rigorous **Azure SQL firewall configuration** and **IP whitelisting** to securely manage multi-user access to the PaaS database instance."
+      }
     ],
-    "outcomes": ["Single source of truth and real-time visibility."],
-    "metrics": ["Reduced report turnaround to same-day"],
-    "repo_url": "#",
+    "outcomes": [
+      "Established a **centralized, secure, and single source of truth** for all program data.",
+      "**Significantly reduced administrative data entry time** and eliminated manual spreadsheet processes.",
+      "Provided **real-time visibility** into program performance, reducing reporting turnaround time to **same-day** updates."
+    ],
+    "metrics": [
+      "Reduced report turnaround time from several days to same-day (near real-time).",
+      "100% elimination of critical data redundancy and version control issues.",
+      "Enabled full-lifecycle tracking across enrollment, team assignment, and progress scoring."
+    ],
+    "repo_url": "YOUR_GITHUB_LINK_HERE",
     "live_url": "#",
     "video_url": "#"
   },

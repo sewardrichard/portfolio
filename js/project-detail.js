@@ -59,6 +59,26 @@ function renderChals(containerId, pairs) {
   });
 }
 
+// Tech stack name mapping for Iconify icons (same as coverflow.js)
+const techIconMap = {
+  'python': 'devicon:python',
+  'pandas': 'devicon:pandas',
+  'streamlit': 'devicon:streamlit',
+  'git': 'devicon:git',
+  'nextjs': 'devicon:nextjs',
+  'react': 'devicon:react',
+  'fastapi': 'devicon:fastapi',
+  'sqlite': 'devicon:sqlite',
+  'langchain': 'simple-icons:langchain',
+  'azure': 'mdi:microsoft-azure',
+  'powerbi': 'simple-icons:powerbi',
+  'aws': 'devicon:amazonwebservices-wordmark',
+  'docker': 'devicon:docker',
+  'github-actions': 'devicon:githubactions',
+  'kubernetes': 'devicon:kubernetes',
+  'vision': 'mdi:eye'
+};
+
 function chips(containerId, items) {
   const el = document.getElementById(containerId);
   if (!el) return;
@@ -68,6 +88,29 @@ function chips(containerId, items) {
     s.className = 'text-xs bg-white/5 px-3 py-1 rounded-full text-gray-300 border border-white/10';
     s.textContent = t;
     el.appendChild(s);
+  });
+}
+
+function techStackChips(containerId, items) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = '';
+  (items || []).forEach(t => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'flex items-center gap-2 bg-white/5 px-3 py-2 rounded-full border border-white/10';
+    
+    const iconName = techIconMap[t] || t;
+    const icon = document.createElement('span');
+    icon.className = 'iconify w-5 h-5 text-brand-lime';
+    icon.setAttribute('data-icon', iconName);
+    
+    const label = document.createElement('span');
+    label.className = 'text-sm text-gray-300 capitalize';
+    label.textContent = t;
+    
+    wrapper.appendChild(icon);
+    wrapper.appendChild(label);
+    el.appendChild(wrapper);
   });
 }
 
@@ -114,7 +157,7 @@ function renderProject(project) {
   renderChals('challenges-list', project.challenges);
   listToUl('outcomes-list', project.outcomes);
   chips('metrics-chips', project.metrics);
-  chips('stack-chips', project.tech_stack);
+  techStackChips('stack-chips', project.tech_stack);
   linksList('links-list', project);
   gallery('gallery-grid', project.gallery && project.gallery.length ? project.gallery : [project.cover_image]);
 

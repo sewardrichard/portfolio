@@ -7,24 +7,24 @@ let projects = [];
 let currentIndex = 0;
 let autoScrollInterval = null;
 
-// Tech stack name mapping for SimpleIcons
+// Tech stack name mapping for Iconify icons
 const techIconMap = {
-    'python': 'python',
-    'pandas': 'pandas',
-    'streamlit': 'streamlit',
-    'git': 'git',
-    'nextjs': 'nextdotjs',
-    'react': 'react',
-    'fastapi': 'fastapi',
-    'sqlite': 'sqlite',
-    'langchain': 'langchain',
-    'azure': 'microsoftazure',
-    'powerbi': 'powerbi',
-    'aws': 'amazonaws',
-    'docker': 'docker',
-    'github-actions': 'githubactions',
-    'kubernetes': 'kubernetes',
-    'vision': 'google'
+    'python': 'devicon:python',
+    'pandas': 'devicon:pandas',
+    'streamlit': 'devicon:streamlit',
+    'git': 'devicon:git',
+    'nextjs': 'devicon:nextjs',
+    'react': 'devicon:react',
+    'fastapi': 'devicon:fastapi',
+    'sqlite': 'devicon:sqlite',
+    'langchain': 'simple-icons:langchain',
+    'azure': 'mdi:microsoft-azure',
+    'powerbi': 'simple-icons:powerbi',
+    'aws': 'devicon:amazonwebservices-wordmark',
+    'docker': 'devicon:docker',
+    'github-actions': 'devicon:githubactions',
+    'kubernetes': 'devicon:kubernetes',
+    'vision': 'mdi:eye'
 };
 
 async function loadFeaturedProjects() {
@@ -66,7 +66,7 @@ async function createCoverFlow() {
         item.onclick = () => navigateToIndex(index);
 
         const toolIcons = project.tools.map(tool => 
-            `<img src="https://cdn.simpleicons.org/${tool}/baff00" alt="${tool}" class="w-5 h-5" title="${tool}">`
+            `<span class="iconify w-5 h-5 text-brand-lime" data-icon="${tool}" title="${tool}"></span>`
         ).join('');
 
         item.innerHTML = `

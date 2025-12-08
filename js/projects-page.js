@@ -15,6 +15,15 @@ function initProjectsPage() {
   const selectedTags = new Set();
   let allProjects = [];
 
+  function updateClearButton() {
+    if (!clearBtn) return;
+    if (selectedStacks.size > 0 || selectedTags.size > 0) {
+      clearBtn.classList.remove('hidden');
+    } else {
+      clearBtn.classList.add('hidden');
+    }
+  }
+
   function toggleChip(chip, set, value) {
     if (set.has(value)) {
       set.delete(value);
@@ -25,6 +34,7 @@ function initProjectsPage() {
       chip.classList.remove('bg-white/5', 'text-gray-300', 'border-white/10');
       chip.classList.add('bg-brand-lime', 'text-black', 'border-brand-lime');
     }
+    updateClearButton();
     renderGrid();
   }
 
@@ -65,12 +75,12 @@ function initProjectsPage() {
       title.textContent = p.title;
 
       const desc = document.createElement('p');
-      desc.className = 'text-gray-400 text-sm mt-1';
+      desc.className = 'text-gray-400 text-sm mt-1 line-clamp-2';
       desc.textContent = p.short_description;
 
       const chips = document.createElement('div');
       chips.className = 'flex flex-wrap gap-2 mt-3';
-      (p.tech_stack || []).slice(0, 6).forEach(s => {
+      (p.tech_stack || []).slice(0, 4).forEach(s => {
         const c = document.createElement('span');
         c.className = 'text-xs bg-white/5 px-3 py-1 rounded-full text-gray-300 border border-white/10';
         c.textContent = s;
@@ -110,15 +120,19 @@ function initProjectsPage() {
       tagFiltersEl.appendChild(chip);
     });
 
+    // Clear button handler
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
         selectedStacks.clear();
         selectedTags.clear();
         // Reset chip styles
-        [...stackFiltersEl.children, ...tagFiltersEl.children].forEach(el => {
-          el.classList.remove('bg-brand-lime', 'text-black', 'border-brand-lime');
-          el.classList.add('bg-white/5', 'text-gray-300', 'border-white/10');
+        [stackFiltersEl, tagFiltersEl].forEach(container => {
+          container.querySelectorAll('button').forEach(el => {
+            el.classList.remove('bg-brand-lime', 'text-black', 'border-brand-lime');
+            el.classList.add('bg-white/5', 'text-gray-300', 'border-white/10');
+          });
         });
+        updateClearButton();
         renderGrid();
       });
     }

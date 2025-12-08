@@ -62,11 +62,16 @@ function renderChals(containerId, pairs) {
 // Tech stack name mapping for Iconify icons (same as coverflow.js)
 const techIconMap = {
   'python': 'devicon:python',
+  'python 3.11': 'devicon:python',
+  'python (pandas, sqlalchemy)': 'devicon:python',
   'pandas': 'devicon:pandas',
   'streamlit': 'devicon:streamlit',
   'git': 'devicon:git',
+  'git/github': 'devicon:github',
   'nextjs': 'devicon:nextjs',
+  'nextjs 14 (app router)': 'devicon:nextjs',
   'react': 'devicon:react',
+  'react 18': 'devicon:react',
   'fastapi': 'devicon:fastapi',
   'sqlite': 'devicon:sqlite',
   'supabase': 'devicon:supabase',
@@ -74,12 +79,22 @@ const techIconMap = {
   'tailwindcss': 'devicon:tailwindcss',
   'langchain': 'simple-icons:langchain',
   'azure': 'mdi:microsoft-azure',
+  'azure sql': 'mdi:microsoft-azure',
+  'power bi': 'simple-icons:powerbi',
+  'power apps': 'mdi:microsoft-azure',
   'powerbi': 'simple-icons:powerbi',
   'aws': 'devicon:amazonwebservices-wordmark',
   'docker': 'devicon:docker',
+  'github actions': 'devicon:githubactions',
   'github-actions': 'devicon:githubactions',
   'kubernetes': 'devicon:kubernetes',
-  'vision': 'mdi:eye'
+  'kubernetes (eks)': 'devicon:kubernetes',
+  'vision': 'mdi:eye',
+  'vision api (gemini 2.0 flash)': 'mdi:eye',
+  'gradio': 'simple-icons:gradio',
+  'server actions': 'mdi:server',
+  'data modeling': 'mdi:database',
+  'agile/scrum': 'mdi:chart-gantt'
 };
 
 function chips(containerId, items) {

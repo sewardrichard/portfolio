@@ -1,32 +1,55 @@
 [
   {
-    "slug": "wp2-working-paper-populator",
-    "title": "WP2 - Working Paper Populator",
-    "short_description": "Full-stack automation for audit working papers, cutting prep time from hours to minutes.",
+    "slug": "auditflow-complete-audit-toolkit",
+    "title": "AuditFlow - Complete Audit Toolkit Suite",
+    "short_description": "A comprehensive suite of 8 specialized tools to streamline and automate end-to-end UIF COVID TERS audit workflows, cutting cycle times by up to 75%.",
     "featured": true,
-    "cover_image": "images/projects/wp2-working-paper-populator.jpg",
+    "cover_image": "images/projects/auditflow-suite.jpg",
     "gallery": [
-      "images/projects/wp2-working-paper-populator.jpg"
+      "images/projects/auditflow-suite.jpg"
     ],
-    "tech_stack": ["python", "pandas", "streamlit", "git"],
-    "tags": ["automation", "data-processing", "internal-tools"],
-    "why_built": "Manual reconciliation of audit working papers was slow and error-prone. The goal was to automate population and validation to save time and reduce mistakes.",
+    "tech_stack": [
+      "python",
+      "streamlit",
+      "pandas",
+      "sqlite"
+    ],
+    "tags": [
+      "automation",
+      "audit",
+      "compliance",
+      "internal-tools",
+      "data-processing"
+    ],
+    "why_built": "Existing audit workflows, particularly for UIF COVID TERS, were slow, manually intensive, and error-prone. The suite was built to eliminate manual bottlenecks, improve reliability, and ensure full regulatory compliance for complex audit processes.",
     "development_approach": [
-      "Iterated a Python ETL pipeline to ingest, validate, and transform spreadsheet inputs.",
-      "Built a Streamlit UI for configuration and progress monitoring.",
-      "Added export routines to generate standardized outputs and logs."
+      "Developed 8 specialized tools to cover all aspects of the audit workflow, including communication (Email/Calls tracking), documentation (Working Papers/Reports), and analytics.",
+      "Utilized Python and Streamlit to build robust data processing pipelines and interactive UI/dashboards, such as the Audit Report Generator.",
+      "Implemented automated processes for data consolidation (Weekly Register Populator) and file handling (File Finder & Copier).",
+      "Integrated IMAP sync and SQLite metrics for real-time tracking of email volumes and performance."
     ],
     "challenges": [
-      {"challenge": "Inconsistent input formats across teams.", "solution": "Implemented schema validation and auto-mapping with fallback prompts."},
-      {"challenge": "Performance on large files.", "solution": "Vectorized transformations and minimized I/O roundtrips."}
+      {
+        "challenge": "Integrating multiple distinct audit steps into a seamless workflow.",
+        "solution": "Designed an integrated suite of 8 tools (Working Paper Generator, Email Tracker, etc.) that work together for complete workflow coverage."
+      },
+      {
+        "challenge": "Achieving high-speed processing for complex, multi-source audit data.",
+        "solution": "Built tools to process workflows 10x faster and reduce audit cycle times by using efficient, automated methods."
+      }
     ],
     "outcomes": [
-      "Reduced preparation time from 3–4 hours to under 5 minutes.",
-      "Improved reliability and audit traceability with logs."
+      "Reduced audit cycle times and manual effort by up to 75%.",
+      "Achieved an estimated saving of 50+ hours per week for audit teams.",
+      "Improved report quality and ensured 100% compliance with built-in checks and audit trails."
     ],
-    "metrics": [">90% reduction in manual effort"],
+    "metrics": [
+      "75% reduction in audit cycle time",
+      "99% accuracy rate",
+      "50+ hours saved per week"
+    ],
     "repo_url": "#",
-    "live_url": "#",
+    "live_url": "https://peakdesignteam.github.io/audit_flow/",
     "video_url": "#"
   },
   {
@@ -56,32 +79,6 @@
     "video_url": "#"
   },
   {
-    "slug": "ai-prompt-optimization-tool",
-    "title": "AI Prompt Optimization Tool",
-    "short_description": "Interactive tool to refine and test LLM prompts for better quality outputs.",
-    "featured": true,
-    "cover_image": "images/projects/ai-prompt-optimization-tool.webp",
-    "gallery": [
-      "images/projects/ai-prompt-optimization-tool.webp"
-    ],
-    "tech_stack": ["python", "langchain", "streamlit"],
-    "tags": ["ai", "llm", "prompt-engineering"],
-    "why_built": "Teams need a structured way to iterate on prompts and benchmark quality.",
-    "development_approach": [
-      "LangChain wrappers to swap models and templates.",
-      "Streamlit UI for side-by-side comparisons and ratings.",
-      "Export baseline prompts and settings for reuse."
-    ],
-    "challenges": [
-      {"challenge": "Subjective quality assessment.", "solution": "Added rubric-based scoring and pairwise comparison views."}
-    ],
-    "outcomes": ["Higher consistency and faster experimentation cycles."],
-    "metrics": ["~30% improvement in rubric scores"],
-    "repo_url": "#",
-    "live_url": "#",
-    "video_url": "#"
-  },
-  {
     "slug": "member-data-manager",
     "title": "Member Data Manager",
     "short_description": "Cloud-based lifecycle management with dashboards for Project Y members.",
@@ -103,32 +100,6 @@
     ],
     "outcomes": ["Single source of truth and real-time visibility."],
     "metrics": ["Reduced report turnaround to same-day"],
-    "repo_url": "#",
-    "live_url": "#",
-    "video_url": "#"
-  },
-  {
-    "slug": "multi-cloud-deployment",
-    "title": "Multi-Cloud Deployment",
-    "short_description": "Production-grade Streamlit app deployed to AWS & Azure with unified CI/CD.",
-    "featured": false,
-    "cover_image": "images/projects/multi-cloud-deployment.webp",
-    "gallery": [
-      "images/projects/multi-cloud-deployment.webp"
-    ],
-    "tech_stack": ["aws", "azure", "docker", "github-actions"],
-    "tags": ["devops", "cicd", "cloud"],
-    "why_built": "Demonstrate portable deployments across major clouds.",
-    "development_approach": [
-      "Containerized app with Docker.",
-      "Reusable CI/CD workflows targeting multiple providers.",
-      "Infra parameters extracted to env-specific configs."
-    ],
-    "challenges": [
-      {"challenge": "Divergent cloud primitives.", "solution": "Abstracted differences with provider-specific adapters."}
-    ],
-    "outcomes": ["One pipeline, multi-cloud targets."] ,
-    "metrics": ["<10 minutes deployment time"],
     "repo_url": "#",
     "live_url": "#",
     "video_url": "#"

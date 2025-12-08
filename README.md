@@ -238,6 +238,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📬 Contact
 
-- **Email**: [your-email@example.com](mailto:sewardrichardmupereri@gmail.com)
+- **Email**: [sewardrichardmupereri@gmail.com](mailto:sewardrichardmupereri@gmail.com)
 - **LinkedIn**: [linkedin.com/in/sewardmupereri](https://linkedin.com/in/sewardmupereri)
 - **GitHub**: [github.com/sewardmupereri](https://github.com/sewardmupereri)

@@ -54,28 +54,62 @@
   },
   {
     "slug": "uniexplorer",
-    "title": "UniExplorer",
-    "short_description": "SA university program recommender based on results and preferences.",
+    "title": "UniExplorer: University Program Aggregator & Eligibility Calculator",
+    "short_description": "Developed a Next.js (App Router) and SQLite platform to aggregate 500+ South African university programs, offering real-time APS score calculation and personalized eligibility recommendations.",
     "featured": true,
     "cover_image": "images/projects/uniexplorer.jpg",
     "gallery": [
       "images/projects/uniexplorer.jpg"
     ],
-    "tech_stack": ["nextjs", "react", "fastapi", "sqlite"],
-    "tags": ["webapp", "recommendation", "education"],
-    "why_built": "Students struggle to discover suitable programs. This tool narrows options based on results and goals.",
+    "tech_stack": [
+      "nextjs 14 (app router)",
+      "react 18",
+      "typescript",
+      "tailwindcss",
+      "sqlite",
+      "python",
+      "server actions",
+      "data modeling"
+    ],
+    "tags": [
+      "full-stack",
+      "data-aggregation",
+      "education-tech",
+      "nextjs",
+      "recommendation-engine",
+      "etl-pipeline",
+      "supabase"
+    ],
+    "why_built": "Addressed the problem of **information fragmentation** in tertiary education by consolidating scattered university prospectus data (admission requirements, fees, deadlines) into a single, intelligent platform to streamline student decision-making.",
     "development_approach": [
-      "REST API in FastAPI for matching and scoring.",
-      "Next.js frontend with server-side rendering for fast loads.",
-      "SQLite for light-weight persistence and prototyping."
+      "Architecture: Built a modern **Next.js 14 App Router** application, leveraging **Server Actions** for efficient data fetching and mutations, ensuring performance through server-side rendering.",
+      "Data Logic: Implemented a proprietary **Eligibility Checker** that calculates a student's **APS (Admission Point Score)** in real-time against granular program requirements (subjects, minimum scores, levels) stored in a normalized **SQLite database** (currently in development).",
+      "Frontend Engineering: Utilized **TypeScript** and **TailwindCSS** to create a responsive, mobile-first UI with shared state management via **React Context** (e.g., EligibilityProvider).",
+      "Database Design: Designed a **normalized relational schema** (universities, programmes, subjects, careers, program_subjects) to manage complex, inter-related eligibility criteria with high data integrity.",
+      "Scalability: Migrating to **Supabase PostgreSQL** for production-grade scalability and implementing **Supabase Auth** for secure user authentication and saved preferences.",
+      "Data Pipeline (Planned): Developing an automated **ETL pipeline** using Python to extract program data from university PDF prospectuses, transform it into structured records, and load it into the Supabase database for continuous data updates."
     ],
     "challenges": [
-      {"challenge": "Ambiguous program requirements.", "solution": "Normalized criteria and exposed transparency in scoring."}
+      {
+        "challenge": "Consolidating Ambiguous and Fragmented Program Requirements",
+        "solution": "**Normalized all admission criteria** (APS, subject prerequisites) into structured, queryable data fields within the database, providing **transparency in scoring** and clear fit explanations to the user."
+      },
+      {
+        "challenge": "Maintaining Application Responsiveness with Complex Filtering",
+        "solution": "Optimized data flow by using Next.js **Server Actions** for database queries, minimizing client-side load and ensuring rapid display of filtered results from the 500+ program database."
+      }
     ],
-    "outcomes": ["Faster decision-making and clear fit explanations."],
-    "metrics": ["~70% average search narrowing"],
-    "repo_url": "#",
-    "live_url": "#",
+    "outcomes": [
+      "Delivered a **single source of truth** for South African tertiary education information.",
+      "Enabled students to get personalized eligibility feedback and narrow their search options by **~70%** on average.",
+      "Provided clear, data-driven explanations for qualification status, replacing eligibility confusion with certainty."
+    ],
+    "metrics": [
+      "Achieved **~70% average search narrowing** through personalized eligibility filtering.",
+      "Database contains **500+** university program records and their associated subject requirements."
+    ],
+    "repo_url": "YOUR_GITHUB_LINK_HERE",
+    "live_url": "YOUR_LIVE_DEMO_LINK_HERE",
     "video_url": "#"
   },
   {
@@ -136,27 +170,58 @@
   },
   {
     "slug": "ai-car-inspector",
-    "title": "AI Car Inspector",
-    "short_description": "Web app analyzing car images to extract make, model, condition, and issues.",
-    "featured": false,
+    "title": "AI Car Inspector: Containerized Vision API & MLOps Deployment on AWS EKS",
+    "short_description": "Architected, containerized, and deployed a Python/Gradio web application that uses **Google's Gemini 2.0 Flash** Vision API for two-stage vehicle identification, quality assessment, and attribute extraction, orchestrated via Kubernetes.",
+    "featured": true,
     "cover_image": "images/projects/ai-car-inspector.jpg",
     "gallery": [
       "images/projects/ai-car-inspector.jpg"
     ],
-    "tech_stack": ["python", "vision", "docker", "kubernetes"],
-    "tags": ["ai", "vision", "automation"],
-    "why_built": "Reduce manual inspection time and improve consistency.",
+    "tech_stack": [
+      "python 3.11",
+      "vision api (gemini 2.0 flash)",
+      "docker",
+      "kubernetes (eks)",
+      "aws",
+      "github actions",
+      "gradio"
+    ],
+    "tags": [
+      "mlops",
+      "devops",
+      "containerization",
+      "generative-ai",
+      "cloud-deployment",
+      "vision-ai"
+    ],
+    "why_built": "Automate the time-consuming and inconsistent process of **manual vehicle inspection and data entry** at dealerships or auction sites. The goal was to provide a fast, standardized, and reliable digital alternative.",
     "development_approach": [
-      "Vision model for key attribute extraction.",
-      "Confidence thresholds and human-in-the-loop review.",
-      "Containerized microservices and autoscaling."
+      "AI Engineering: Integrated the **Gemini 2.0 Flash** vision model to perform a two-stage analysis: 1) Image verification (car/not car) and 2) Structured extraction of attributes (make, model, year, condition, color).",
+      "Containerization & CI/CD: Containerized the Python application using **Docker** and built an automated **CI/CD pipeline** via **GitHub Actions** for image building, pushing to a registry, and zero-downtime deployment.",
+      "Cloud & Orchestration: Deployed the microservice to **AWS** using a **Kubernetes (EKS)** cluster. Wrote production-ready `deployment.yaml` and `service.yaml` to manage autoscaling and reliable service delivery.",
+      "Interface: Developed a simple, user-friendly UI using **Gradio** for immediate visualization of the AI-extracted data."
     ],
     "challenges": [
-      {"challenge": "Variable lighting and angles.", "solution": "Data augmentation and fallback heuristics."}
+      {
+        "challenge": "Maintaining Vision Model Accuracy Across Diverse Photography Conditions",
+        "solution": "Implemented strict **confidence thresholds** on the Vision API output and developed **fallback heuristics** to handle variable lighting, angles, or non-car images, ensuring data reliability."
+      },
+      {
+        "challenge": "Orchestrating Containerized Services on Cloud Infrastructure",
+        "solution": "Successfully deployed the image using **Kubernetes manifests** on AWS EKS, configuring load balancing and network security (e.g., secrets, firewalls) to ensure the service was externally accessible and stable."
+      }
     ],
-    "outcomes": ["Faster processing and better standardization."],
-    "metrics": ["~50% fewer manual steps"],
-    "repo_url": "#",
+    "outcomes": [
+      "Established a fully automated MLOps pipeline, demonstrating expertise in production-ready AI application delivery.",
+      "Provided fast, accurate, and standardized data extraction for car inspection.",
+      "Achieved a highly available and scalable solution using Kubernetes orchestration."
+    ],
+    "metrics": [
+      "Achieved an estimated **~50% reduction in manual inspection steps** by automating initial data capture.",
+      "Implemented a CI/CD pipeline leading to **zero failed deployments** during the final sprint phase.",
+      "Successfully integrated and deployed the application using **Python 3.11, Docker, and AWS EKS**."
+    ],
+    "repo_url": "https://github.com/dev-api-org/ai-app-containerization",
     "live_url": "#",
     "video_url": "#"
   }

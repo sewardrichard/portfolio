@@ -65,7 +65,12 @@
     "featured": true,
     "cover_image": "images/projects/uniexplorer.jpg",
     "gallery": [
-      "images/projects/uniexplorer.jpg"
+      "images/projects/uniexplorer.jpg",
+      "images/projects/uniexplorer-1.png",
+      "images/projects/uniexplorer-2.png",
+      "images/projects/uniexplorer-3.png",
+      "images/projects/uniexplorer-4.png",
+      "images/projects/uniexplorer-5.png"
     ],
     "tech_stack": [
       "nextjs 14 (app router)",
@@ -114,7 +119,7 @@
       "Achieved **~70% average search narrowing** through personalized eligibility filtering.",
       "Database contains **500+** university program records and their associated subject requirements."
     ],
-    "repo_url": "YOUR_GITHUB_LINK_HERE",
+    "repo_url": "https://github.com/sewardrichard/uni_explorer",
     "live_url": "YOUR_LIVE_DEMO_LINK_HERE",
     "video_url": "#"
   },

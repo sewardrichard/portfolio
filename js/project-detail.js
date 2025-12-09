@@ -153,15 +153,92 @@ function linksList(containerId, project) {
   });
 }
 
+// Lightbox state
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function openLightbox(index) {
+  lightboxIndex = index;
+  const overlay = document.getElementById('lightbox-overlay');
+  const img = document.getElementById('lightbox-img');
+  const counter = document.getElementById('lightbox-counter');
+  
+  if (!overlay || !img) return;
+  
+  img.src = lightboxImages[lightboxIndex];
+  counter.textContent = lightboxImages.length > 1 ? `${lightboxIndex + 1} / ${lightboxImages.length}` : '';
+  overlay.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  
+  // Show/hide nav buttons
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+  if (prevBtn) prevBtn.classList.toggle('hidden', lightboxImages.length <= 1);
+  if (nextBtn) nextBtn.classList.toggle('hidden', lightboxImages.length <= 1);
+}
+
+function closeLightbox() {
+  const overlay = document.getElementById('lightbox-overlay');
+  if (overlay) overlay.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function lightboxNav(dir) {
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  const img = document.getElementById('lightbox-img');
+  const counter = document.getElementById('lightbox-counter');
+  if (img) img.src = lightboxImages[lightboxIndex];
+  if (counter) counter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+}
+
+function createLightboxModal() {
+  if (document.getElementById('lightbox-overlay')) return;
+  
+  const overlay = document.createElement('div');
+  overlay.id = 'lightbox-overlay';
+  overlay.className = 'fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center';
+  overlay.innerHTML = `
+    <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-brand-lime transition z-50">&times;</button>
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-lime transition z-50">&#8249;</button>
+    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-lime transition z-50">&#8250;</button>
+    <div class="max-w-[90vw] max-h-[90vh] flex flex-col items-center">
+      <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain rounded-lg" alt="Gallery image">
+      <span id="lightbox-counter" class="text-white text-sm mt-3"></span>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  
+  // Event listeners
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => lightboxNav(-1));
+  document.getElementById('lightbox-next').addEventListener('click', () => lightboxNav(1));
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeLightbox();
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (overlay.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+    if (e.key === 'ArrowRight') lightboxNav(1);
+  });
+}
+
 function gallery(containerId, images) {
   const el = document.getElementById(containerId);
   if (!el) return;
   el.innerHTML = '';
-  (images || []).forEach(src => {
+  lightboxImages = images || [];
+  
+  createLightboxModal();
+  
+  lightboxImages.forEach((src, index) => {
     const img = document.createElement('img');
     img.src = src;
     img.alt = 'project image';
-    img.className = 'w-full h-48 object-cover rounded-lg';
+    img.className = 'h-48 w-auto flex-shrink-0 object-contain rounded-lg cursor-pointer hover:opacity-80 transition';
+    img.addEventListener('click', () => openLightbox(index));
     el.appendChild(img);
   });
 }

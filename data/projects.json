@@ -127,7 +127,9 @@
     "gallery": [
       "images/projects/digital-farmers-1.png",
       "images/projects/digital-farmers.png",
-      "images/projects/digital-farmers-2.png"
+      "images/projects/digital-farmers-2.png",
+      "images/projects/digital-farmers-3.jpg"
+
     ],
     "tech_stack": [
       "tensorflow",
@@ -187,9 +189,13 @@
     "title": "Project Y - Member Data Manager",
     "short_description": "Engineered a secure, cloud-native Power Platform solution on Azure SQL to replace manual processes, managing the full member lifecycle and providing real-time Business Intelligence via Power BI.",
     "featured": false,
-    "cover_image": "images/projects/member-data-manager.jpg",
+    "cover_image": "images/projects/member-data-manager-cover.png",
     "gallery": [
-      "images/projects/member-data-manager.jpg"
+      "images/projects/member-data-manager.jpg",
+      "images/projects/member-data-manager-1.png",
+      "images/projects/member-data-manager-2.png",
+      "images/projects/member-data-manager-3.png",
+      "images/projects/member-data-manager-4.png"
     ],
     "tech_stack": [
       "azure sql",
@@ -234,8 +240,8 @@
       "100% elimination of critical data redundancy and version control issues.",
       "Enabled full-lifecycle tracking across enrollment, team assignment, and progress scoring."
     ],
-    "repo_url": "YOUR_GITHUB_LINK_HERE",
-    "live_url": "#",
+    "repo_url": "https://github.com/dev-api-org/Smart-Data-Manager",
+    "live_url": "https://apps.powerapps.com/play/e/9b639ea5-e8cb-e489-95b0-93bbac89f146/a/a3638322-b401-4e7c-96c2-7a82f76d6a7a?tenantId=a3f14f21-237f-4028-b978-425eb768a716&hint=58507349-040f-4bce-99bd-4d9baa8c8f42&sourcetime=1763540048012&source=portal",
     "video_url": "#"
   },
   {

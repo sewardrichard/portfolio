@@ -116,7 +116,7 @@
     "slug": "memeber-data-manager",
     "title": "Project Y - Member Data Manager",
     "short_description": "Engineered a secure, cloud-native Power Platform solution on Azure SQL to replace manual processes, managing the full member lifecycle and providing real-time Business Intelligence via Power BI.",
-    "featured": true,
+    "featured": false,
     "cover_image": "images/projects/member-data-manager.jpg",
     "gallery": [
       "images/projects/member-data-manager.jpg"
@@ -169,10 +169,72 @@
     "video_url": "#"
   },
   {
+    "slug": "digital-farmers-tomato-disease-detection",
+    "title": "Digital Farmers: Tomato Disease Detection Tool",
+    "short_description": "AI-powered web application that instantly diagnoses tomato leaf diseases from uploaded images using a CNN model trained on 14,529+ images. Identifies 10 disease classes with confidence scores and provides treatment recommendations.",
+    "featured": true,
+    "cover_image": "images/projects/digital-farmers.png",
+    "gallery": [
+      "images/projects/digital-farmers.png"
+    ],
+    "tech_stack": [
+      "tensorflow",
+      "keras",
+      "fastapi",
+      "python",
+      "vanilla javascript",
+      "html5/css3",
+      "docker",
+      "kubernetes",
+      "nginx"
+    ],
+    "tags": [
+      "computer-vision",
+      "deep-learning",
+      "agri-tech",
+      "image-classification",
+      "rest-api",
+      "containerization",
+      "healthcare"
+    ],
+    "why_built": "Agricultural disease detection is typically slow, requires expert knowledge, and is inaccessible to small-scale farmers. This tool was built to democratize plant disease diagnosis by providing instant, accurate AI-powered identification accessible via a simple web interface.",
+    "development_approach": [
+      "Model Architecture: Designed and trained a Convolutional Neural Network (CNN) using TensorFlow/Keras on the PlantVillage dataset (14,529 images across 10 tomato disease classes).",
+      "Deep Learning Pipeline: Implemented data augmentation (random flip/rotation), normalization, and a 5-layer CNN architecture achieving 95%+ accuracy on the test set.",
+      "API Development: Built a production-ready REST API using FastAPI with image preprocessing, model inference, and JSON response formatting for seamless frontend integration.",
+      "Frontend Engineering: Created a responsive single-page application using vanilla JavaScript with drag-and-drop image upload, real-time prediction display, and detailed disease information modals.",
+      "Containerization & Deployment: Dockerized both frontend (Nginx) and backend (Uvicorn) services, created Kubernetes manifests for orchestrated deployment, and implemented CI/CD pipelines."
+    ],
+    "challenges": [
+      {
+        "challenge": "Achieving High Model Accuracy Across Visually Similar Disease Classes",
+        "solution": "Implemented robust data augmentation techniques and trained a deep 5-layer CNN architecture with carefully tuned hyperparameters (Adam optimizer, 25 epochs) to distinguish between similar diseases like Early Blight and Late Blight."
+      },
+      {
+        "challenge": "Ensuring Fast Inference and User Experience",
+        "solution": "Optimized the model for production by using TensorFlow SavedModel format, implemented efficient image preprocessing pipelines, and deployed on FastAPI for sub-second prediction times."
+      }
+    ],
+    "outcomes": [
+      "Delivered a fully functional AI-powered diagnostic tool accessible to farmers with minimal technical knowledge.",
+      "Achieved 95%+ accuracy on disease classification with confidence scoring for transparency.",
+      "Provided actionable treatment recommendations for each identified disease, enabling immediate farmer response."
+    ],
+    "metrics": [
+      "95%+ model accuracy on test dataset",
+      "Sub-second prediction response time",
+      "10 disease classes identified (9 diseases + healthy)",
+      "Trained on 14,529 labeled images"
+    ],
+    "repo_url": "https://github.com/sewardrichard/tomato-leave-disease-detection",
+    "live_url": "#",
+    "video_url": "#"
+  },
+  {
     "slug": "ai-car-inspector",
     "title": "AI Car Inspector: Containerized Vision API & MLOps Deployment on AWS EKS",
     "short_description": "Architected, containerized, and deployed a Python/Gradio web application that uses **Google's Gemini 2.0 Flash** Vision API for two-stage vehicle identification, quality assessment, and attribute extraction, orchestrated via Kubernetes.",
-    "featured": true,
+    "featured": false,
     "cover_image": "images/projects/ai-car-inspector.jpg",
     "gallery": [
       "images/projects/ai-car-inspector.jpg"

@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 border-b border-white/10 pb-12 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
                 <div class="md:col-span-4 lg:sticky lg:top-24 self-start">
                     <h3 class="text-2xl font-bold text-white">Junior Software Engineer</h3>
                     <p class="text-brand-lime font-mono text-xs mt-2 uppercase">Oct 2024 — Oct 2025</p>
@@ -83,20 +83,55 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <div class="md:col-span-4 lg:sticky lg:top-24 self-start">
-                    <h3 class="text-2xl font-bold text-white">Graphic Designer</h3>
-                    <p class="text-brand-lime font-mono text-xs mt-2 uppercase">2016 — 2024</p>
-                    <p class="text-gray-500 text-xs mt-1">Self Employed</p>
-                </div>
-                <div class="md:col-span-8 md:pl-8 md:border-l border-white/10">
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        Guided new businesses in crafting brand identities and digital communication strategies.
-                        Developed a strong foundation in visual communication which now enhances my UI/UX work in
-                        Streamlit and React.
-                    </p>
+            <!-- Hidden experiences section -->
+            <div id="more-experiences" class="hidden mt-12 pt-12 border-t border-white/10">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                    <div class="md:col-span-4 lg:sticky lg:top-24 self-start">
+                        <h3 class="text-2xl font-bold text-white">Graphic Designer</h3>
+                        <p class="text-brand-lime font-mono text-xs mt-2 uppercase">2016 — 2024</p>
+                        <p class="text-gray-500 text-xs mt-1">Self Employed</p>
+                    </div>
+                    <div class="md:col-span-8 md:pl-8 md:border-l border-white/10">
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Guided new businesses in crafting brand identities and digital communication strategies.
+                            Developed a strong foundation in visual communication which now enhances my UI/UX work in
+                            Streamlit and React.
+                        </p>
+                    </div>
                 </div>
             </div>
+
+            <!-- Show more/less button -->
+            <div class="flex justify-center mt-8">
+                <button id="toggle-experiences" class="flex items-center gap-2 border border-white/20 px-5 py-2.5 rounded-full text-sm font-medium text-gray-300 hover:border-brand-lime hover:text-brand-lime transition">
+                    <span id="toggle-text">Show more experience</span>
+                    <span class="iconify w-4 h-4 transition-transform duration-300" data-icon="mdi:chevron-down" id="toggle-chevron"></span>
+                </button>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const toggleBtn = document.getElementById('toggle-experiences');
+                    const moreExp = document.getElementById('more-experiences');
+                    const toggleText = document.getElementById('toggle-text');
+                    const toggleChevron = document.getElementById('toggle-chevron');
+                    
+                    if (toggleBtn && moreExp) {
+                        toggleBtn.addEventListener('click', function() {
+                            const isHidden = moreExp.classList.contains('hidden');
+                            if (isHidden) {
+                                moreExp.classList.remove('hidden');
+                                toggleText.textContent = 'Show less';
+                                toggleChevron.style.transform = 'rotate(180deg)';
+                            } else {
+                                moreExp.classList.add('hidden');
+                                toggleText.textContent = 'Show more experience';
+                                toggleChevron.style.transform = '';
+                            }
+                        });
+                    }
+                });
+            </script>
 
         </div>
     </section>

@@ -127,8 +127,7 @@
     "gallery": [
       "images/projects/digital-farmers-1.png",
       "images/projects/digital-farmers.png",
-      "images/projects/digital-farmers-2.png",
-      "images/projects/digital-farmers-3.png"
+      "images/projects/digital-farmers-2.png"
     ],
     "tech_stack": [
       "tensorflow",

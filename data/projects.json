@@ -94,10 +94,63 @@
     "video_url": "#"
   },
   {
+    "slug": "mfz-ai-chatbot",
+    "title": "MFZ AI Chatbot: Automated Lead Routing & Support System",
+    "short_description": "24/7 intelligent WhatsApp & webchat assistant built on Botpress that automates lead qualification, geographic branch routing, and fair loan officer assignment while answering customer queries from a verified RAG knowledge base.",
+    "featured": true,
+    "cover_image": "images/projects/mfz-ai-chatbot.png",
+    "gallery": [
+      "images/projects/mfz-ai-chatbot.png"
+    ],
+    "tech_stack": [
+      "botpress cloud",
+      "whatsapp cloud api",
+      "webchat",
+      "rag",
+      "knowledge-base",
+      "stateful-routing"
+    ],
+    "tags": [
+      "conversational-ai",
+      "financial-services",
+      "automation",
+      "lead-routing",
+      "customer-support"
+    ],
+    "why_built": "Replaced MFZ Zambia's manual head-office WhatsApp operator with an automated, always-on system that can qualify leads, provide accurate answers from verified MFZ policies, and route customers to the right branch or loan officer without human bottlenecks.",
+    "development_approach": [
+      "Designed the conversation and decision flows in Botpress to capture user intent, collect key lead information, and guide customers through province and branch selection.",
+      "Implemented a Retrieval-Augmented Generation (RAG) layer using a curated MFZ knowledge base so the bot only answers from verified internal policies and documentation.",
+      "Modeled provinces, branches, loan officers, and assignment counters in Botpress Tables to support geographic routing and stateful distribution.",
+      "Built a fair load-balancing algorithm that assigns new loan leads to the officer at the selected branch with the lowest current assignment count (round-robin style).",
+      "Configured WhatsApp Cloud API and webchat channels so the bot can operate seamlessly on both mobile and web entry points."
+    ],
+    "challenges": [
+      {
+        "challenge": "Ensuring the bot stayed compliant and did not share sensitive financial terms like interest rates or repayment amounts.",
+        "solution": "Constrained the bot's responses to a verified MFZ knowledge base and explicitly restricted it from answering detailed pricing questions, instead handing off those topics to the assigned human loan officer."
+      },
+      {
+        "challenge": "Distributing leads fairly across many loan officers while respecting geography and avoiding overload.",
+        "solution": "Implemented a stateful assignment counter per officer in Botpress Tables and built logic to always route new leads to the officer with the lowest current assignment at the selected branch."
+      }
+    ],
+    "outcomes": [
+      "Eliminated the single-operator bottleneck at MFZ head office by automating lead capture, qualification, and routing.",
+      "Captured every after-hours lead via 24/7 availability, reducing the risk of losing customers to competitors due to delayed responses.",
+      "Provided standardized, accurate responses for all customers based on MFZ's verified policies and service descriptions.",
+      "Gave management better visibility into traffic, product interest, and branch/loan officer load patterns via chatbot interaction data."
+    ],
+    "metrics": [],
+    "repo_url": "https://github.com/sewardrichard/mfz-ai-chatbot",
+    "live_url": "https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2025/10/09/08/20251009082818-P14N8J8I.json",
+    "video_url": "#"
+  },
+  {
     "slug": "auditflow-complete-audit-toolkit",
     "title": "AuditFlow - Complete Audit Toolkit Suite",
     "short_description": "A comprehensive suite of 8 specialized tools to streamline and automate end-to-end UIF COVID TERS audit workflows, cutting cycle times by up to 75%.",
-    "featured": true,
+    "featured": false,
     "cover_image": "images/projects/auditflow-suite.jpg",
     "gallery": [
       "images/projects/auditflow-suite.jpg",
@@ -215,6 +268,52 @@
     ],
     "repo_url": "https://github.com/sewardrichard/uni_explorer",
     "live_url": "YOUR_LIVE_DEMO_LINK_HERE",
+    "video_url": "#"
+  },
+  {
+    "slug": "cost2class",
+    "title": "Cost2Class: Academic Budget Planner",
+    "short_description": "High-end, mobile-first academic budget planner that feels like a native app, helping families manage school fees, uniforms, stationery, and tasks with a sleek, polished interface and optional GitHub Cloud Sync.",
+    "featured": false,
+    "cover_image": "images/projects/cost2class.png",
+    "gallery": [
+      "images/projects/cost2class.png"
+    ],
+    "tech_stack": [
+      "html5/css3",
+      "javascript",
+      "local-storage",
+      "github-api",
+      "data-visualization"
+    ],
+    "tags": [
+      "personal-finance",
+      "education-tech",
+      "mobile-first",
+      "frontend",
+      "cloud-sync"
+    ],
+    "why_built": "Built to make school and academic budgeting feel premium, fast, and approachable for families by replacing clunky spreadsheets with a mobile-first, app-like planner that can optionally sync via GitHub.",
+    "development_approach": [
+      "Designed a mobile-first UI with bottom-sheet navigation, reachability-focused layout, and touch-optimized interactions.",
+      "Implemented glassmorphism headers, pastel dashboards, and smooth 60fps-feel animations to create a premium, native-app experience.",
+      "Implemented optional GitHub Cloud Sync using fine-grained Personal Access Tokens to read/write a JSON budget file via the GitHub Contents API.",
+      "Used browser Local Storage to persist user budgets on-device by default, keeping data local unless sync is explicitly enabled.",
+      "Built dynamic budget analytics (interactive donut charts and metric pills) to show total budget, spent amount, and remaining balance at a glance."
+    ],
+    "challenges": [
+      {
+        "challenge": "Designing a secure, backend-free sync mechanism that still lets users access the same budget across multiple devices.",
+        "solution": "Leveraged GitHub as a JSON data backend via fine-grained Personal Access Tokens, storing the token only in local storage and calling the GitHub API directly from the browser over HTTPS."
+      }
+    ],
+    "outcomes": [
+      "Delivered a premium academic budget planner that users can host for free via GitHub Pages.",
+      "Provided a privacy-friendly model where all financial data stays on the user's device, with CSV export for backups and migration."
+    ],
+    "metrics": [],
+    "repo_url": "https://github.com/sewardrichard/cost2class",
+    "live_url": "https://sewardrichard.github.io/cost2class/",
     "video_url": "#"
   },
   {

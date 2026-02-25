@@ -1,7 +1,8 @@
-    <section class="py-6 border-b border-white/5 bg-brand-black">
+    <section class="py-10 border-b border-white/5 bg-brand-black">
         <div class="container mx-auto px-6 md:px-12">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                <!-- Sidebar Filters -->
+                <aside class="md:col-span-4 lg:col-span-3 space-y-6">
                     <div>
                         <p class="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3">Filter by Tech Stack</p>
                         <div id="stack-filters" class="flex flex-wrap gap-2"></div>
@@ -10,9 +11,14 @@
                         <p class="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3">Filter by Tags</p>
                         <div id="tag-filters" class="flex flex-wrap gap-2"></div>
                     </div>
-                </div>
-                <div class="flex md:justify-end md:pt-6">
-                    <button id="clear-filters" class="border border-white/20 px-4 py-2 rounded-full text-xs font-bold hover:border-brand-lime hover:text-brand-lime transition hidden">Clear Filters</button>
+                    <div>
+                        <button id="clear-filters" class="border border-white/20 px-4 py-2 rounded-full text-xs font-bold hover:border-brand-lime hover:text-brand-lime transition hidden w-full text-center">Clear Filters</button>
+                    </div>
+                </aside>
+
+                <!-- Projects grid in main column -->
+                <div class="md:col-span-8 lg:col-span-9">
+                    <div id="projects-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
                 </div>
             </div>
         </div>

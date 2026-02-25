@@ -8,6 +8,9 @@ function initProjectsPage() {
   const stackFiltersEl = document.getElementById('stack-filters');
   const tagFiltersEl = document.getElementById('tag-filters');
   const clearBtn = document.getElementById('clear-filters');
+  const filtersPanel = document.getElementById('filters-panel');
+  const toggleFiltersBtn = document.getElementById('toggle-filters');
+  const toggleFiltersLabel = document.getElementById('toggle-filters-label');
 
   if (!grid || !stackFiltersEl || !tagFiltersEl) return;
 
@@ -134,6 +137,20 @@ function initProjectsPage() {
         });
         updateClearButton();
         renderGrid();
+      });
+    }
+
+    // Filters panel toggle (collapsed by default)
+    if (filtersPanel && toggleFiltersBtn && toggleFiltersLabel) {
+      toggleFiltersBtn.addEventListener('click', () => {
+        const isHidden = filtersPanel.classList.contains('hidden');
+        if (isHidden) {
+          filtersPanel.classList.remove('hidden');
+          toggleFiltersLabel.textContent = 'Hide filters';
+        } else {
+          filtersPanel.classList.add('hidden');
+          toggleFiltersLabel.textContent = 'Show filters';
+        }
       });
     }
   }

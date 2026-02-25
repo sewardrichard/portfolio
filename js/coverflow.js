@@ -1,239 +1,95 @@
-/* ==========================================================================
-   Seward Mupereri Portfolio - Coverflow Projects Component
+/* ========================================================================== 
+   Seward Mupereri Portfolio - Featured Projects Row (3 animated cards)
    ========================================================================== */
 
-let __coverflow_inited = false;
-let projects = [];
-let currentIndex = 0;
-let autoScrollInterval = null;
+let __featured_row_inited = false;
 
-// Tech stack name mapping for Iconify icons
-const techIconMap = {
-    'python': 'devicon:python',
-    'python 3.11': 'devicon:python',
-    'python (pandas, sqlalchemy)': 'devicon:python',
-    'pandas': 'devicon:pandas',
-    'streamlit': 'devicon:streamlit',
-    'git': 'devicon:git',
-    'git/github': 'devicon:github',
-    'nextjs': 'devicon:nextjs',
-    'nextjs 14 (app router)': 'devicon:nextjs',
-    'react': 'devicon:react',
-    'react 18': 'devicon:react',
-    'fastapi': 'devicon:fastapi',
-    'sqlite': 'devicon:sqlite',
-    'supabase': 'devicon:supabase',
-    'typescript': 'devicon:typescript',
-    'tailwindcss': 'devicon:tailwindcss',
-    'langchain': 'simple-icons:langchain',
-    'azure': 'mdi:microsoft-azure',
-    'azure sql': 'mdi:microsoft-azure',
-    'power bi': 'simple-icons:powerbi',
-    'power apps': 'mdi:microsoft-azure',
-    'powerbi': 'simple-icons:powerbi',
-    'aws': 'devicon:amazonwebservices-wordmark',
-    'docker': 'devicon:docker',
-    'github actions': 'devicon:githubactions',
-    'github-actions': 'devicon:githubactions',
-    'kubernetes': 'devicon:kubernetes',
-    'kubernetes (eks)': 'devicon:kubernetes',
-    'vision': 'mdi:eye',
-    'vision api (gemini 2.0 flash)': 'mdi:eye',
-    'gradio': 'simple-icons:gradio',
-    'server actions': 'mdi:server',
-    'data modeling': 'mdi:database',
-    'agile/scrum': 'mdi:chart-gantt'
-};
+async function loadFeaturedProjectsRow() {
+  try {
+    const response = await fetch('data/projects.json', { cache: 'no-cache' });
+    const allProjects = await response.json();
 
-async function loadFeaturedProjects() {
-    try {
-        const response = await fetch('data/projects.json');
-        const allProjects = await response.json();
-        // Filter only featured projects
-        projects = allProjects
-            .filter(p => p.featured === true)
-            .map(p => ({
-                slug: p.slug,
-                title: p.title,
-                description: p.short_description,
-                image: p.cover_image,
-                tools: p.tech_stack.map(t => techIconMap[t] || t),
-                github: p.repo_url,
-                demo: p.live_url
-            }));
-        return projects;
-    } catch (error) {
-        console.error('Error loading projects:', error);
-        return [];
-    }
+    const featured = (allProjects || [])
+      .filter(p => p.featured === true)
+      .slice(0, 3);
+
+    return featured;
+  } catch (err) {
+    console.error('Failed to load featured projects', err);
+    return [];
+  }
 }
 
-async function createCoverFlow() {
-    const coverflow = document.getElementById('coverflow');
-    if (!coverflow) return;
-    
-    // Load projects from JSON
-    await loadFeaturedProjects();
-    if (projects.length === 0) return;
-    
-    coverflow.innerHTML = '';
+async function renderFeaturedProjectsRow() {
+  if (__featured_row_inited) return;
+  __featured_row_inited = true;
 
-    projects.forEach((project, index) => {
-        const item = document.createElement('div');
-        item.className = 'cover-item';
-        item.onclick = () => navigateToIndex(index);
+  const container = document.getElementById('featured-projects-row');
+  if (!container) return;
 
-        const toolIcons = project.tools.map(tool => 
-            `<span class="iconify w-5 h-5 text-brand-lime" data-icon="${tool}" title="${tool}"></span>`
-        ).join('');
+  const projects = await loadFeaturedProjectsRow();
+  if (!projects.length) {
+    container.innerHTML = '<p class="text-sm text-gray-500 text-center">No featured projects yet.</p>';
+    return;
+  }
 
-        item.innerHTML = `
-            <a href="project.html?slug=${project.slug}" class="cover block cursor-pointer">
-                <img src="${project.image}" alt="${project.title}" class="cover-image">
-                <div class="cover-overlay"></div>
-                <div class="absolute bottom-3 left-3 flex gap-2 z-10">
-                    ${toolIcons}
-                </div>
-            </a>
-            <div class="text-center mt-4">
-                <div class="text-sm font-semibold uppercase text-brand-lime tracking-widest">
-                    ${project.title}
-                </div>
-                <div class="cover-description text-xs text-gray-400 mt-1 px-2 transition-opacity duration-500 opacity-0">
-                    ${project.description}
-                </div>
+  container.innerHTML = `
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      ${projects
+        .map(
+          p => `
+        <button
+          type="button"
+          onclick="window.location.href='project.html?slug=${p.slug}'"
+          class="group block w-full text-left bg-white/5 border border-white/10 rounded-2xl overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-lime/20 hover:border-brand-lime focus:outline-none focus:ring-2 focus:ring-brand-lime focus:ring-offset-2 focus:ring-offset-brand-black"
+        >
+          <div class="aspect-video overflow-hidden">
+            <img
+              src="${p.cover_image}"
+              alt="${p.title}"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          <div class="p-5 flex flex-col gap-3">
+            <h3 class="text-sm font-semibold text-white group-hover:text-brand-lime transition-colors">
+              ${p.title}
+            </h3>
+            <p class="text-xs text-gray-400 line-clamp-3">
+              ${p.short_description}
+            </p>
+            <div class="flex flex-wrap gap-1 mt-1">
+              ${(p.tech_stack || [])
+                .slice(0, 4)
+                .map(
+                  t => `<span class=\"px-2 py-0.5 rounded-full bg-white/5 text-[10px] uppercase tracking-wide text-gray-400\">${t}</span>`
+                )
+                .join('')}
             </div>
-        `;
-
-        coverflow.appendChild(item);
-    });
-
-    updatePositions();
+            <div class="mt-3">
+              <span class="inline-flex items-center justify-center px-3 py-1.5 rounded-full bg-brand-lime/10 text-brand-lime text-xs font-medium opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+                View more
+              </span>
+            </div>
+          </div>
+        </button>
+      `
+        )
+        .join('')}
+    </div>
+  `;
 }
 
-function updatePositions() {
-    const items = document.querySelectorAll('.cover-item');
-
-    items.forEach((item, index) => {
-        item.className = 'cover-item';
-        const description = item.querySelector('.cover-description');
-
-        const diff = index - currentIndex;
-
-        if (diff === 0) {
-            item.classList.add('center');
-            // Fade in description for center item
-            if (description) {
-                description.classList.remove('opacity-0');
-                description.classList.add('opacity-100');
-            }
-        } else if (diff === -1) {
-            item.classList.add('left-1');
-        } else if (diff === -2) {
-            item.classList.add('left-2');
-        } else if (diff === 1) {
-            item.classList.add('right-1');
-        } else if (diff === 2) {
-            item.classList.add('right-2');
-        } else {
-            item.classList.add('hidden');
-        }
-
-        // Fade out description for non-center items
-        if (diff !== 0) {
-            if (description) {
-                description.classList.remove('opacity-100');
-                description.classList.add('opacity-0');
-            }
-        }
-    });
-}
-
-function navigate(direction) {
-    currentIndex += direction;
-
-    if (currentIndex < 0) {
-        currentIndex = projects.length - 1;
-    } else if (currentIndex >= projects.length) {
-        currentIndex = 0;
-    }
-
-    updatePositions();
-}
-
-function navigateToIndex(index) {
-    currentIndex = index;
-    updatePositions();
-}
-
-async function initCoverflow() {
-    if (__coverflow_inited) return;
-    __coverflow_inited = true;
-    const container = document.querySelector('.coverflow-container');
-    if (!container) return;
-    
-    await createCoverFlow();
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') navigate(-1);
-        if (e.key === 'ArrowRight') navigate(1);
-    });
-
-    // Auto-scroll every 3 seconds
-    autoScrollInterval = setInterval(() => navigate(1), 3000);
-
-    // Pause auto-scroll on hover, resume on leave
-    container.addEventListener('mouseenter', () => {
-        if (autoScrollInterval) {
-            clearInterval(autoScrollInterval);
-            autoScrollInterval = null;
-        }
-    });
-    
-    container.addEventListener('mouseleave', () => {
-        if (!autoScrollInterval) {
-            autoScrollInterval = setInterval(() => navigate(1), 3000);
-        }
-    });
-    
-    // Touch swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    container.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    
-    container.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        const swipeDistance = touchEndX - touchStartX;
-        
-        if (Math.abs(swipeDistance) > 50) {
-            if (swipeDistance > 0) {
-                navigate(-1); // Swipe right = previous
-            } else {
-                navigate(1); // Swipe left = next
-            }
-        }
-    }, { passive: true });
-}
-
-// Make navigate function globally available for button onclick
-window.navigate = navigate;
-
-// Initialize when DOM is ready and partials are loaded
-function runCoverflowInit() {
-    const start = () => initCoverflow();
-    if (window.__partialsReady) {
-        start();
-    } else {
-        window.addEventListener('partials:ready', start, { once: true });
-    }
+function initFeaturedProjectsRow() {
+  const start = () => renderFeaturedProjectsRow();
+  if (window.__partialsReady) {
+    start();
+  } else {
+    window.addEventListener('partials:ready', start, { once: true });
+  }
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', runCoverflowInit);
+  document.addEventListener('DOMContentLoaded', initFeaturedProjectsRow);
 } else {
-    runCoverflowInit();
+  initFeaturedProjectsRow();
 }

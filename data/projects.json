@@ -1,5 +1,99 @@
 [
   {
+    "slug": "autonomous-inventory-system-etl-pipeline",
+    "title": "Autonomous Inventory System - ETL Pipeline",
+    "short_description": "Production-ready Python ETL pipeline using DLT, DuckDB, FastAPI, SQLAlchemy, and pandas to solve the mining industry's shadow stock problem with auditable, AI-ready inventory data.",
+    "featured": true,
+    "cover_image": "images/projects/agentic-knowledge-engineering-data-pipeline.png",
+    "gallery": [
+      "images/projects/agentic-knowledge-engineering-data-pipeline.png"
+    ],
+    "tech_stack": [
+      "python",
+      "dlt",
+      "duckdb",
+      "fastapi",
+      "sqlalchemy",
+      "pandas"
+    ],
+    "tags": [
+      "agentic-ai",
+      "knowledge-engineering",
+      "data-engineering"
+    ],
+    "why_built": "Designed to address the mining industry's shadow stock problem by creating a reliable, auditable inventory data foundation that reduces operational leakage and supports downstream decision-making.",
+    "development_approach": [
+      "Implemented a Medallion Architecture (Bronze → Silver → Gold) to transform raw daily transactions into high-integrity, analytics-ready assets.",
+      "Developed bitemporal data models to handle late-arriving events and enable accurate point-in-time financial reconstruction and auditability.",
+      "Utilized DLT (Data Load Tool) for idempotent ingestion, eliminating duplication and tracking schema evolution automatically.",
+      "Exposed a FastAPI layer backed by SQLAlchemy, DuckDB, and pandas to deliver reliable, queryable inventory views.",
+      "Designed an AI-ready interface with agent-safe guardrails and reliability scoring to feed validated data into AI decision engines."
+    ],
+    "challenges": [
+      {
+        "challenge": "Maintaining a fully auditable view of inventory while ingesting late-arriving and corrected transactions.",
+        "solution": "Adopted bitemporal modeling and idempotent DLT-based ingestion to ensure consistent, reconstructable inventory states over time."
+      },
+      {
+        "challenge": "Serving AI-ready inventory data without exposing downstream agents to noisy or partially validated records.",
+        "solution": "Introduced an AI-facing FastAPI layer with guardrails and reliability scoring, ensuring only validated views are surfaced to decision engines."
+      }
+    ],
+    "outcomes": [
+      "Created a production-grade ETL pipeline tailored to mining inventory and shadow stock use cases.",
+      "Improved traceability and auditability of inventory data through bitemporal modeling and Medallion layering.",
+      "Established a clean, reliable surface for AI-driven analytics and decision support."
+    ],
+    "metrics": [],
+    "repo_url": "https://github.com/sewardrichard/agentic-knowledge-engineering-data-pipeline",
+    "live_url": "#",
+    "video_url": "#"
+  },
+  {
+    "slug": "elite-defense-academy-dbms",
+    "title": "Elite Defense Academy DBMS + ETL Pipeline",
+    "short_description": "Relational database management system and supporting ETL pipeline for the Elite Defense Academy, modeling students, courses, instructors, and operational workflows with normalized schema and SQL transformations.",
+    "featured": true,
+    "cover_image": "images/projects/elite-defense-academy-dbms.png",
+    "gallery": [
+      "images/projects/elite-defense-academy-dbms.png"
+    ],
+    "tech_stack": [
+      "sql",
+      "postgresql",
+      "database-design",
+      "er-modeling",
+      "etl"
+    ],
+    "tags": [
+      "dbms",
+      "database-design",
+      "education-tech",
+      "sql-project"
+    ],
+    "why_built": "Designed to provide a structured, queryable data backbone and repeatable ETL layer for managing an academy's core operations including students, instructors, and course offerings.",
+    "development_approach": [
+      "Modeled key entities and relationships in an ER diagram before translating them into a normalized relational schema.",
+      "Implemented tables, constraints, and indexes to enforce referential integrity and support common query patterns.",
+      "Designed an ETL pipeline to load and transform source data into the academy schema using structured SQL transformations.",
+      "Authored representative SQL queries and views to answer operational and reporting questions for the academy."
+    ],
+    "challenges": [
+      {
+        "challenge": "Designing a flexible schema that supports evolving course structures and enrollment rules.",
+        "solution": "Applied normalization and clear relationship modeling to separate concerns and keep the schema extensible."
+      }
+    ],
+    "outcomes": [
+      "Produced a reusable database design blueprint for academic or training-focused organizations.",
+      "Enabled consistent querying of students, courses, instructors, and performance across the academy."
+    ],
+    "metrics": [],
+    "repo_url": "https://github.com/sewardrichard/elite_defense_academy_dbms",
+    "live_url": "#",
+    "video_url": "#"
+  },
+  {
     "slug": "auditflow-complete-audit-toolkit",
     "title": "AuditFlow - Complete Audit Toolkit Suite",
     "short_description": "A comprehensive suite of 8 specialized tools to streamline and automate end-to-end UIF COVID TERS audit workflows, cutting cycle times by up to 75%.",
@@ -62,7 +156,7 @@
     "slug": "uniexplorer",
     "title": "UniExplorer: University Program Aggregator & Eligibility Calculator",
     "short_description": "Developed a Next.js (App Router) and SQLite platform to aggregate 500+ South African university programs, offering real-time APS score calculation and personalized eligibility recommendations.",
-    "featured": true,
+    "featured": false,
     "cover_image": "images/projects/uniexplorer.jpg",
     "gallery": [
       "images/projects/uniexplorer.jpg",
@@ -127,7 +221,7 @@
     "slug": "digital-farmers-tomato-disease-detection",
     "title": "Digital Farmers: Tomato Disease Detection Tool",
     "short_description": "AI-powered web application that instantly diagnoses tomato leaf diseases from uploaded images using a CNN model trained on 14,529+ images. Identifies 10 disease classes with confidence scores and provides treatment recommendations.",
-    "featured": true,
+    "featured": false,
     "cover_image": "images/projects/digital-farmers-1.png",
     "gallery": [
       "images/projects/digital-farmers-1.png",

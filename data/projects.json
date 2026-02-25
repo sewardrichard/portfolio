@@ -17,9 +17,8 @@
       "pandas"
     ],
     "tags": [
-      "agentic-ai",
-      "knowledge-engineering",
-      "data-engineering"
+      "AI",
+      "Data Engineering"
     ],
     "why_built": "Designed to address the mining industry's shadow stock problem by creating a reliable, auditable inventory data foundation that reduces operational leakage and supports downstream decision-making.",
     "development_approach": [
@@ -66,10 +65,7 @@
       "etl"
     ],
     "tags": [
-      "dbms",
-      "database-design",
-      "education-tech",
-      "sql-project"
+      "Data Engineering"
     ],
     "why_built": "Designed to provide a structured, queryable data backbone and repeatable ETL layer for managing an academy's core operations including students, instructors, and course offerings.",
     "development_approach": [
@@ -111,11 +107,7 @@
       "stateful-routing"
     ],
     "tags": [
-      "conversational-ai",
-      "financial-services",
-      "automation",
-      "lead-routing",
-      "customer-support"
+      "AI"
     ],
     "why_built": "Replaced MFZ Zambia's manual head-office WhatsApp operator with an automated, always-on system that can qualify leads, provide accurate answers from verified MFZ policies, and route customers to the right branch or loan officer without human bottlenecks.",
     "development_approach": [
@@ -168,11 +160,8 @@
       "sqlite"
     ],
     "tags": [
-      "automation",
-      "audit",
-      "compliance",
-      "internal-tools",
-      "data-processing"
+      "Software & Tools",
+      "Data Engineering"
     ],
     "why_built": "Existing audit workflows, particularly for UIF COVID TERS, were slow, manually intensive, and error-prone. The suite was built to eliminate manual bottlenecks, improve reliability, and ensure full regulatory compliance for complex audit processes.",
     "development_approach": [
@@ -230,13 +219,8 @@
       "data modeling"
     ],
     "tags": [
-      "full-stack",
-      "data-aggregation",
-      "education-tech",
-      "nextjs",
-      "recommendation-engine",
-      "etl-pipeline",
-      "supabase"
+      "Web Development",
+      "Data Engineering"
     ],
     "why_built": "Addressed the problem of **information fragmentation** in tertiary education by consolidating scattered university prospectus data (admission requirements, fees, deadlines) into a single, intelligent platform to streamline student decision-making.",
     "development_approach": [
@@ -287,11 +271,8 @@
       "data-visualization"
     ],
     "tags": [
-      "personal-finance",
-      "education-tech",
-      "mobile-first",
-      "frontend",
-      "cloud-sync"
+      "Web Development",
+      "Software & Tools"
     ],
     "why_built": "Built to make school and academic budgeting feel premium, fast, and approachable for families by replacing clunky spreadsheets with a mobile-first, app-like planner that can optionally sync via GitHub.",
     "development_approach": [
@@ -341,13 +322,9 @@
       "nginx"
     ],
     "tags": [
-      "computer-vision",
-      "deep-learning",
-      "agri-tech",
-      "image-classification",
-      "rest-api",
-      "containerization",
-      "healthcare"
+      "AI",
+      "Machine Learning",
+      "Web Development"
     ],
     "why_built": "Agricultural disease detection is typically slow, requires expert knowledge, and is inaccessible to small-scale farmers. This tool was built to democratize plant disease diagnosis by providing instant, accurate AI-powered identification accessible via a simple web interface.",
     "development_approach": [
@@ -404,11 +381,8 @@
       "agile/scrum"
     ],
     "tags": [
-      "data-engineering",
-      "cloud-architecture",
-      "low-code-development",
-      "business-intelligence",
-      "database-management"
+      "Data Engineering",
+      "Software & Tools"
     ],
     "why_built": "Migrated Project Y operations off decentralized spreadsheets, which caused critical data redundancy, version control issues, and data silos. The goal was to establish a secure, centralized Single Source of Truth for all program data.",
     "development_approach": [
@@ -461,12 +435,9 @@
       "gradio"
     ],
     "tags": [
-      "mlops",
-      "devops",
-      "containerization",
-      "generative-ai",
-      "cloud-deployment",
-      "vision-ai"
+      "AI",
+      "Machine Learning",
+      "Software & Tools"
     ],
     "why_built": "Automate the time-consuming and inconsistent process of **manual vehicle inspection and data entry** at dealerships or auction sites. The goal was to provide a fast, standardized, and reliable digital alternative.",
     "development_approach": [

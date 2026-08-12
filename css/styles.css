@@ -391,6 +391,11 @@ body.menu-open {
 
 /* Better touch targets on mobile */
 @media (max-width: 768px) {
+    /* Smooth momentum scrolling */
+    .overflow-x-auto, .overflow-y-auto {
+        -webkit-overflow-scrolling: touch;
+    }
+
     .mobile-touch-target {
         min-height: 44px;
         min-width: 44px;
@@ -399,6 +404,30 @@ body.menu-open {
     /* Adjust stats grid for mobile */
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Mobile typography scaling */
+    h1 {
+        font-size: clamp(2rem, 8vw, 3.5rem) !important;
+        line-height: 1.12 !important;
+        word-break: break-word;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 6vw, 2.25rem) !important;
+        line-height: 1.2 !important;
+    }
+
+    .filter-chip-btn {
+        padding: 0.5rem 0.75rem !important;
+        min-height: 38px;
+        font-size: 0.75rem !important;
+    }
+
+    #tag-filters, #stack-filters {
+        max-height: 180px;
+        overflow-y: auto;
+        padding-right: 2px;
     }
     
     /* Stack buttons on very small screens */
@@ -417,14 +446,14 @@ body.menu-open {
 /* Ensure proper spacing on mobile */
 @media (max-width: 640px) {
     .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
     }
     
     /* Reduce section padding on mobile */
     .section-padding {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+        padding-top: 3.5rem;
+        padding-bottom: 3.5rem;
     }
 }
 

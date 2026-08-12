@@ -4,15 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seward Mupereri | Data Engineer</title>
+    <title>Seward Mupereri | Founder, Data Engineer & Systems Architect</title>
+    <meta name="description" content="Personal portfolio of Seward Mupereri — Founder, Data Engineer & Systems Architect at Banya Labs. Specializing in Data Engineering, Medallion ETL, RAG Knowledge Engines, and Enterprise SaaS across Southern Africa.">
+    <meta name="keywords" content="Seward Mupereri, Banya Labs, Founder, Data Engineer, Systems Architect, Medallion ETL, RAG, pgvector, Python, South Africa, Zambia, Zimbabwe">
+    <meta property="og:title" content="Seward Mupereri | Founder, Data Engineer & Systems Architect">
+    <meta property="og:description" content="Founder at Banya Labs. Architecting Data Engineering pipelines, Enterprise RAG systems, and resilient B2B SaaS across Southern Africa.">
+    <meta property="og:url" content="https://sewardmupereri.banyalabs.com">
+    <meta property="og:type" content="website">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Google Fonts: Playfair Display, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,15 +26,21 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-black': '#050505',
-                        'brand-lime': '#baff00',
-                        'brand-gray': '#f4f4f4',
-                        'brand-dark': '#0a0a0a',
-                        'brand-border': '#1f1f1f',
+                        'brand-cream': '#F5F0E8',
+                        'brand-nearblack': '#1C1C1A',
+                        'card-surface': '#EDE8DF',
+                        'surface-raised': '#EDE8DF',
+                        'subtle-border': '#DED9CF',
+                        'ink-dim': '#7A756D',
+                        'brand-amber': '#E57A1A',
+                        'midnight-base': '#0a0a0a',
+                        'dark-card': '#161616',
+                        'dark-border': 'rgba(255,255,255,0.08)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
                     },
                     animation: {
                         'marquee': 'marquee 25s linear infinite',
@@ -68,7 +79,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="bg-brand-black text-brand-gray antialiased smooth-scroll selection:bg-brand-lime selection:text-black">
+<body class="bg-brand-cream text-brand-nearblack antialiased smooth-scroll selection:bg-brand-amber selection:text-white font-sans">
 
     <!-- Header & Mobile Menu -->
     <div data-include="partials/header.html"></div>
@@ -81,6 +92,9 @@
 
     <!-- About -->
     <div data-include="partials/about.html"></div>
+
+    <!-- Banya Labs Venture Portfolio Banner -->
+    <div data-include="partials/banya-banner.html"></div>
 
     <!-- Expertise + Skills wrapper (keeps #expertise anchor) -->
     <div id="expertise" class="scroll-section">
@@ -106,6 +120,7 @@
     <script src="js/main.js"></script>
     <script src="js/mobile-menu.js"></script>
     <script src="js/coverflow.js"></script>
+    <script src="js/dither-background.js"></script>
 
 </body>
 

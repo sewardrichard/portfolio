@@ -1,48 +1,54 @@
-    <footer id="contact" class="min-h-screen flex flex-col justify-between bg-brand-lime text-brand-black p-6 md:p-12">
+    <footer id="contact" class="min-h-screen flex flex-col justify-between bg-midnight-base text-white p-6 md:p-16 border-t border-white/10 relative overflow-hidden">
+        <!-- Subtle amber glow -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-amber/10 blur-[150px] rounded-full pointer-events-none"></div>
 
-        <div class="flex justify-between items-start border-b border-black/10 pb-8">
+        <div class="flex justify-between items-start border-b border-white/10 pb-8 relative z-10">
             <div>
-                <div class="text-xl font-bold flex items-center gap-1 display-font">
-                    SEWARD<span class="text-white text-lg align-top">*</span>
+                <div class="font-mono text-sm font-bold tracking-tight text-white">
+                    SEWARD MUPERERI
                 </div>
+                <p class="text-xs font-mono mt-1 text-brand-amber font-semibold">Founder @ Banya Labs</p>
             </div>
             <div class="text-right">
-                <p class="font-bold text-sm uppercase">Based in Pretoria, SA</p>
-                <p class="text-xs opacity-60">Open to Remote Work</p>
+                <p class="font-mono text-xs font-semibold text-white">Pretoria, South Africa</p>
+                <p class="text-xs text-gray-500 font-mono">sewardmupereri.banyalabs.com</p>
             </div>
         </div>
 
-        <div class="flex-1 flex flex-col justify-center items-center py-20">
-            <p class="text-sm font-mono uppercase tracking-widest mb-4">Have a project in mind?</p>
+        <div class="flex-1 flex flex-col justify-center items-center py-20 relative z-10">
+            <p class="text-xs font-mono uppercase tracking-widest text-brand-amber mb-6">Have a venture or engineering project in mind?</p>
             <a href="mailto:sewardrichardmupereri@gmail.com"
-                class="text-[8vw] md:text-[6vw] font-bold leading-none tracking-tighter hover:text-white transition duration-500 text-center">
-                Let's Discuss
+                class="font-serif text-[8vw] md:text-[6vw] font-bold leading-none tracking-tight text-white hover:text-brand-amber transition duration-300 text-center">
+                Let's Build Together
             </a>
-            <div class="mt-8 flex gap-4">
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="https://banyalabs.com/apps" target="_blank"
+                    class="bg-brand-amber text-black px-8 py-3.5 rounded-none font-mono text-xs font-semibold uppercase hover:bg-white transition duration-200 shadow-lg shadow-brand-amber/20">Banya App Registry ↗</a>
                 <a href="https://linkedin.com/in/seward-mupereri" target="_blank"
-                    class="bg-black text-white px-8 py-3 rounded-full text-sm font-bold hover:scale-105 transition transform">LinkedIn</a>
+                    class="border border-white/20 text-white px-8 py-3.5 rounded-none font-mono text-xs font-semibold uppercase hover:border-brand-amber hover:text-brand-amber transition duration-200">LinkedIn</a>
                 <a href="mailto:sewardrichardmupereri@gmail.com"
-                    class="border border-black px-8 py-3 rounded-full text-sm font-bold hover:bg-black hover:text-white transition">Email
-                    Me</a>
+                    class="border border-white/20 text-white px-8 py-3.5 rounded-none font-mono text-xs font-semibold uppercase hover:border-brand-amber hover:text-brand-amber transition duration-200">Email Founder</a>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-xs font-mono border-t border-black/10 pt-8 text-center sm:text-left">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-xs font-mono border-t border-white/10 pt-8 text-center sm:text-left text-gray-400 relative z-10">
             <div>
-                <span class="block opacity-50 mb-2">Socials</span>
+                <span class="block text-brand-amber mb-2 font-semibold">Ventures & Socials</span>
                 <ul class="space-y-1">
-                    <li><a href="https://linkedin.com/in/seward-mupereri" target="_blank" class="hover:underline">LinkedIn</a></li>
-                    <li><a href="https://github.com/sewardrichard" target="_blank" class="hover:underline">GitHub</a></li>
+                    <li><a href="https://banyalabs.com" target="_blank" class="hover:text-white font-semibold">Banya Labs (banyalabs.com)</a></li>
+                    <li><a href="https://linkedin.com/in/seward-mupereri" target="_blank" class="hover:text-white">LinkedIn</a></li>
+                    <li><a href="https://github.com/sewardrichard" target="_blank" class="hover:text-white">GitHub</a></li>
                 </ul>
             </div>
             <div>
-                <span class="block opacity-50 mb-2">Contact</span>
-                <p>+27 69 637 2803</p>
-                <p class="break-words">sewardrichardmupereri@gmail.com</p>
+                <span class="block text-brand-amber mb-2 font-semibold">Direct Contact</span>
+                <p class="text-white">+27 69 637 2803</p>
+                <p class="break-words hover:text-white">sewardrichardmupereri@gmail.com</p>
             </div>
             <div class="sm:col-span-2 md:text-right">
-                <p class="opacity-50"> 2025 Seward Mupereri.</p>
-                <p class="opacity-50">Data Engineering Portfolio.</p>
+                <p class="font-semibold text-white">© 2026 Seward Mupereri.</p>
+                <p class="text-gray-400">Founder & Systems Architect Portfolio.</p>
+                <p class="text-gray-500 text-[10px] mt-1">Hosted on Banya Server Infra (sewardmupereri.banyalabs.com)</p>
             </div>
         </div>
     </footer>

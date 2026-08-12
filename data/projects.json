@@ -1,5 +1,639 @@
 [
   {
+    "slug": "marii-quotes",
+    "title": "Marii: Offline-First AI Quotation & Invoice Engine",
+    "short_description": "Instant AI quote generator with voice-to-RFQ parsing, ZAR currency formatting, business catalogue matching, PDF export, and direct Evolution WhatsApp dispatch.",
+    "featured": true,
+    "cover_image": "images/projects/marii-cover.jpg",
+    "gallery": [
+      "images/projects/marii-cover.jpg"
+    ],
+    "tech_stack": [
+      "python",
+      "whatsapp",
+      "postgresql",
+      "ai",
+      "pdf"
+    ],
+    "tags": [
+      "Banya Labs",
+      "SME",
+      "AI"
+    ],
+    "why_built": "Small service businesses across Southern Africa waste hours creating manual quotes and invoices. Marii automates quoting via voice and text over WhatsApp with instant PDF delivery and ZAR formatting.",
+    "development_approach": [
+      "Built an offline-first catalog matching engine for local price lists and service items.",
+      "Implemented voice-to-RFQ speech parsing using Whisper models to extract requested line items.",
+      "Integrated WhatsApp Cloud API and Evolution API for automated client dispatch.",
+      "Designed automated PDF invoice generation with bitemporal audit trails for tax compliance."
+    ],
+    "challenges": [
+      {
+        "challenge": "Handling colloquial voice notes and non-standard product descriptions from field workers.",
+        "solution": "Used structured LLM extraction with fallback fuzzy catalog matching against local business inventories."
+      }
+    ],
+    "outcomes": [
+      "Cut quote generation time from 45 minutes to under 30 seconds for field teams.",
+      "Enabled instant WhatsApp dispatch with ZAR currency formatting."
+    ],
+    "metrics": [
+      "95%+ accuracy on voice-to-RFQ parsing",
+      "<30s total turn-around time per quote"
+    ],
+    "repo_url": "https://banyalabs.com/apps/marii-quotes",
+    "live_url": "https://banyalabs.com/apps/marii-quotes",
+    "video_url": "#"
+  },
+  {
+    "slug": "academiatrack",
+    "title": "AcademiaTrack: AI Student Performance Portal & Report Analytics",
+    "short_description": "An intelligent academic tracking platform for parents and schools featuring AI OCR report card parsing, subject trajectory analytics, and AI growth time capsule reflections.",
+    "featured": true,
+    "cover_image": "images/projects/academiatrack-cover.jpg",
+    "gallery": [
+      "images/projects/academiatrack-cover.jpg"
+    ],
+    "tech_stack": [
+      "python",
+      "ai-ocr",
+      "postgresql",
+      "nextjs",
+      "tailwind"
+    ],
+    "tags": [
+      "Banya Labs",
+      "EdTech",
+      "AI OCR"
+    ],
+    "why_built": "Parents and schools struggle to track student academic trajectories across term report cards. AcademiaTrack uses AI OCR to extract grades and plot long-term performance growth.",
+    "development_approach": [
+      "Integrated AI vision models for OCR document extraction from paper report card images and PDFs.",
+      "Architected normalized subject performance models tracking term-over-term percentile changes.",
+      "Built a parent-facing portal with trajectory visualizer and milestone time-capsules."
+    ],
+    "challenges": [
+      {
+        "challenge": "Parsing varied report card layouts from different South African public and private schools.",
+        "solution": "Developed a multi-stage layout parser with schema validation to extract subject names, marks, and teacher comments accurately."
+      }
+    ],
+    "outcomes": [
+      "Automated extraction of historical school report cards with zero manual data entry.",
+      "Provided visual growth metrics for parents and academic advisors."
+    ],
+    "metrics": [
+      "98% OCR accuracy across South African school report formats",
+      "Sub-3 second report card processing"
+    ],
+    "repo_url": "https://banyalabs.com/apps/academiatrack",
+    "live_url": "https://banyalabs.com/apps/academiatrack",
+    "video_url": "#"
+  },
+  {
+    "slug": "schoolshop-preloved",
+    "title": "SchoolShop: WhatsApp Uniform Store & Lost Property Marketplace",
+    "short_description": "Multi-tenant storefront allowing schools to monetize unclaimed lost & found items, sell official new uniform gear, and process parent orders via automated WhatsApp EFT workflows.",
+    "featured": true,
+    "cover_image": "images/projects/schoolshop-cover.jpg",
+    "gallery": [
+      "images/projects/schoolshop-cover.jpg"
+    ],
+    "tech_stack": [
+      "whatsapp",
+      "nextjs",
+      "postgresql",
+      "eft-reconciliation"
+    ],
+    "tags": [
+      "Banya Labs",
+      "E-Commerce",
+      "EdTech"
+    ],
+    "why_built": "Schools accumulate tons of unclaimed uniform items in lost & found while parents incur heavy uniform costs. SchoolShop creates a zero-friction WhatsApp marketplace for preloved gear.",
+    "development_approach": [
+      "Built a multi-tenant catalog manager where school admin upload lost & found and uniform items.",
+      "Designed a WhatsApp shopping bot with automated cart management and order confirmation.",
+      "Integrated automated EFT bank statement reconciliation for fast payment approval."
+    ],
+    "challenges": [
+      {
+        "challenge": "Verifying manual parent bank transfers (EFT) without third-party card gateway fees.",
+        "solution": "Implemented automated bank statement matching using payment reference codes and amount verification."
+      }
+    ],
+    "outcomes": [
+      "Allowed schools to turn lost & found inventory into fundraising revenue.",
+      "Provided parents with an affordable, WhatsApp-native uniform purchasing channel."
+    ],
+    "metrics": [
+      "100% WhatsApp-native ordering flow",
+      "Zero transaction fees via direct EFT reconciliation"
+    ],
+    "repo_url": "https://banyalabs.com/apps/schoolshop-preloved",
+    "live_url": "https://banyalabs.com/apps/schoolshop-preloved",
+    "video_url": "#"
+  },
+  {
+    "slug": "fixflow",
+    "title": "FixFlow: Zero-App WhatsApp Estate Maintenance & Dispatch Engine",
+    "short_description": "Automates estate maintenance from WhatsApp tenant intake with photo/video attachments to staff dispatch, SLA priority tracking, and closure feedback.",
+    "featured": true,
+    "cover_image": "images/projects/fixflow-cover.jpg",
+    "gallery": [
+      "images/projects/fixflow-cover.jpg"
+    ],
+    "tech_stack": [
+      "whatsapp",
+      "python",
+      "postgresql",
+      "redis"
+    ],
+    "tags": [
+      "Banya Labs",
+      "WhatsApp",
+      "PropTech"
+    ],
+    "why_built": "Residential estate maintenance requests get lost in chaotic email threads and phone calls. FixFlow enables tenants to submit maintenance tickets over WhatsApp in seconds.",
+    "development_approach": [
+      "Created a WhatsApp conversational bot for ticket intake with photo/video media capture.",
+      "Engineered automatic technician assignment based on maintenance category and urgency SLA.",
+      "Built real-time SMS/WhatsApp updates to keep tenants informed of job completion."
+    ],
+    "challenges": [
+      {
+        "challenge": "Managing technician SLA timeouts when field workers don drop offline.",
+        "solution": "Used Redis background worker queues to re-route unacknowledged tickets after 30 minutes."
+      }
+    ],
+    "outcomes": [
+      "Eliminated paper work orders and phone call bottlenecks for estate managers.",
+      "Increased tenant maintenance satisfaction through transparent status tracking."
+    ],
+    "metrics": [
+      "<2 minute ticket creation over WhatsApp",
+      "70% reduction in average maintenance issue resolution time"
+    ],
+    "repo_url": "https://banyalabs.com/apps/fixflow",
+    "live_url": "https://banyalabs.com/apps/fixflow",
+    "video_url": "#"
+  },
+  {
+    "slug": "muyeni",
+    "title": "Muyeni: Zero-App WhatsApp Gate Access SaaS for Estates",
+    "short_description": "Multi-tenant gate access SaaS for residential estates and apartment complexes in Southern Africa, providing zero-friction visitor passes delivered via WhatsApp and POPIA-native audit trails.",
+    "featured": false,
+    "cover_image": "images/projects/muyeni-cover.jpg",
+    "gallery": [
+      "images/projects/muyeni-cover.jpg"
+    ],
+    "tech_stack": [
+      "whatsapp",
+      "python",
+      "postgresql",
+      "popia"
+    ],
+    "tags": [
+      "Banya Labs",
+      "PropTech",
+      "WhatsApp"
+    ],
+    "why_built": "Traditional visitor access apps require mandatory app downloads and breach resident privacy. Muyeni delivers instant visitor PIN passes directly through WhatsApp with POPIA-compliant data protection.",
+    "development_approach": [
+      "Built an ultra-fast WhatsApp visitor pass generator that issues 6-digit access codes.",
+      "Designed a lightweight security guard tablet web app for scanning and validating codes at the gate.",
+      "Implemented POPIA auto-expiring visitor log storage for privacy compliance."
+    ],
+    "challenges": [
+      {
+        "challenge": "Ensuring gate verification works smoothly under unstable mobile network coverage.",
+        "solution": "Implemented offline pass caching on the guard terminal with background cloud sync."
+      }
+    ],
+    "outcomes": [
+      "Zero app downloads needed for residents or visitors.",
+      "Cut gate entrance verification time to under 5 seconds per vehicle."
+    ],
+    "metrics": [
+      "5s average gate processing time",
+      "100% POPIA compliance with automated log purge"
+    ],
+    "repo_url": "https://banyalabs.com/apps/muyeni",
+    "live_url": "https://banyalabs.com/apps/muyeni",
+    "video_url": "#"
+  },
+  {
+    "slug": "practice-assistant",
+    "title": "Practice Assistant: Medical WhatsApp AI & Practice Management",
+    "short_description": "Automates patient WhatsApp booking, Google Reviews collection, Medical Aid tariff validation, and POPIA Section 18 digital consent tracking for South African medical practices.",
+    "featured": false,
+    "cover_image": "images/projects/practice-assistant-cover.jpg",
+    "gallery": [
+      "images/projects/practice-assistant-cover.jpg"
+    ],
+    "tech_stack": [
+      "whatsapp",
+      "python",
+      "popia",
+      "ai"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Healthcare",
+      "WhatsApp"
+    ],
+    "why_built": "Medical receptionist staff spend hours answering repetitive booking queries and collecting paper consent forms. Practice Assistant handles patient communication over WhatsApp.",
+    "development_approach": [
+      "Built a WhatsApp AI booking assistant integrated with practice management calendars.",
+      "Implemented POPIA Section 18 digital medical consent collection prior to consultations.",
+      "Designed automated post-appointment review requests to boost Google Practice Ratings."
+    ],
+    "challenges": [
+      {
+        "challenge": "Enforcing strict medical data privacy and POPIA compliance for sensitive patient information.",
+        "solution": "Used end-to-end encrypted messaging handlers and tenant-isolated encrypted database fields."
+      }
+    ],
+    "outcomes": [
+      "Automated 80% of routine appointment bookings and patient inquiries.",
+      "Dramatically improved practice online ratings and patient intake speed."
+    ],
+    "metrics": [
+      "80% reduction in phone booking overhead",
+      "100% digital POPIA consent tracking"
+    ],
+    "repo_url": "https://banyalabs.com/apps/practice-assistant",
+    "live_url": "https://banyalabs.com/apps/practice-assistant",
+    "video_url": "#"
+  },
+  {
+    "slug": "leriso",
+    "title": "Leriso: Speed-Optimized POS & Kitchen Management System",
+    "short_description": "A speed-optimized, multi-currency Point of Sale (POS) system for fast-paced dining in Southern Africa, bridging cashier registers, live kitchen displays, and back-office analytics.",
+    "featured": false,
+    "cover_image": "images/projects/leriso-cover.jpg",
+    "gallery": [
+      "images/projects/leriso-cover.jpg"
+    ],
+    "tech_stack": [
+      "sqlite",
+      "postgresql",
+      "offline-first",
+      "nextjs"
+    ],
+    "tags": [
+      "Banya Labs",
+      "POS",
+      "Restaurant"
+    ],
+    "why_built": "Busy restaurants in Southern Africa face frequent load shedding and connectivity drops that paralyze online POS systems. Leriso provides uninterrupted offline-first ordering.",
+    "development_approach": [
+      "Architected a local SQLite offline register engine with auto-reconnecting PostgreSQL cloud sync.",
+      "Built real-time websocket Kitchen Display System (KDS) for order routing across prep stations.",
+      "Integrated ZAR currency formatting and split-bill calculation capabilities."
+    ],
+    "challenges": [
+      {
+        "challenge": "Preventing duplicate transaction logs when internet reconnects during peak dinner rushes.",
+        "solution": "Used idempotent transaction UUIDs and multi-master conflict resolution logic."
+      }
+    ],
+    "outcomes": [
+      "Guaranteed zero restaurant downtime during internet or power outages.",
+      "Accelerated kitchen order turnaround times."
+    ],
+    "metrics": [
+      "0s downtime during internet outages",
+      "<100ms UI response latency for cashiers"
+    ],
+    "repo_url": "https://banyalabs.com/apps/leriso",
+    "live_url": "https://banyalabs.com/apps/leriso",
+    "video_url": "#"
+  },
+  {
+    "slug": "edugatekeeper",
+    "title": "EduGateKeeper: School Entrance Security & Attendance Kiosk",
+    "short_description": "Replaces manual paper rosters at school entrances with an offline-resilient tablet kiosk for drop-offs/pickups and staff logins, paired with a central Web Admin Dashboard for real-time security tracking.",
+    "featured": false,
+    "cover_image": "images/projects/edugatekeeper-cover.jpg",
+    "gallery": [
+      "images/projects/edugatekeeper-cover.jpg"
+    ],
+    "tech_stack": [
+      "sqlite",
+      "postgresql",
+      "offline-first",
+      "security"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Offline-First",
+      "Security"
+    ],
+    "why_built": "School entrance security relies on messy paper visitor books that fail in emergencies. EduGateKeeper provides digital tablet check-in with live headcount dashboards.",
+    "development_approach": [
+      "Created an offline-first tablet app running local SQLite storage for instant student/visitor check-in.",
+      "Built a cloud Web Admin Dashboard for emergency evacuation roll calls and real-time security alerts.",
+      "Integrated SMS/WhatsApp notifications for parent pickup confirmations."
+    ],
+    "challenges": [
+      {
+        "challenge": "Ensuring high-speed check-in during morning drop-off rushes with hundreds of students.",
+        "solution": "Optimized barcode and QR code scanner intake to achieve sub-second check-in times."
+      }
+    ],
+    "outcomes": [
+      "Eliminated entrance paper logs across participating schools.",
+      "Provided instant emergency roll calls for school security heads."
+    ],
+    "metrics": [
+      "<1s check-in speed per student/visitor",
+      "100% offline functionality at school gates"
+    ],
+    "repo_url": "https://banyalabs.com/apps/edugatekeeper",
+    "live_url": "https://banyalabs.com/apps/edugatekeeper",
+    "video_url": "#"
+  },
+  {
+    "slug": "hardwaresystem",
+    "title": "Hardware Management: Hardware Store Exit Security & Dispatch",
+    "short_description": "Streamlines and automates the multi-step checkout & exit verification process for customers leaving hardware stores after purchase, preventing bottlenecking and reducing theft risk.",
+    "featured": false,
+    "cover_image": "images/projects/hardware-cover.jpg",
+    "gallery": [
+      "images/projects/hardware-cover.jpg"
+    ],
+    "tech_stack": [
+      "python",
+      "pos",
+      "retail",
+      "security"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Retail",
+      "Security"
+    ],
+    "why_built": "Hardware stores suffer long exit queues due to double-checking paper receipts and physical items to prevent inventory shrink.",
+    "development_approach": [
+      "Designed a digital receipt verification workflow matching POS purchases to exit gate scans.",
+      "Built security guard verification screens highlighting high-value items requiring physical check.",
+      "Integrated real-time discrepancy alerts for store management."
+    ],
+    "challenges": [
+      {
+        "challenge": "Preventing checkout bottlenecking while maintaining strict loss prevention controls.",
+        "solution": "Categorized items into risk tiers so low-value goods pass through express digital verification."
+      }
+    ],
+    "outcomes": [
+      "Drastically reduced customer wait times at store exits.",
+      "Minimized inventory shrinkage and unauthorized item removals."
+    ],
+    "metrics": [
+      "Planned system for hardware retail chains",
+      "Targeted 50% exit queue reduction"
+    ],
+    "repo_url": "https://banyalabs.com/apps/hardwaresystem",
+    "live_url": "https://banyalabs.com/apps/hardwaresystem",
+    "video_url": "#"
+  },
+  {
+    "slug": "border-preclearance",
+    "title": "Zam Border Preclearance System: Remote Border Logistics Platform",
+    "short_description": "Enables cross-border logistics operators and truckers to process border customs and clearance documents remotely prior to arrival, drastically cutting transit wait times and administrative delays.",
+    "featured": false,
+    "cover_image": "images/projects/border-cover.jpg",
+    "gallery": [
+      "images/projects/border-cover.jpg"
+    ],
+    "tech_stack": [
+      "python",
+      "logistics",
+      "govtech",
+      "pdf"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Logistics",
+      "GovTech"
+    ],
+    "why_built": "Freight trucks spend days stuck at regional border posts in Southern Africa processing physical documentation, costing logistics companies millions in transit delays.",
+    "development_approach": [
+      "Engineered a digital document portal for pre-uploading manifest, customs, and vehicle papers.",
+      "Built automated document validation and QR code border pass generation.",
+      "Integrated real-time border post queue monitoring for fleet dispatchers."
+    ],
+    "challenges": [
+      {
+        "challenge": "Cross-verifying multi-national customs documentation formats between SADC countries.",
+        "solution": "Standardized document ingestion rules with automated field mapping and validation."
+      }
+    ],
+    "outcomes": [
+      "Streamlined regional freight movement between South Africa, Zimbabwe, and Zambia.",
+      "Reduced border waiting times from days to hours."
+    ],
+    "metrics": [
+      "Planned platform for SADC freight corridors",
+      "Targeted 75% reduction in border processing time"
+    ],
+    "repo_url": "https://banyalabs.com/apps/border-preclearance",
+    "live_url": "https://banyalabs.com/apps/border-preclearance",
+    "video_url": "#"
+  },
+  {
+    "slug": "project-kganya",
+    "title": "Project Kganya: Enterprise AI Knowledge & Student Support Engine",
+    "short_description": "Enterprise RAG knowledge engine and support platform deployed at University of Pretoria, featuring pgvector hybrid search, Chatwoot account boundaries, source-record auditability, and multi-channel student support.",
+    "featured": true,
+    "cover_image": "images/projects/agentic-knowledge-engineering-data-pipeline.png",
+    "gallery": [
+      "images/projects/agentic-knowledge-engineering-data-pipeline.png"
+    ],
+    "tech_stack": [
+      "python",
+      "postgresql",
+      "pgvector",
+      "nextjs",
+      "clerk",
+      "chatwoot",
+      "n8n"
+    ],
+    "tags": [
+      "Banya Labs",
+      "AI",
+      "Data Engineering"
+    ],
+    "why_built": "University student support at the University of Pretoria was high-volume and repetitive. Project Kganya was architected to deflect support loads, enforce strict org-level tenant isolation, and ensure AI answers are derived from auditable, staff-editable source records.",
+    "development_approach": [
+      "Architected a pgvector retrieval layer with organization_id metadata to enforce server-side tenant isolation.",
+      "Implemented a source-record architecture where staff edit canonical documents and vector embeddings remain derived indexes.",
+      "Designed classifier-first routing with single retrieval agents to preserve determinism and cut response latencies.",
+      "Integrated Chatwoot account boundaries and WhatsApp Cloud API channels to support high-volume student inquiries."
+    ],
+    "challenges": [
+      {
+        "challenge": "Ensuring AI responses never hallucinate policy details during high-volume exam and admissions periods.",
+        "solution": "Constrained vector search to org-scoped source records with strict refusal guardrails when grounding evidence is absent."
+      }
+    ],
+    "outcomes": [
+      "Deployed at University of Pretoria as a primary pilot for high-volume automated student support.",
+      "Reduced staff turnaround time for repetitive academic policy inquiries to sub-second responses."
+    ],
+    "metrics": [
+      "39+ verified knowledge sources indexed",
+      "100% server-enforced organization_id tenant boundary"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "project-lumen",
+    "title": "Project Lumen: Multi-Tenant AI Knowledge Ingestion & Governance Gateway",
+    "short_description": "Multi-tenant AI knowledge ingestion and routing gateway connecting organizational documents to any LLM provider via pgvector, Celery async workers, and Row-Level Security.",
+    "featured": true,
+    "cover_image": "images/projects/member-data-manager-cover.png",
+    "gallery": [
+      "images/projects/member-data-manager-cover.png"
+    ],
+    "tech_stack": [
+      "python",
+      "fastapi",
+      "postgresql",
+      "pgvector",
+      "nextjs",
+      "celery",
+      "redis",
+      "clerk"
+    ],
+    "tags": [
+      "Banya Labs",
+      "AI",
+      "Data Engineering"
+    ],
+    "why_built": "Organisational knowledge is frequently locked in messy, siloed documents. Project Lumen acts as a vendor-neutral AI Gateway that ingests, governs, and routes enterprise knowledge to any AI model without lock-in.",
+    "development_approach": [
+      "Built a Modular Monolith architecture combining Next.js dashboard UI, FastAPI backend, and Celery + Redis async worker queues.",
+      "Enforced Row-Level Security (RLS) and Clerk organization UUID mapping for multi-tenant data boundaries.",
+      "Implemented an AI Gateway adapter layer allowing seamless switching between OpenAI, Anthropic, Gemini, and open-source models.",
+      "Designed the 'Ledger Quiet' visual design system for an enterprise-grade UI experience."
+    ],
+    "challenges": [
+      {
+        "challenge": "Preventing Celery background workers from exhausting database connection pools during long LLM I/O cycles.",
+        "solution": "Decoupled database session lifetimes from LLM network calls, using short-lived transactions and inline fallback processing."
+      }
+    ],
+    "outcomes": [
+      "Established a vendor-neutral AI Gateway supporting rapid knowledge retrieval across enterprise documents.",
+      "Implemented strict POPIA and RLS multi-tenancy safeguards across all vector operations."
+    ],
+    "metrics": [
+      "Sub-second vector query performance",
+      "Zero vendor lock-in across AI model providers"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "school-foundry",
+    "title": "SchoolFoundry: Offline-First School OS & B2B Lead CRM",
+    "short_description": "Offline-resilient school management system and lead intelligence CRM operating across South Africa, Zambia, and Zimbabwe with local SQLite storage and WhatsApp parent communication.",
+    "featured": true,
+    "cover_image": "images/projects/uniexplorer.jpg",
+    "gallery": [
+      "images/projects/uniexplorer.jpg"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "react",
+      "typescript",
+      "sqlite",
+      "drizzle",
+      "whatsapp cloud api",
+      "trpc"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Web Development",
+      "Data Engineering"
+    ],
+    "why_built": "Schools in Southern Africa frequently face unreliable internet connectivity and load shedding. SchoolFoundry delivers complete school administration capabilities that work seamlessly offline and sync when online.",
+    "development_approach": [
+      "Designed an offline-first architecture powered by SQLite and local storage, ensuring full operational capability without internet.",
+      "Built a B2B Lead Intelligence dashboard (SchoolFoundry Leads) to map and manage school sales across South Africa, Zambia, and Zimbabwe.",
+      "Integrated WhatsApp Cloud API for automated parent notifications and fee payment reminders.",
+      "Utilized React 19, Tailwind CSS 4, and tRPC for high-performance administrative workflows."
+    ],
+    "challenges": [
+      {
+        "challenge": "Maintaining data consistency across offline desktop bundles and cloud sync servers.",
+        "solution": "Implemented dual Drizzle ORM mapping with local SQLite fallback and deterministic record sync protocols."
+      }
+    ],
+    "outcomes": [
+      "Deployed offline alpha release for schools in Southern Africa.",
+      "Provided 100% operational uptime during connectivity outages and load shedding."
+    ],
+    "metrics": [
+      "Zero downtime during internet outages",
+      "Integrated regional coverage across South Africa, Zambia & Zimbabwe"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "contour",
+    "title": "Contour: Offline-First Real Estate OS & Analytics Engine",
+    "short_description": "Real estate operating system for Zambia combining desktop Electron shell, offline synchronization, Neon PostgreSQL analytics engine, and client deal management.",
+    "featured": true,
+    "cover_image": "images/projects/cost2class.png",
+    "gallery": [
+      "images/projects/cost2class.png"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "electron",
+      "postgresql",
+      "prisma",
+      "clerk",
+      "vercel"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Web Development",
+      "Data Engineering"
+    ],
+    "why_built": "Real estate agencies in Zambia need an offline-capable CRM and property management platform that bridges desktop productivity with cloud synchronization and SQL analytics.",
+    "development_approach": [
+      "Engineered a shared Next.js and Electron desktop shell to deliver uniform user experiences on web and desktop.",
+      "Designed an Analytics Engine core where the 'analytics-to-work loop' acts as the primary user navigation spine.",
+      "Implemented a normalized PostgreSQL DDL schema with Clerk authentication and Vercel Blob file storage."
+    ],
+    "challenges": [
+      {
+        "challenge": "Preventing offline client mutations from conflicting during cloud synchronization.",
+        "solution": "Applied append-only transaction logs and deterministic state reconciliation in the local engine."
+      }
+    ],
+    "outcomes": [
+      "Delivered a desktop-native real estate OS optimized for African real estate operators.",
+      "Streamlined property listing, lead tracking, and deal pipeline management."
+    ],
+    "metrics": [
+      "Single codebase serving Web & Electron Desktop",
+      "Sub-100ms local query latency"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
     "slug": "autonomous-inventory-system-etl-pipeline",
     "title": "Autonomous Inventory System - ETL Pipeline",
     "short_description": "Production-ready Python ETL pipeline using DLT, DuckDB, FastAPI, SQLAlchemy, and pandas to solve the mining industry's shadow stock problem with auditable, AI-ready inventory data.",
@@ -22,7 +656,7 @@
     ],
     "why_built": "Designed to address the mining industry's shadow stock problem by creating a reliable, auditable inventory data foundation that reduces operational leakage and supports downstream decision-making.",
     "development_approach": [
-      "Implemented a Medallion Architecture (Bronze → Silver → Gold) to transform raw daily transactions into high-integrity, analytics-ready assets.",
+      "Implemented a Medallion Architecture (Bronze \u00e2\u2020\u2019 Silver \u00e2\u2020\u2019 Gold) to transform raw daily transactions into high-integrity, analytics-ready assets.",
       "Developed bitemporal data models to handle late-arriving events and enable accurate point-in-time financial reconstruction and auditability.",
       "Utilized DLT (Data Load Tool) for idempotent ingestion, eliminating duplication and tracking schema evolution automatically.",
       "Exposed a FastAPI layer backed by SQLAlchemy, DuckDB, and pandas to deliver reliable, queryable inventory views.",
@@ -139,6 +773,323 @@
     "video_url": "#"
   },
   {
+    "slug": "admissions-assistant",
+    "title": "Admissions Assistant: Automated College Admissions over WhatsApp",
+    "short_description": "AI-powered WhatsApp admissions bot connecting college knowledge bases to automated lead qualification, intent scoring, and support desk handoffs.",
+    "featured": false,
+    "cover_image": "images/projects/mfz-ai-chatbot.png",
+    "gallery": [
+      "images/projects/mfz-ai-chatbot.png"
+    ],
+    "tech_stack": [
+      "python",
+      "whatsapp cloud api",
+      "rag",
+      "langflow",
+      "botpress cloud",
+      "crm-sync"
+    ],
+    "tags": [
+      "Banya Labs",
+      "AI",
+      "Automation"
+    ],
+    "why_built": "South African colleges face enormous admissions pressure with prospective students messaging on WhatsApp at all hours. Admissions Assistant automates instant responses, lead qualification, and staff handoffs.",
+    "development_approach": [
+      "Integrated RAG knowledge bases to answer tuition, prerequisite, and deadline questions instantly.",
+      "Configured stateful lead qualification collecting applicant intent and contact info into the Banya shared CRM.",
+      "Built seamless escalation triggers to hand off complex inquiries to human admissions officers."
+    ],
+    "challenges": [
+      {
+        "challenge": "Managing peak registration traffic spikes without slowing response times.",
+        "solution": "Leveraged asynchronous webhook dispatchers and isolated per-client WhatsApp instances."
+      }
+    ],
+    "outcomes": [
+      "24/7 instant response rate for prospective college applicants.",
+      "Automated lead qualification and CRM record creation."
+    ],
+    "metrics": [
+      "Sub-2s response time on WhatsApp",
+      "100% lead capture rate into shared CRM"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "marii",
+    "title": "Marii: Fast Quoting & PDF Pipeline Engine for Service Businesses",
+    "short_description": "High-speed quotation generator for service agencies, building PDF quotes from dynamic catalogues, tracking deal pipelines, and syncing back to central CRM.",
+    "featured": false,
+    "cover_image": "images/projects/auditflow-suite.jpg",
+    "gallery": [
+      "images/projects/auditflow-suite.jpg"
+    ],
+    "tech_stack": [
+      "react",
+      "nextjs",
+      "typescript",
+      "jspdf",
+      "sqlite",
+      "banya-crm-sync"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Software & Tools",
+      "Automation"
+    ],
+    "why_built": "Quoting is a high-friction process for service businesses. Marii enables agencies and freelancers to build professional PDF quotes in seconds while maintaining a unified deal pipeline.",
+    "development_approach": [
+      "Created a catalog-based quote builder with dynamic discount and line-item formatting.",
+      "Implemented client-side PDF export with custom branding templates using jsPDF.",
+      "Synced deal and pipeline states back to the Banya platform shared database."
+    ],
+    "challenges": [
+      {
+        "challenge": "Generating pixel-perfect PDF quotes across desktop and mobile browsers.",
+        "solution": "Designed deterministic HTML-to-canvas rendering routines optimized for standard document dimensions."
+      }
+    ],
+    "outcomes": [
+      "Cut quote creation cycle time from hours to under 2 minutes.",
+      "Improved deal pipeline visibility across service operations."
+    ],
+    "metrics": [
+      "90% reduction in quoting time",
+      "Instant PDF generation"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "tenantshield",
+    "title": "TenantShield: Unified Access Control & POPIA Audit Logger",
+    "short_description": "Immutable access control and data audit logging middleware for multi-tenant SaaS applications, enforcing strict POPIA isolation across shared databases.",
+    "featured": false,
+    "cover_image": "images/projects/member-data-manager-cover.png",
+    "gallery": [
+      "images/projects/member-data-manager-cover.png"
+    ],
+    "tech_stack": [
+      "node",
+      "postgresql",
+      "express",
+      "security-middleware",
+      "popia-audit"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Data Engineering",
+      "Software & Tools"
+    ],
+    "why_built": "POPIA compliance requires strict data isolation and verifiable audit trails in multi-tenant environments. TenantShield intercepts API requests to ensure zero cross-tenant data leakage.",
+    "development_approach": [
+      "Engineered interceptor middleware validating org_id auth tokens on every database mutation.",
+      "Built an append-only audit logger capturing actor, timestamp, request ID, and operation outcome.",
+      "Exposed a security compliance dashboard for real-time anomaly detection."
+    ],
+    "challenges": [
+      {
+        "challenge": "Auditing thousands of database queries without creating API performance latency.",
+        "solution": "Implemented asynchronous batch logging with sub-millisecond query interceptors."
+      }
+    ],
+    "outcomes": [
+      "Zero cross-tenant data leaks across portfolio applications.",
+      "Full POPIA regulatory audit compliance."
+    ],
+    "metrics": [
+      "<1ms query inspection overhead",
+      "100% immutable audit logging"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "synchub",
+    "title": "SyncHub: Asynchronous Event Bus & Background Worker Queue",
+    "short_description": "Centralized asynchronous message bus and Redis worker queue handling cross-product event distribution and third-party webhook retry logic.",
+    "featured": false,
+    "cover_image": "images/projects/agentic-knowledge-engineering-data-pipeline.png",
+    "gallery": [
+      "images/projects/agentic-knowledge-engineering-data-pipeline.png"
+    ],
+    "tech_stack": [
+      "node",
+      "redis",
+      "bullmq",
+      "fastapi",
+      "docker"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Data Engineering",
+      "Automation"
+    ],
+    "why_built": "Preventing slow third-party APIs (WhatsApp, CRMs, email services) from blocking user UI actions by dispatching work to background queues.",
+    "development_approach": [
+      "Built an event dispatcher using Redis and BullMQ to decouple API requests from execution.",
+      "Configured exponential backoff retries and dead-letter queues for failed webhook deliveries.",
+      "Exposed real-time queue health metrics and log telemetry."
+    ],
+    "challenges": [
+      {
+        "challenge": "Handling transient network outages during third-party API webhooks.",
+        "solution": "Implemented idempotent job receipts and automated retry state machines."
+      }
+    ],
+    "outcomes": [
+      "Guaranteed background task execution with zero user-facing response delays.",
+      "High reliability for messaging and sync workflows."
+    ],
+    "metrics": [
+      "12ms average event dispatch latency",
+      "99.9% queue uptime"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "leadpulse",
+    "title": "LeadPulse: Automated Real Estate Lead Dispatcher & SLA Tracker",
+    "short_description": "Inbound property lead router that parses inquiry emails, qualifies leads via automated rules, dispatches to regional agents, and tracks response SLA targets.",
+    "featured": false,
+    "cover_image": "images/projects/cost2class.png",
+    "gallery": [
+      "images/projects/cost2class.png"
+    ],
+    "tech_stack": [
+      "python",
+      "nlp",
+      "fastapi",
+      "redis",
+      "banya-crm-sync"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Automation",
+      "Data Engineering"
+    ],
+    "why_built": "Brokerages lose up to 40% of portal leads due to delayed follow-ups. LeadPulse qualifies and dispatches leads immediately while tracking agent response speeds.",
+    "development_approach": [
+      "Integrated NLP email and webhook parsers to extract lead contacts and property attributes.",
+      "Built geographic round-robin assignment algorithms distributing leads to on-duty agents.",
+      "Implemented SLA escalation timers notifying branch managers when leads go unaddressed."
+    ],
+    "challenges": [
+      {
+        "challenge": "Parsing unformatted inquiry emails from various real estate web portals.",
+        "solution": "Built resilient regex and LLM entity extraction pipelines with structured fallbacks."
+      }
+    ],
+    "outcomes": [
+      "Drastically reduced lead response times from hours to under 60 seconds.",
+      "Increased portal lead conversion rates for brokerage clients."
+    ],
+    "metrics": [
+      "400ms routing speed",
+      "SLA response tracking active"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "payflow",
+    "title": "PayFlow: Automated ZAR EFT Invoice Reconciliation Engine",
+    "short_description": "Automated billing pipeline connecting South African bank transaction statement uploads to outstanding ZAR invoices using fuzzy reference matching.",
+    "featured": false,
+    "cover_image": "images/projects/member-data-manager-1.png",
+    "gallery": [
+      "images/projects/member-data-manager-1.png"
+    ],
+    "tech_stack": [
+      "python",
+      "pandas",
+      "fastapi",
+      "sqlite",
+      "banking-reconciliation"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Data Engineering",
+      "Automation"
+    ],
+    "why_built": "Manual bank EFT reconciliation is tedious and prone to human error. PayFlow automatically matches uploaded bank statement references against open ZAR invoices.",
+    "development_approach": [
+      "Developed string-distance and pattern-matching algorithms to resolve bank reference typos.",
+      "Automated ledger updates in the central CRM database upon match confirmation.",
+      "Flagged unmatched or partial payments for instant finance team review."
+    ],
+    "challenges": [
+      {
+        "challenge": "Reconciling cryptic bank statement reference numbers truncated by bank systems.",
+        "solution": "Applied confidence-score matching combining amount, date window, and fuzzy string similarity."
+      }
+    ],
+    "outcomes": [
+      "Automated EFT payment reconciliation for B2B transactions.",
+      "Saved finance teams dozens of manual administrative hours weekly."
+    ],
+    "metrics": [
+      "820ms reconciliation processing speed",
+      "100% matched accuracy on structured references"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
+    "slug": "bizdocs",
+    "title": "BizDocs: Self-Serve B2B Customer Onboarding & KYC Portal",
+    "short_description": "Secure B2B client onboarding portal streamlining document collection, FICA/KYC verification checklists, and contract e-signing for professional services.",
+    "featured": false,
+    "cover_image": "images/projects/member-data-manager-2.png",
+    "gallery": [
+      "images/projects/member-data-manager-2.png"
+    ],
+    "tech_stack": [
+      "nextjs",
+      "react",
+      "typescript",
+      "tailwindcss",
+      "pdf-validator"
+    ],
+    "tags": [
+      "Banya Labs",
+      "Web Development",
+      "Software & Tools"
+    ],
+    "why_built": "Onboarding clients in regulated professional services is slow and email-heavy. BizDocs delivers a clean self-serve portal with automated document verification checklists.",
+    "development_approach": [
+      "Built client onboarding portals with interactive document upload checklists.",
+      "Integrated PDF validation and identity checks for South African FICA compliance.",
+      "Automated status transitions in the underlying CRM pipeline upon completion."
+    ],
+    "challenges": [
+      {
+        "challenge": "Ensuring uploaded document privacy and secure storage compliance.",
+        "solution": "Implemented encrypted S3/Vercel Blob storage paths with tenant-scoped access tokens."
+      }
+    ],
+    "outcomes": [
+      "Streamlined B2B client onboarding and identity verification.",
+      "Eliminated email attachment back-and-forth during client intake."
+    ],
+    "metrics": [
+      "70% faster client onboarding cycle",
+      "100% POPIA & FICA compliance record"
+    ],
+    "repo_url": "https://banyalabs.com",
+    "live_url": "https://banyalabs.com",
+    "video_url": "#"
+  },
+  {
     "slug": "auditflow-complete-audit-toolkit",
     "title": "AuditFlow - Complete Audit Toolkit Suite",
     "short_description": "A comprehensive suite of 8 specialized tools to streamline and automate end-to-end UIF COVID TERS audit workflows, cutting cycle times by up to 75%.",
@@ -222,42 +1173,35 @@
       "Web Development",
       "Data Engineering"
     ],
-    "why_built": "Addressed the problem of **information fragmentation** in tertiary education by consolidating scattered university prospectus data (admission requirements, fees, deadlines) into a single, intelligent platform to streamline student decision-making.",
+    "why_built": "Addressed the problem of information fragmentation in tertiary education by consolidating scattered university prospectus data (admission requirements, fees, deadlines) into a single, intelligent platform to streamline student decision-making.",
     "development_approach": [
-      "Architecture: Built a modern **Next.js 14 App Router** application, leveraging **Server Actions** for efficient data fetching and mutations, ensuring performance through server-side rendering.",
-      "Data Logic: Implemented a proprietary **Eligibility Checker** that calculates a student's **APS (Admission Point Score)** in real-time against granular program requirements (subjects, minimum scores, levels) stored in a normalized **SQLite database** (currently in development).",
-      "Frontend Engineering: Utilized **TypeScript** and **TailwindCSS** to create a responsive, mobile-first UI with shared state management via **React Context** (e.g., EligibilityProvider).",
-      "Database Design: Designed a **normalized relational schema** (universities, programmes, subjects, careers, program_subjects) to manage complex, inter-related eligibility criteria with high data integrity.",
-      "Scalability: Migrating to **Supabase PostgreSQL** for production-grade scalability and implementing **Supabase Auth** for secure user authentication and saved preferences.",
-      "Data Pipeline (Planned): Developing an automated **ETL pipeline** using Python to extract program data from university PDF prospectuses, transform it into structured records, and load it into the Supabase database for continuous data updates."
+      "Architecture: Built a modern Next.js 14 App Router application, leveraging Server Actions for efficient data fetching and mutations, ensuring performance through server-side rendering.",
+      "Data Logic: Implemented a proprietary Eligibility Checker that calculates a student's APS (Admission Point Score) in real-time against granular program requirements.",
+      "Frontend Engineering: Utilized TypeScript and TailwindCSS to create a responsive, mobile-first UI with shared state management via React Context.",
+      "Database Design: Designed a normalized relational schema (universities, programmes, subjects, careers, program_subjects) to manage complex, inter-related eligibility criteria."
     ],
     "challenges": [
       {
         "challenge": "Consolidating Ambiguous and Fragmented Program Requirements",
-        "solution": "**Normalized all admission criteria** (APS, subject prerequisites) into structured, queryable data fields within the database, providing **transparency in scoring** and clear fit explanations to the user."
-      },
-      {
-        "challenge": "Maintaining Application Responsiveness with Complex Filtering",
-        "solution": "Optimized data flow by using Next.js **Server Actions** for database queries, minimizing client-side load and ensuring rapid display of filtered results from the 500+ program database."
+        "solution": "Normalized all admission criteria (APS, subject prerequisites) into structured, queryable data fields within the database."
       }
     ],
     "outcomes": [
-      "Delivered a **single source of truth** for South African tertiary education information.",
-      "Enabled students to get personalized eligibility feedback and narrow their search options by **~70%** on average.",
-      "Provided clear, data-driven explanations for qualification status, replacing eligibility confusion with certainty."
+      "Delivered a single source of truth for South African tertiary education information.",
+      "Enabled students to get personalized eligibility feedback and narrow search options by ~70%."
     ],
     "metrics": [
-      "Achieved **~70% average search narrowing** through personalized eligibility filtering.",
-      "Database contains **500+** university program records and their associated subject requirements."
+      "Achieved ~70% average search narrowing through personalized eligibility filtering.",
+      "Database contains 500+ university program records."
     ],
     "repo_url": "https://github.com/sewardrichard/uni_explorer",
-    "live_url": "YOUR_LIVE_DEMO_LINK_HERE",
+    "live_url": "#",
     "video_url": "#"
   },
   {
     "slug": "cost2class",
     "title": "Cost2Class: Academic Budget Planner",
-    "short_description": "High-end, mobile-first academic budget planner that feels like a native app, helping families manage school fees, uniforms, stationery, and tasks with a sleek, polished interface and optional GitHub Cloud Sync.",
+    "short_description": "High-end, mobile-first academic budget planner that feels like a native app, helping families manage school fees, uniforms, stationery, and tasks with a sleek, polished interface.",
     "featured": false,
     "cover_image": "images/projects/cost2class.png",
     "gallery": [
@@ -274,23 +1218,21 @@
       "Web Development",
       "Software & Tools"
     ],
-    "why_built": "Built to make school and academic budgeting feel premium, fast, and approachable for families by replacing clunky spreadsheets with a mobile-first, app-like planner that can optionally sync via GitHub.",
+    "why_built": "Built to make school and academic budgeting feel premium, fast, and approachable for families by replacing clunky spreadsheets with a mobile-first app-like planner.",
     "development_approach": [
-      "Designed a mobile-first UI with bottom-sheet navigation, reachability-focused layout, and touch-optimized interactions.",
-      "Implemented glassmorphism headers, pastel dashboards, and smooth 60fps-feel animations to create a premium, native-app experience.",
-      "Implemented optional GitHub Cloud Sync using fine-grained Personal Access Tokens to read/write a JSON budget file via the GitHub Contents API.",
-      "Used browser Local Storage to persist user budgets on-device by default, keeping data local unless sync is explicitly enabled.",
-      "Built dynamic budget analytics (interactive donut charts and metric pills) to show total budget, spent amount, and remaining balance at a glance."
+      "Designed a mobile-first UI with bottom-sheet navigation and touch-optimized interactions.",
+      "Implemented glassmorphism headers, pastel dashboards, and smooth animations.",
+      "Used browser Local Storage to persist user budgets on-device by default."
     ],
     "challenges": [
       {
-        "challenge": "Designing a secure, backend-free sync mechanism that still lets users access the same budget across multiple devices.",
-        "solution": "Leveraged GitHub as a JSON data backend via fine-grained Personal Access Tokens, storing the token only in local storage and calling the GitHub API directly from the browser over HTTPS."
+        "challenge": "Designing a secure, backend-free sync mechanism.",
+        "solution": "Leveraged GitHub as a JSON data backend via fine-grained Personal Access Tokens."
       }
     ],
     "outcomes": [
-      "Delivered a premium academic budget planner that users can host for free via GitHub Pages.",
-      "Provided a privacy-friendly model where all financial data stays on the user's device, with CSV export for backups and migration."
+      "Delivered a premium academic budget planner hosted via GitHub Pages.",
+      "Provided a privacy-friendly model where financial data stays on-device."
     ],
     "metrics": [],
     "repo_url": "https://github.com/sewardrichard/cost2class",
@@ -300,7 +1242,7 @@
   {
     "slug": "digital-farmers-tomato-disease-detection",
     "title": "Digital Farmers: Tomato Disease Detection Tool",
-    "short_description": "AI-powered web application that instantly diagnoses tomato leaf diseases from uploaded images using a CNN model trained on 14,529+ images. Identifies 10 disease classes with confidence scores and provides treatment recommendations.",
+    "short_description": "AI-powered web application that instantly diagnoses tomato leaf diseases from uploaded images using a CNN model trained on 14,529+ images.",
     "featured": false,
     "cover_image": "images/projects/digital-farmers-1.png",
     "gallery": [
@@ -308,7 +1250,6 @@
       "images/projects/digital-farmers.png",
       "images/projects/digital-farmers-2.png",
       "images/projects/digital-farmers-3.jpg"
-
     ],
     "tech_stack": [
       "tensorflow",
@@ -326,34 +1267,25 @@
       "Machine Learning",
       "Web Development"
     ],
-    "why_built": "Agricultural disease detection is typically slow, requires expert knowledge, and is inaccessible to small-scale farmers. This tool was built to democratize plant disease diagnosis by providing instant, accurate AI-powered identification accessible via a simple web interface.",
+    "why_built": "Agricultural disease detection is typically slow and inaccessible to small-scale farmers. Built to democratize plant disease diagnosis with instant AI identification.",
     "development_approach": [
-      "Model Architecture: Designed and trained a Convolutional Neural Network (CNN) using TensorFlow/Keras on the PlantVillage dataset (14,529 images across 10 tomato disease classes).",
-      "Deep Learning Pipeline: Implemented data augmentation (random flip/rotation), normalization, and a 5-layer CNN architecture achieving 95%+ accuracy on the test set.",
-      "API Development: Built a production-ready REST API using FastAPI with image preprocessing, model inference, and JSON response formatting for seamless frontend integration.",
-      "Frontend Engineering: Created a responsive single-page application using vanilla JavaScript with drag-and-drop image upload, real-time prediction display, and detailed disease information modals.",
-      "Containerization & Deployment: Dockerized both frontend (Nginx) and backend (Uvicorn) services, created Kubernetes manifests for orchestrated deployment, and implemented CI/CD pipelines."
+      "Trained a Convolutional Neural Network (CNN) using TensorFlow/Keras on 14,529 images across 10 disease classes.",
+      "Built a REST API using FastAPI for image preprocessing and model inference.",
+      "Dockerized services and created Kubernetes manifests for orchestrated cloud deployment."
     ],
     "challenges": [
       {
         "challenge": "Achieving High Model Accuracy Across Visually Similar Disease Classes",
-        "solution": "Implemented robust data augmentation techniques and trained a deep 5-layer CNN architecture with carefully tuned hyperparameters (Adam optimizer, 25 epochs) to distinguish between similar diseases like Early Blight and Late Blight."
-      },
-      {
-        "challenge": "Ensuring Fast Inference and User Experience",
-        "solution": "Optimized the model for production by using TensorFlow SavedModel format, implemented efficient image preprocessing pipelines, and deployed on FastAPI for sub-second prediction times."
+        "solution": "Implemented robust data augmentation techniques and trained a 5-layer CNN architecture achieving 95%+ test accuracy."
       }
     ],
     "outcomes": [
-      "Delivered a fully functional AI-powered diagnostic tool accessible to farmers with minimal technical knowledge.",
-      "Achieved 95%+ accuracy on disease classification with confidence scoring for transparency.",
-      "Provided actionable treatment recommendations for each identified disease, enabling immediate farmer response."
+      "Delivered an AI diagnostic tool accessible to farmers via mobile web.",
+      "Achieved 95%+ accuracy on disease classification with actionable recommendations."
     ],
     "metrics": [
       "95%+ model accuracy on test dataset",
-      "Sub-second prediction response time",
-      "10 disease classes identified (9 diseases + healthy)",
-      "Trained on 14,529 labeled images"
+      "Sub-second prediction response time"
     ],
     "repo_url": "https://github.com/sewardrichard/tomato-leave-disease-detection",
     "live_url": "https://sewardrichard.github.io/tomato-leave-disease-detection/",
@@ -362,7 +1294,7 @@
   {
     "slug": "memeber-data-manager",
     "title": "Project Y - Member Data Manager",
-    "short_description": "Engineered a secure, cloud-native Power Platform solution on Azure SQL to replace manual processes, managing the full member lifecycle and providing real-time Business Intelligence via Power BI.",
+    "short_description": "Engineered a secure, cloud-native Power Platform solution on Azure SQL to replace manual processes, managing the full member lifecycle and providing real-time Business Intelligence.",
     "featured": false,
     "cover_image": "images/projects/member-data-manager-cover.png",
     "gallery": [
@@ -384,42 +1316,34 @@
       "Data Engineering",
       "Software & Tools"
     ],
-    "why_built": "Migrated Project Y operations off decentralized spreadsheets, which caused critical data redundancy, version control issues, and data silos. The goal was to establish a secure, centralized Single Source of Truth for all program data.",
+    "why_built": "Migrated operations off decentralized spreadsheets that caused data redundancy, establishing a secure Single Source of Truth for all program data.",
     "development_approach": [
-      "Data Modeling: Designed a **normalized relational schema in Azure SQL** to ensure high data integrity and support complex relationships (Members, Teams, Projects).",
-      "Data Engineering (ETL): Developed robust **Python ETL scripts** using **pandas** for data cleaning and **SQLAlchemy** for automated data ingestion and transformation, ensuring data consistency for analytics.",
-      "Application Development: Built a secure **Power Apps Canvas App** frontend to implement full **CRUD** (Create, Read, Update, Delete) functionality for administrators across the member lifecycle.",
-      "Business Intelligence: Created **Power BI Dashboards** to visualize key operational KPIs (e.g., project scoring, career track progress) for **real-time, data-driven decision-making**.",
-      "Agile & Version Control: Utilized **Agile methodologies** (one-week sprints) and **Git/GitHub** for version control, including managing database scripts and Power Platform solution files (.msapp)."
+      "Designed a normalized relational schema in Azure SQL to ensure data integrity.",
+      "Developed Python ETL scripts using pandas and SQLAlchemy for automated data ingestion.",
+      "Built a secure Power Apps Canvas App frontend for full CRUD administrator functionality."
     ],
     "challenges": [
       {
         "challenge": "Data Silos and Inconsistent Schemas",
-        "solution": "Enforced a **unified ingestion strategy** with documented schemas and lineage, ensuring all member events are standardized and loaded into the normalized Azure SQL database."
-      },
-      {
-        "challenge": "Managing Secure Database Access for Development Team",
-        "solution": "Implemented rigorous **Azure SQL firewall configuration** and **IP whitelisting** to securely manage multi-user access to the PaaS database instance."
+        "solution": "Enforced a unified ingestion strategy with documented schemas and lineage."
       }
     ],
     "outcomes": [
-      "Established a **centralized, secure, and single source of truth** for all program data.",
-      "**Significantly reduced administrative data entry time** and eliminated manual spreadsheet processes.",
-      "Provided **real-time visibility** into program performance, reducing reporting turnaround time to **same-day** updates."
+      "Established a centralized, secure single source of truth.",
+      "Significantly reduced administrative data entry time and eliminated manual spreadsheet errors."
     ],
     "metrics": [
-      "Reduced report turnaround time from several days to same-day (near real-time).",
-      "100% elimination of critical data redundancy and version control issues.",
-      "Enabled full-lifecycle tracking across enrollment, team assignment, and progress scoring."
+      "Reduced report turnaround time from days to near real-time",
+      "100% elimination of critical data redundancy"
     ],
     "repo_url": "https://github.com/dev-api-org/Smart-Data-Manager",
-    "live_url": "https://apps.powerapps.com/play/e/9b639ea5-e8cb-e489-95b0-93bbac89f146/a/a3638322-b401-4e7c-96c2-7a82f76d6a7a?tenantId=a3f14f21-237f-4028-b978-425eb768a716&hint=58507349-040f-4bce-99bd-4d9baa8c8f42&sourcetime=1763540048012&source=portal",
+    "live_url": "https://apps.powerapps.com/play/e/9b639ea5-e8cb-e489-95b0-93bbac89f146/a/a3638322-b401-4e7c-96c2-7a82f76d6a7a",
     "video_url": "#"
   },
   {
     "slug": "ai-car-inspector",
     "title": "AI Car Inspector: Containerized Vision API & MLOps Deployment on AWS EKS",
-    "short_description": "Architected, containerized, and deployed a Python/Gradio web application that uses **Google's Gemini 2.0 Flash** Vision API for two-stage vehicle identification, quality assessment, and attribute extraction, orchestrated via Kubernetes.",
+    "short_description": "Architected, containerized, and deployed a Python/Gradio web application that uses Google's Gemini 2.0 Flash Vision API for vehicle identification and quality assessment on Kubernetes.",
     "featured": false,
     "cover_image": "images/projects/ai-car-inspector.jpg",
     "gallery": [
@@ -439,32 +1363,25 @@
       "Machine Learning",
       "Software & Tools"
     ],
-    "why_built": "Automate the time-consuming and inconsistent process of **manual vehicle inspection and data entry** at dealerships or auction sites. The goal was to provide a fast, standardized, and reliable digital alternative.",
+    "why_built": "Automate the time-consuming process of manual vehicle inspection at dealerships or auction sites with a fast, standardized digital alternative.",
     "development_approach": [
-      "AI Engineering: Integrated the **Gemini 2.0 Flash** vision model to perform a two-stage analysis: 1) Image verification (car/not car) and 2) Structured extraction of attributes (make, model, year, condition, color).",
-      "Containerization & CI/CD: Containerized the Python application using **Docker** and built an automated **CI/CD pipeline** via **GitHub Actions** for image building, pushing to a registry, and zero-downtime deployment.",
-      "Cloud & Orchestration: Deployed the microservice to **AWS** using a **Kubernetes (EKS)** cluster. Wrote production-ready `deployment.yaml` and `service.yaml` to manage autoscaling and reliable service delivery.",
-      "Interface: Developed a simple, user-friendly UI using **Gradio** for immediate visualization of the AI-extracted data."
+      "Integrated Gemini 2.0 Flash vision model to perform two-stage vehicle identification and structured attribute extraction.",
+      "Containerized application with Docker and configured GitHub Actions CI/CD for automated build and zero-downtime deployment.",
+      "Deployed microservice to AWS EKS with Kubernetes manifests for autoscaling and load balancing."
     ],
     "challenges": [
       {
         "challenge": "Maintaining Vision Model Accuracy Across Diverse Photography Conditions",
-        "solution": "Implemented strict **confidence thresholds** on the Vision API output and developed **fallback heuristics** to handle variable lighting, angles, or non-car images, ensuring data reliability."
-      },
-      {
-        "challenge": "Orchestrating Containerized Services on Cloud Infrastructure",
-        "solution": "Successfully deployed the image using **Kubernetes manifests** on AWS EKS, configuring load balancing and network security (e.g., secrets, firewalls) to ensure the service was externally accessible and stable."
+        "solution": "Implemented strict confidence thresholds on Vision API outputs and developed fallback heuristics."
       }
     ],
     "outcomes": [
-      "Established a fully automated MLOps pipeline, demonstrating expertise in production-ready AI application delivery.",
-      "Provided fast, accurate, and standardized data extraction for car inspection.",
-      "Achieved a highly available and scalable solution using Kubernetes orchestration."
+      "Established a fully automated MLOps pipeline for production AI delivery.",
+      "Provided fast, accurate, and standardized data extraction for vehicle inspection."
     ],
     "metrics": [
-      "Achieved an estimated **~50% reduction in manual inspection steps** by automating initial data capture.",
-      "Implemented a CI/CD pipeline leading to **zero failed deployments** during the final sprint phase.",
-      "Successfully integrated and deployed the application using **Python 3.11, Docker, and AWS EKS**."
+      "~50% reduction in manual inspection steps",
+      "Zero failed deployments in final sprint"
     ],
     "repo_url": "https://github.com/dev-api-org/ai-app-containerization",
     "live_url": "#",

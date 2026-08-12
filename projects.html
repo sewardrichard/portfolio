@@ -7,27 +7,33 @@
     <title>Projects | Seward Mupereri</title>
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Google Fonts: Playfair Display, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'brand-black': '#050505',
-                        'brand-lime': '#baff00',
-                        'brand-gray': '#f4f4f4',
-                        'brand-dark': '#0a0a0a',
-                        'brand-border': '#1f1f1f',
+                        'brand-cream': '#F5F0E8',
+                        'brand-nearblack': '#1C1C1A',
+                        'card-surface': '#EDE8DF',
+                        'surface-raised': '#EDE8DF',
+                        'subtle-border': '#DED9CF',
+                        'ink-dim': '#7A756D',
+                        'brand-amber': '#E57A1A',
+                        'midnight-base': '#0a0a0a',
+                        'dark-card': '#161616',
+                        'dark-border': 'rgba(255,255,255,0.08)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
                     }
                 }
             }
@@ -38,13 +44,12 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="bg-brand-black text-brand-gray antialiased selection:bg-brand-lime selection:text-black">
+<body class="bg-brand-cream text-brand-nearblack antialiased selection:bg-brand-amber selection:text-white font-sans">
 
     <div data-include="partials/header.html"></div>
 
     <div data-include="partials/projects/hero.html"></div>
     <div data-include="partials/projects/filters.html"></div>
-    <div data-include="partials/projects/grid.html"></div>
 
     <div data-include="partials/footer.html"></div>
 

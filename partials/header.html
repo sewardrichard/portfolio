@@ -1,22 +1,23 @@
-    <header class="fixed w-full top-0 z-50 bg-brand-black/80 backdrop-blur-md border-b border-white/5">
-        <nav class="flex justify-between items-center px-6 py-4 md:px-12">
-            <a href="index.html#hero" data-brand="true" class="text-xl font-bold flex items-center gap-1 display-font tracking-tight">
-                SEWARD<span class="text-brand-lime text-lg align-top">*</span>
+    <header class="fixed w-full top-0 z-50 bg-brand-cream/95 backdrop-blur-sm border-b border-subtle-border transition-colors duration-200">
+        <nav class="flex justify-between items-center px-6 py-3.5 md:px-12 max-w-6xl mx-auto">
+            <a href="index.html#hero" data-brand="true" class="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight text-brand-nearblack">
+                <span>Seward Mupereri</span>
+                <span class="text-ink-dim text-xs">/</span>
+                <span class="text-ink-dim text-xs font-normal">Banya Labs</span>
             </a>
 
-            <div class="hidden md:flex gap-8 text-xs font-mono uppercase tracking-widest text-gray-400">
-                <a href="index.html#about" class="hover:text-brand-lime transition">About</a>
-                <a href="index.html#expertise" class="hover:text-brand-lime transition">Expertise</a>
-                <a href="index.html#work" class="hover:text-brand-lime transition">Projects</a>
-                <a href="index.html#experience" class="hover:text-brand-lime transition">Experience</a>
-                <a href="index.html#contact" class="hover:text-brand-lime transition">Contact</a>
+            <div class="hidden md:flex gap-6 text-xs font-mono text-ink-dim">
+                <a href="index.html#about" class="hover:text-brand-amber transition-colors">About</a>
+                <a href="index.html#banya-labs" class="hover:text-brand-amber transition-colors">Banya Ecosystem</a>
+                <a href="index.html#expertise" class="hover:text-brand-amber transition-colors">What I Do</a>
+                <a href="index.html#work" class="hover:text-brand-amber transition-colors">Projects</a>
+                <a href="index.html#experience" class="hover:text-brand-amber transition-colors">Experience</a>
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="mailto:sewardrichardmupereri@gmail.com"
-                    class="hidden md:flex items-center gap-2 border border-white/20 px-4 py-2 rounded-full text-xs hover:bg-brand-lime hover:text-black hover:border-brand-lime transition duration-300">
-                    <span class="w-2 h-2 bg-brand-lime rounded-full animate-pulse-slow"></span>
-                    Available for Work
+                <a href="index.html#contact"
+                    class="hidden md:flex items-center justify-center bg-brand-nearblack text-brand-cream px-4 py-2 rounded-none font-mono text-xs font-semibold uppercase hover:bg-brand-amber hover:text-black transition duration-200">
+                    Contact
                 </a>
                 
                 <!-- Mobile Hamburger Button -->
@@ -35,8 +36,8 @@
     <!-- Mobile Menu -->
     <nav id="mobile-menu" class="mobile-menu md:hidden">
         <div class="mobile-menu-header">
-            <a href="#hero" data-brand="true" class="text-xl font-bold flex items-center gap-1 display-font tracking-tight">
-                SEWARD<span class="text-brand-lime text-lg align-top">*</span>
+            <a href="#hero" data-brand="true" class="font-mono text-sm font-bold tracking-tight text-brand-nearblack">
+                Seward Mupereri
             </a>
             <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,16 +48,15 @@
         
         <div class="mobile-menu-nav">
             <a href="index.html#about">About</a>
-            <a href="index.html#expertise">Expertise</a>
+            <a href="index.html#banya-labs" class="text-brand-amber">Banya Ecosystem</a>
+            <a href="index.html#expertise">What I Do</a>
             <a href="index.html#work">Projects</a>
             <a href="index.html#experience">Experience</a>
-            <a href="index.html#contact">Contact</a>
         </div>
         
         <div class="mobile-menu-footer">
-            <a href="mailto:sewardrichardmupereri@gmail.com" class="mobile-menu-cta">
-                <span class="pulse-dot"></span>
-                Available for Work
+            <a href="index.html#contact" class="mobile-menu-cta">
+                Contact Founder
             </a>
         </div>
     </nav>

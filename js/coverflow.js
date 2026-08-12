@@ -41,34 +41,37 @@ async function renderFeaturedProjectsRow() {
         <button
           type="button"
           onclick="window.location.href='project.html?slug=${p.slug}'"
-          class="group block w-full text-left bg-white/5 border border-white/10 rounded-2xl overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-lime/20 hover:border-brand-lime focus:outline-none focus:ring-2 focus:ring-brand-lime focus:ring-offset-2 focus:ring-offset-brand-black"
+          class="group project-card w-full text-left cursor-pointer"
         >
-          <div class="aspect-video overflow-hidden">
+          <div class="aspect-video overflow-hidden rounded-sm mb-4 border border-[#DED9CF] bg-[#F5F0E8]">
             <img
               src="${p.cover_image}"
               alt="${p.title}"
               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
-          <div class="p-5 flex flex-col gap-3">
-            <h3 class="text-sm font-semibold text-white group-hover:text-brand-lime transition-colors">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-[#E57A1A] font-bold">MY WORK</span>
+              <span class="font-mono text-xs text-[#7A756D] font-semibold">${p.year || '2026'}</span>
+            </div>
+            <h3 class="project-card-title">
               ${p.title}
             </h3>
-            <p class="text-xs text-gray-400 line-clamp-3">
+            <p class="project-card-desc line-clamp-3">
               ${p.short_description}
             </p>
-            <div class="flex flex-wrap gap-1 mt-1">
+            <div class="flex flex-wrap gap-1.5 mt-2">
               ${(p.tech_stack || [])
                 .slice(0, 4)
                 .map(
-                  t => `<span class=\"px-2 py-0.5 rounded-full bg-white/5 text-[10px] uppercase tracking-wide text-gray-400\">${t}</span>`
+                  t => `<span class="project-card-chip">${t}</span>`
                 )
                 .join('')}
             </div>
-            <div class="mt-3">
-              <span class="inline-flex items-center justify-center px-3 py-1.5 rounded-full bg-brand-lime/10 text-brand-lime text-xs font-medium opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
-                View more
-              </span>
+            <div class="mt-4 pt-4 border-t border-[#DED9CF] flex items-center justify-between text-xs font-mono font-semibold text-[#1C1C1A] group-hover:text-[#E57A1A] transition-colors">
+              <span>View Case Study</span>
+              <span>→</span>
             </div>
           </div>
         </button>

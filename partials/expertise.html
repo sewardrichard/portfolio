@@ -1,50 +1,78 @@
-    <section class="py-24 border-b border-white/5">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="flex items-center gap-3 mb-16">
-                <span class="w-2 h-2 bg-brand-lime"></span>
-                <span class="text-xs font-bold uppercase text-gray-500 tracking-widest">What I Do</span>
+    <section class="py-24 border-b border-subtle-border bg-brand-cream text-brand-nearblack">
+        <div class="container max-w-6xl mx-auto px-6 md:px-12">
+            <div class="flex items-center gap-3 mb-12">
+                <span class="w-2 h-2 bg-brand-amber rounded-full"></span>
+                <span class="text-xs font-mono font-medium uppercase tracking-widest text-ink-dim">What I Do</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
-                <div class="group border-t border-white/10 pt-8 hover:border-brand-lime transition duration-500">
-                    <span class="text-brand-lime font-mono text-xs mb-4 block">01</span>
-                    <h3 class="text-3xl font-bold mb-4">Data Engineering<br>& Pipelines</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Building robust ETL/ELT pipelines that transform raw data into actionable insights. From schema design to query optimization, I ensure your data infrastructure scales.
-                    </p>
-                    <ul class="text-xs text-gray-500 font-mono space-y-2">
-                        <li>— ETL Pipeline Development</li>
-                        <li>— Database Schema Design</li>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-nearblack mb-16">Core Focus & <span class="text-brand-amber">Engineering Capabilities</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pillar 1: Software Development & SaaS -->
+                <div class="bg-card-surface border border-subtle-border rounded-sm p-6 hover:border-brand-amber transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <span class="text-brand-amber font-mono text-xs mb-3 block font-bold">01</span>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-brand-nearblack">Software Dev<br>& Vertical SaaS</h3>
+                        <p class="text-brand-nearblack/80 text-sm leading-relaxed mb-6 font-sans">
+                            Engineering resilient, dual-surface vertical SaaS products built for both human users (responsive visual UIs) and autonomous AI agents (MCP machine endpoints).
+                        </p>
+                    </div>
+                    <ul class="text-xs text-ink-dim font-mono space-y-2 pt-4 border-t border-subtle-border">
+                        <li>— Human & AI Agent Surfaces</li>
+                        <li>— Offline-First SQLite Sync</li>
+                        <li>— Next.js & React Frontends</li>
+                        <li>— Multi-Tenant SaaS Web Apps</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 2: Automations & AI Systems -->
+                <div class="bg-card-surface border border-subtle-border rounded-sm p-6 hover:border-brand-amber transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <span class="text-brand-amber font-mono text-xs mb-3 block font-bold">02</span>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-brand-nearblack">Automations<br>& AI Systems</h3>
+                        <p class="text-brand-nearblack/80 text-sm leading-relaxed mb-6 font-sans">
+                            Eliminating friction with Model Context Protocol (MCP) servers, agent-to-agent meshes, WhatsApp API bots, voice RFQ parsing, and n8n workflows.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-ink-dim font-mono space-y-2 pt-4 border-t border-subtle-border">
+                        <li>— Model Context Protocol (MCP)</li>
+                        <li>— Agent-to-Agent Interaction</li>
+                        <li>— WhatsApp API Integrations</li>
+                        <li>— AI Chatbots & RAG Routing</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 3: Systems Architecture & Infra -->
+                <div class="bg-card-surface border border-subtle-border rounded-sm p-6 hover:border-brand-amber transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <span class="text-brand-amber font-mono text-xs mb-3 block font-bold">03</span>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-brand-nearblack">Systems Architecture<br>& Infrastructure</h3>
+                        <p class="text-brand-nearblack/80 text-sm leading-relaxed mb-6 font-sans">
+                            Designing POPIA-compliant Row-Level Security tenant isolation, AWS containerized microservices, SyncHub Redis queues, and shared platform services.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-ink-dim font-mono space-y-2 pt-4 border-t border-subtle-border">
+                        <li>— POPIA Row-Level Security</li>
+                        <li>— AWS / Docker Microservices</li>
+                        <li>— Redis & BullMQ Workers</li>
+                        <li>— TenantShield Audit Logging</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 4: Data Engineering -->
+                <div class="bg-card-surface border border-subtle-border rounded-sm p-6 hover:border-brand-amber transition duration-200 flex flex-col justify-between">
+                    <div>
+                        <span class="text-brand-amber font-mono text-xs mb-3 block font-bold">04</span>
+                        <h3 class="font-serif text-2xl font-bold mb-3 text-brand-nearblack">Data Engineering<br>& Pipelines</h3>
+                        <p class="text-brand-nearblack/80 text-sm leading-relaxed mb-6 font-sans">
+                            Architecting Medallion ETL data pipelines (Bronze → Silver → Gold), bitemporal data models for auditability, and pgvector retrieval layers.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-ink-dim font-mono space-y-2 pt-4 border-t border-subtle-border">
+                        <li>— Medallion ETL Architectures</li>
+                        <li>— Bitemporal Schema Design</li>
+                        <li>— pgvector Retrieval Engines</li>
                         <li>— SQL Query Optimization</li>
-                        <li>— Data Validation & Quality</li>
-                    </ul>
-                </div>
-
-                <div class="group border-t border-white/10 pt-8 hover:border-brand-lime transition duration-500">
-                    <span class="text-brand-lime font-mono text-xs mb-4 block">02</span>
-                    <h3 class="text-3xl font-bold mb-4">Process<br>Automation</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Eliminating repetitive manual tasks through intelligent automation. I build tools that save teams hours of work while reducing human error.
-                    </p>
-                    <ul class="text-xs text-gray-500 font-mono space-y-2">
-                        <li>— Python Automation Scripts</li>
-                        <li>— Streamlit Internal Tools</li>
-                        <li>— Report Generation</li>
-                        <li>— Workflow Orchestration</li>
-                    </ul>
-                </div>
-
-                <div class="group border-t border-white/10 pt-8 hover:border-brand-lime transition duration-500">
-                    <span class="text-brand-lime font-mono text-xs mb-4 block">03</span>
-                    <h3 class="text-3xl font-bold mb-4">Cloud &<br>Full Stack</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                        Deploying scalable solutions on AWS infrastructure. From serverless functions to containerized applications, I build for production.
-                    </p>
-                    <ul class="text-xs text-gray-500 font-mono space-y-2">
-                        <li>— AWS Cloud Architecture</li>
-                        <li>— React / Next.js Frontend</li>
-                        <li>— FastAPI Backend Services</li>
-                        <li>— CI/CD & DevOps</li>
                     </ul>
                 </div>
             </div>

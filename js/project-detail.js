@@ -25,10 +25,10 @@ function listToUl(ulId, items) {
   ul.innerHTML = '';
   (items || []).forEach(item => {
     const li = document.createElement('li');
-    li.className = 'flex gap-3';
+    li.className = 'flex gap-3 text-brand-nearblack/90';
     const bullet = document.createElement('span');
     bullet.textContent = '→';
-    bullet.className = 'text-brand-lime';
+    bullet.className = 'text-brand-amber font-mono font-bold';
     const text = document.createElement('span');
     text.textContent = item;
     li.appendChild(bullet);
@@ -43,15 +43,15 @@ function renderChals(containerId, pairs) {
   wrap.innerHTML = '';
   (pairs || []).forEach(cs => {
     const box = document.createElement('div');
-    box.className = 'bg-white/5 border border-white/10 rounded-xl p-4';
+    box.className = 'bg-card-surface border border-subtle-border rounded-sm p-5 space-y-2';
 
     const ch = document.createElement('p');
-    ch.className = 'text-sm text-gray-400';
-    ch.innerHTML = '<span class="font-semibold text-white">Challenge: </span>' + (cs.challenge || '');
+    ch.className = 'text-sm text-brand-nearblack';
+    ch.innerHTML = '<span class="font-bold text-brand-amber font-mono text-xs uppercase block mb-1">Challenge</span>' + (cs.challenge || '');
 
     const sol = document.createElement('p');
-    sol.className = 'text-sm text-gray-400 mt-2';
-    sol.innerHTML = '<span class="font-semibold text-white">Solution: </span>' + (cs.solution || '');
+    sol.className = 'text-sm text-brand-nearblack/80 pt-2 border-t border-subtle-border';
+    sol.innerHTML = '<span class="font-bold text-brand-nearblack font-mono text-xs uppercase block mb-1">Solution</span>' + (cs.solution || '');
 
     box.appendChild(ch);
     box.appendChild(sol);
@@ -103,7 +103,7 @@ function chips(containerId, items) {
   el.innerHTML = '';
   (items || []).forEach(t => {
     const s = document.createElement('span');
-    s.className = 'text-xs bg-white/5 px-3 py-1 rounded-full text-gray-300 border border-white/10';
+    s.className = 'text-xs font-mono bg-brand-cream px-3 py-1 rounded-sm text-brand-nearblack border border-subtle-border';
     s.textContent = t;
     el.appendChild(s);
   });
@@ -115,15 +115,15 @@ function techStackChips(containerId, items) {
   el.innerHTML = '';
   (items || []).forEach(t => {
     const wrapper = document.createElement('div');
-    wrapper.className = 'flex items-center gap-2 bg-white/5 px-3 py-2 rounded-full border border-white/10';
+    wrapper.className = 'flex items-center gap-2 bg-brand-cream px-3 py-1.5 rounded-sm border border-subtle-border';
     
     const iconName = techIconMap[t] || t;
     const icon = document.createElement('span');
-    icon.className = 'iconify w-5 h-5 text-brand-lime';
+    icon.className = 'iconify w-4 h-4 text-brand-amber';
     icon.setAttribute('data-icon', iconName);
     
     const label = document.createElement('span');
-    label.className = 'text-sm text-gray-300 capitalize';
+    label.className = 'text-xs font-mono text-brand-nearblack capitalize';
     label.textContent = t;
     
     wrapper.appendChild(icon);
@@ -137,16 +137,16 @@ function linksList(containerId, project) {
   if (!el) return;
   el.innerHTML = '';
   const links = [
-    { label: 'GitHub Repository', href: project.repo_url },
-    { label: 'Live Demo', href: project.live_url },
-    { label: 'Demo Video', href: project.video_url }
+    { label: 'GitHub Repository ↗', href: project.repo_url },
+    { label: 'Live App ↗', href: project.live_url },
+    { label: 'Demo Video ↗', href: project.video_url }
   ];
   links.forEach(l => {
     if (l.href && l.href !== '#') {
       const a = document.createElement('a');
       a.href = l.href;
       a.target = '_blank';
-      a.className = 'text-sm text-gray-300 underline hover:text-brand-lime';
+      a.className = 'font-mono text-xs text-brand-nearblack hover:text-brand-amber underline transition-colors';
       a.textContent = l.label;
       el.appendChild(a);
     }
@@ -198,9 +198,9 @@ function createLightboxModal() {
   overlay.id = 'lightbox-overlay';
   overlay.className = 'fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center';
   overlay.innerHTML = `
-    <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-brand-lime transition z-50">&times;</button>
-    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-lime transition z-50">&#8249;</button>
-    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-lime transition z-50">&#8250;</button>
+    <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl hover:text-brand-amber transition z-50">&times;</button>
+    <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-amber transition z-50">&#8249;</button>
+    <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-5xl hover:text-brand-amber transition z-50">&#8250;</button>
     <div class="max-w-[90vw] max-h-[90vh] flex flex-col items-center">
       <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain rounded-lg" alt="Gallery image">
       <span id="lightbox-counter" class="text-white text-sm mt-3"></span>

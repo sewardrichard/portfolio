@@ -243,10 +243,10 @@ function initActiveNavHighlight() {
         }
         
         navLinks.forEach(link => {
-            link.classList.remove('text-brand-lime');
+            link.classList.remove('text-brand-amber');
             link.classList.remove('active');
             if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('text-brand-lime');
+                link.classList.add('text-brand-amber');
                 link.classList.add('active');
             }
         });
@@ -271,9 +271,9 @@ function initProjectsPageNavActive() {
         }
         if (projectsLink) {
             if (contactInView) {
-                projectsLink.classList.remove('text-brand-lime', 'active');
+                projectsLink.classList.remove('text-brand-amber', 'active');
             } else {
-                projectsLink.classList.add('text-brand-lime', 'active');
+                projectsLink.classList.add('text-brand-amber', 'active');
             }
         }
     };
@@ -369,7 +369,7 @@ function openCertModal(imageSrc, title) {
         if (certData && certData.learnings) {
             modalContent.innerHTML = certData.learnings.map(learning => 
                 `<div class="flex items-start gap-3">
-                    <span class="w-1.5 h-1.5 bg-brand-lime rounded-full mt-2 flex-shrink-0"></span>
+                    <span class="w-1.5 h-1.5 bg-brand-amber rounded-full mt-2 flex-shrink-0"></span>
                     <p>${learning}</p>
                 </div>`
             ).join('');

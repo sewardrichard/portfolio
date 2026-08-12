@@ -30,12 +30,10 @@ function initProjectsPage() {
   function toggleChip(chip, set, value) {
     if (set.has(value)) {
       set.delete(value);
-      chip.classList.remove('bg-brand-lime', 'text-black', 'border-brand-lime');
-      chip.classList.add('bg-white/5', 'text-gray-300', 'border-white/10');
+      chip.classList.remove('active');
     } else {
       set.add(value);
-      chip.classList.remove('bg-white/5', 'text-gray-300', 'border-white/10');
-      chip.classList.add('bg-brand-lime', 'text-black', 'border-brand-lime');
+      chip.classList.add('active');
     }
     updateClearButton();
     renderGrid();
@@ -43,10 +41,11 @@ function initProjectsPage() {
 
   function makeChip(text, onClick, active = false) {
     const btn = document.createElement('button');
-    btn.className = 'px-3 py-1 rounded-full text-xs font-mono border transition ' +
-      (active ? 'bg-brand-lime text-black border-brand-lime' : 'bg-white/5 text-gray-300 border-white/10 hover:border-brand-lime hover:text-brand-lime');
+    btn.className = 'filter-chip-btn' + (active ? ' active' : '');
     btn.textContent = text;
-    btn.addEventListener('click', onClick);
+    btn.addEventListener('click', function() {
+      onClick.call(this);
+    });
     return btn;
   }
 
@@ -65,38 +64,43 @@ function initProjectsPage() {
     filtered.forEach(p => {
       const card = document.createElement('a');
       card.href = `project.html?slug=${encodeURIComponent(p.slug)}`;
-      card.className = 'group relative block bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-brand-lime transition duration-300 hover:-translate-y-1 overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-lime/40';
+      card.className = 'group project-card';
       card.setAttribute('aria-label', `View ${p.title}`);
 
       const img = document.createElement('img');
       img.src = p.cover_image;
       img.alt = p.title;
-      img.className = 'w-full h-40 object-cover rounded-lg mb-4 transition-transform duration-300 ease-out group-hover:scale-105';
+      img.className = 'w-full h-40 object-cover rounded-sm mb-4 border border-[#DED9CF] transition-transform duration-300 ease-out group-hover:scale-105';
+
+      const metaHeader = document.createElement('div');
+      metaHeader.className = 'flex items-center justify-between mb-2';
+      metaHeader.innerHTML = `<span class="font-mono text-xs text-[#E57A1A] font-bold">MY WORK</span><span class="font-mono text-xs text-[#7A756D] font-semibold">${p.year || '2026'}</span>`;
 
       const title = document.createElement('h3');
-      title.className = 'font-bold text-white text-lg';
+      title.className = 'project-card-title';
       title.textContent = p.title;
 
       const desc = document.createElement('p');
-      desc.className = 'text-gray-400 text-sm mt-1 line-clamp-2';
+      desc.className = 'project-card-desc line-clamp-2';
       desc.textContent = p.short_description;
 
       const chips = document.createElement('div');
-      chips.className = 'flex flex-wrap gap-2 mt-3';
+      chips.className = 'flex flex-wrap gap-1.5 mt-4';
       (p.tech_stack || []).slice(0, 4).forEach(s => {
         const c = document.createElement('span');
-        c.className = 'text-xs bg-white/5 px-3 py-1 rounded-full text-gray-300 border border-white/10';
+        c.className = 'project-card-chip';
         c.textContent = s;
         chips.appendChild(c);
       });
 
       card.appendChild(img);
+      card.appendChild(metaHeader);
       card.appendChild(title);
       card.appendChild(desc);
       card.appendChild(chips);
 
       const hint = document.createElement('div');
-      hint.className = 'pointer-events-none absolute bottom-3 right-4 text-[11px] font-mono uppercase tracking-widest text-gray-400 flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300';
+      hint.className = 'pointer-events-none absolute bottom-3 right-4 text-[11px] font-mono uppercase tracking-widest text-[#E57A1A] font-bold flex items-center gap-1 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition duration-300';
       hint.innerHTML = 'View details <span class="iconify w-4 h-4" data-icon="mdi:arrow-right"></span>';
       card.appendChild(hint);
       grid.appendChild(card);
@@ -114,13 +118,17 @@ function initProjectsPage() {
     stackFiltersEl.innerHTML = '';
     tagFiltersEl.innerHTML = '';
 
-    Array.from(stacks).sort().forEach(s => {
-      const chip = makeChip(s, () => toggleChip(chip, selectedStacks, s));
-      stackFiltersEl.appendChild(chip);
-    });
     Array.from(tags).sort().forEach(t => {
-      const chip = makeChip(t, () => toggleChip(chip, selectedTags, t));
+      const chip = makeChip(t, function() {
+        toggleChip(this, selectedTags, t);
+      });
       tagFiltersEl.appendChild(chip);
+    });
+    Array.from(stacks).sort().forEach(s => {
+      const chip = makeChip(s, function() {
+        toggleChip(this, selectedStacks, s);
+      });
+      stackFiltersEl.appendChild(chip);
     });
 
     // Clear button handler
@@ -131,8 +139,7 @@ function initProjectsPage() {
         // Reset chip styles
         [stackFiltersEl, tagFiltersEl].forEach(container => {
           container.querySelectorAll('button').forEach(el => {
-            el.classList.remove('bg-brand-lime', 'text-black', 'border-brand-lime');
-            el.classList.add('bg-white/5', 'text-gray-300', 'border-white/10');
+            el.classList.remove('active');
           });
         });
         updateClearButton();

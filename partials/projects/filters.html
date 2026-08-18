@@ -1,5 +1,19 @@
     <section class="py-12 border-b border-subtle-border bg-brand-cream text-brand-nearblack">
         <div class="container max-w-6xl mx-auto px-6 md:px-12">
+            <!-- Search Bar -->
+            <div class="mb-8">
+                <div class="relative flex items-center max-w-2xl">
+                    <span class="absolute left-3.5 text-ink-dim pointer-events-none">
+                        <span class="iconify w-4 h-4" data-icon="mdi:magnify"></span>
+                    </span>
+                    <input type="text" id="project-search-input" placeholder="Search projects by keyword, tech stack, or title..." 
+                           class="w-full bg-[#EDE8DF] border border-[#DED9CF] text-[#1C1C1A] text-xs font-mono py-3 pl-10 pr-9 rounded-sm focus:outline-none focus:border-[#E57A1A] transition placeholder-[#7A756D]">
+                    <button id="clear-search-btn" type="button" class="absolute right-3 text-ink-dim hover:text-[#E57A1A] transition hidden" title="Clear search">
+                        <span class="iconify w-4 h-4" data-icon="mdi:close"></span>
+                    </button>
+                </div>
+            </div>
+
             <!-- Mobile Filters Accordion Toggle -->
             <button id="toggle-filters" type="button" class="md:hidden flex items-center justify-between w-full px-4 py-3 bg-[#EDE8DF] border border-[#DED9CF] rounded-sm font-mono text-xs font-bold text-[#1C1C1A] mb-6 hover:border-[#E57A1A] transition">
                 <span id="toggle-filters-label">Show filters & tech stacks</span>
@@ -25,6 +39,22 @@
                 <!-- Projects grid in main column -->
                 <div class="md:col-span-8 lg:col-span-9">
                     <div id="projects-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+                    <!-- Pagination Controls -->
+                    <div id="pagination-wrapper" class="mt-10 pt-6 border-t border-[#DED9CF] flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div id="pagination-info" class="font-mono text-xs text-[#7A756D]">
+                            Showing 0 of 0 projects
+                        </div>
+                        <div id="pagination-controls" class="flex items-center gap-1.5 font-mono text-xs">
+                            <button id="prev-page-btn" type="button" class="pagination-btn flex items-center gap-1 px-3 py-1.5 bg-[#EDE8DF] border border-[#DED9CF] rounded-sm text-[#1C1C1A] hover:border-[#E57A1A] hover:text-[#E57A1A] transition disabled:opacity-40 disabled:pointer-events-none">
+                                <span class="iconify w-4 h-4" data-icon="mdi:chevron-left"></span> Prev
+                            </button>
+                            <div id="page-numbers" class="flex items-center gap-1"></div>
+                            <button id="next-page-btn" type="button" class="pagination-btn flex items-center gap-1 px-3 py-1.5 bg-[#EDE8DF] border border-[#DED9CF] rounded-sm text-[#1C1C1A] hover:border-[#E57A1A] hover:text-[#E57A1A] transition disabled:opacity-40 disabled:pointer-events-none">
+                                Next <span class="iconify w-4 h-4" data-icon="mdi:chevron-right"></span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
